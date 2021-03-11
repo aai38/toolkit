@@ -1,10 +1,22 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import Button from './button.component';
+import { CommonModule } from '@angular/common';
+import Button from '../button/button.component';
+import { IonicModule } from '@ionic/angular';
+import { moduleMetadata } from '@storybook/angular';
+import {MaterialModule} from '../material.module';
+import { MatButtonModule } from '@angular/material/button';
+
 
 export default {
-  title: 'Example/Button',
+  title: 'Standard-Components/Button',
   component: Button,
+  decorators: [
+    moduleMetadata({
+      declarations: [ Button ],
+      imports: [IonicModule.forRoot(), CommonModule, MatButtonModule, MaterialModule],
+    }),
+  ],
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -19,21 +31,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Hello',
+  backgroundColor: "RGBA(118,38,133,1)"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  backgroundColor: "RGBA(43,6,231,1)"
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};

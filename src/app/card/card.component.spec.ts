@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { MaterialModule } from '../material.module';
 
-import { CardComponent } from './card.component';
+import  CardComponent  from './card.component';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -10,7 +11,7 @@ describe('CardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CardComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), MaterialModule.forRoot()]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CardComponent);

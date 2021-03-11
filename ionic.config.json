@@ -1,7 +1,7 @@
 {
-  "name": "test",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+    "name": "toolkit",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "angular"
 }

@@ -1,5 +1,4 @@
 // YourComponent.stories.tsx
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -11,12 +10,21 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
   selector: 'storybookInput',
   template: `
     <ion-item>
-      <ion-label>Search</ion-label>
-      <ion-input value="Test" data-cy="test"></ion-input>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ label }}</mat-label>
+        <input matInput [placeholder]=placeholder [value]=value>
+      </mat-form-field>
+    </form>
     </ion-item>
     `,
   styleUrls: ['./input.css'],
 })
 export default class InputComponent {
-    public name: string = '';
+    @Input()
+    placeholder?= 'string';
+    @Input()
+    label ?= 'string';
+    @Input()
+    value?= 'string'
 }

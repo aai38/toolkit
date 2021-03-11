@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
 
-import Button from './button.component';
-import Header from './header.component';
-import Page from './page.component';
+import Button from '../button/button.component';
+import Header from '../storybook_example_header/header.component';
+import Page from '../storybook_example_header/page.component';
+
+import {MaterialModule} from '../material.module';
+import { MatButtonModule } from '@angular/material/button';
 
 import * as HeaderStories from './Header.stories';
 
 export default {
-  title: 'Example/Page',
+  title: 'Storybook-Example/Page',
   component: Header,
   decorators: [
     moduleMetadata({
-      declarations: [Button, Header],
+      declarations: [ Header, MaterialModule, MatButtonModule, Button],
       imports: [CommonModule],
     }),
   ],
