@@ -375,7 +375,7 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n        <div layout=\"row\" layout-align=\"start center\">\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <h4>Expansion Panel</h4>\n\n            <mat-accordion>\n                <mat-expansion-panel>\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            Personal data\n                        </mat-panel-title>\n                        <mat-panel-description>\n                            Type your name and age\n                        </mat-panel-description>\n                    </mat-expansion-panel-header>\n                    Panel Content\n                </mat-expansion-panel>\n                <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\">\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            Self aware panel\n                        </mat-panel-title>\n                        <mat-panel-description>\n                            Currently I am {{panelOpenState ? 'open' : 'closed'}}\n                        </mat-panel-description>\n                    </mat-expansion-panel-header>\n                    <p>I'm visible because I am open</p>\n                </mat-expansion-panel>\n            </mat-accordion>\n\n            <h4>Datepicker</h4>\n\n            <mat-form-field>\n                <mat-label>Choose a date</mat-label>\n                <input matInput [matDatepicker]=\"picker\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"ion-padding\">\n\n    <ion-list>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n    </ion-list>\n\n\n\n\n\n</ion-content>"
+            "templateData": "<ion-item>\n    <ion-header [translucent]=\"true\">\n        <ion-toolbar>\n            <ion-buttons slot=\"start\">\n                <ion-menu-button></ion-menu-button>\n            </ion-buttons>\n            <div layout=\"row\" layout-align=\"start center\">\n\n                <ion-title>\n                    Study\n                </ion-title>\n                <storybookInput></storybookInput>\n                <h4>Expansion Panel</h4>\n\n                <mat-accordion>\n                    <mat-expansion-panel>\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                Personal data\n                            </mat-panel-title>\n                            <mat-panel-description>\n                                Type your name and age\n                            </mat-panel-description>\n                        </mat-expansion-panel-header>\n                        Panel Content\n                    </mat-expansion-panel>\n                    <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                Self aware panel\n                            </mat-panel-title>\n                            <mat-panel-description>\n                                Currently I am {{panelOpenState ? 'open' : 'closed'}}\n                            </mat-panel-description>\n                        </mat-expansion-panel-header>\n                        <p>I'm visible because I am open</p>\n                    </mat-expansion-panel>\n                </mat-accordion>\n\n                <h4>Datepicker</h4>\n\n                <mat-form-field>\n                    <mat-label>Choose a date</mat-label>\n                    <input matInput [matDatepicker]=\"picker\">\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                    <mat-datepicker #picker></mat-datepicker>\n                </mat-form-field>\n            </div>\n\n        </ion-toolbar>\n    </ion-header>\n\n    <ion-content [fullscreen]=\"true\" class=\"ion-padding\">\n\n        <ion-list>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n            <app-card></app-card>\n        </ion-list>\n\n\n\n\n\n    </ion-content>\n</ion-item>"
         },
         {
             "name": "InputComponent",
@@ -545,7 +545,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ion-item>\n    <mat-form-field appearance=\"fill\">\n        <mat-label> {{ label }}</mat-label>\n        <input matInput [matDatepicker]=\"picker1\" [formControl]=\"date\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n        <mat-datepicker #picker1></mat-datepicker>\n    </mat-form-field>\n</ion-item>"
+            "templateData": "<ion-item>\n    <mat-form-field appearance=\"fill\" class=\"example-form-field\">\n        <mat-label>Enter a date range</mat-label>\n        <mat-date-range-input [rangePicker]=\"rangePicker\">\n            <input matStartDate placeholder=\"Start date\">\n            <input matEndDate placeholder=\"End date\">\n        </mat-date-range-input>\n        <mat-datepicker-toggle matSuffix [for]=\"rangePicker\"></mat-datepicker-toggle>\n        <mat-date-range-picker #rangePicker>\n            <mat-date-range-picker-actions>\n                <button mat-button matDateRangePickerCancel>Cancel</button>\n                <button mat-raised-button color=\"primary\" matDateRangePickerApply>Apply</button>\n            </mat-date-range-picker-actions>\n        </mat-date-range-picker>\n    </mat-form-field>\n</ion-item>"
         },
         {
             "name": "IonMenuComponent",
@@ -629,6 +629,106 @@
                 ]
             },
             "templateData": "<ion-item>\n    <ion-menu side=\"start\" menuId=\"custom\" contentId=\"main\" class=\"my-custom-menu\">\n        <ion-header>\n            <ion-toolbar color=\"tertiary\">\n                <ion-buttons slot=\"start\">\n                    <ion-menu-button></ion-menu-button>\n                </ion-buttons>\n                <ion-title>Custom Menu</ion-title>\n            </ion-toolbar>\n        </ion-header>\n        <ion-content>\n\n            <ion-list>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n            </ion-list>\n        </ion-content>\n    </ion-menu>\n</ion-item>"
+        },
+        {
+            "name": "LineChartComponent",
+            "id": "component-LineChartComponent-42a999c98e9c387efccfe3881c952aac",
+            "file": "src/app/line-chart/line-chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-line-chart",
+            "styleUrls": [
+                "./line-chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./line-chart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "lineChartColors",
+                    "defaultValue": "[\n    {\n      borderColor: 'black',\n      backgroundColor: 'rgba(38,47,133,0.3)',\n    },\n  ]",
+                    "line": 33,
+                    "type": "Color[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "lineChartData",
+                    "defaultValue": "[\n    { data: [85, 72, 78, 75, 77, 75], label: 'heart rate' },\n  ]",
+                    "type": "ChartDataSets[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "lineChartLabels",
+                    "defaultValue": "['January', 'February', 'March', 'April', 'May', 'June']",
+                    "type": "Label[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "lineChartLegend",
+                    "defaultValue": "true",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                },
+                {
+                    "name": "lineChartOptions",
+                    "defaultValue": "{\n    responsive: true,\n    scales : {\n      yAxes: [{\n          ticks: {\n            max : 100,\n            min : 50\n          }\n      }]\n    }\n  }",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "lineChartPlugins",
+                    "defaultValue": "[]",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                },
+                {
+                    "name": "lineChartType",
+                    "defaultValue": "'line'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent  {\n\n  constructor() { }\n\n  lineChartData: ChartDataSets[] = [\n    { data: [85, 72, 78, 75, 77, 75], label: 'heart rate' },\n  ];\n\n  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];\n\n  lineChartOptions = {\n    responsive: true,\n    scales : {\n      yAxes: [{\n          ticks: {\n            max : 100,\n            min : 50\n          }\n      }]\n    }\n  };\n\n  @Input()\n  lineChartColors: Color[] = [\n    {\n      borderColor: 'black',\n      backgroundColor: 'rgba(38,47,133,0.3)',\n    },\n  ];\n\n  lineChartLegend = true;\n  lineChartPlugins = [];\n  lineChartType = 'line';\n\n  \n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./line-chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"lineChartData\" [labels]=\"lineChartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\" [plugins]=\"lineChartPlugins\">\n  </canvas>\n</div>"
         },
         {
             "name": "PageComponent",
@@ -797,6 +897,9 @@
                         },
                         {
                             "name": "IonMenuComponent"
+                        },
+                        {
+                            "name": "LineChartComponent"
                         }
                     ]
                 },
@@ -989,14 +1092,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Card.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Checkbox.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1006,6 +1101,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/DatePicker.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1026,20 +1129,28 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/LineChart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Button.stories.ts",
                 "type": "Story<Button>",
                 "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Card.stories.ts",
-                "type": "Story<CardComponent>",
-                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1069,6 +1180,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Input.stories.ts",
                 "type": "Story<Input>",
                 "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
@@ -1085,9 +1204,25 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/LineChart.stories.ts",
+                "type": "Story<LineChartComponent>",
+                "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Page.stories.ts",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -1243,24 +1378,6 @@
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Card.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "Story<CardComponent>",
-                    "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
-                }
-            ],
             "src/app/stories/DatePicker.stories.ts": [
                 {
                     "name": "Standard",
@@ -1277,6 +1394,24 @@
                     "file": "src/app/stories/DatePicker.stories.ts",
                     "type": "Story<IonDate>",
                     "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/Homepage.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "Story<HomePage>",
+                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Input.stories.ts": [
@@ -1313,6 +1448,42 @@
                     "file": "src/app/stories/Menu.stories.ts",
                     "type": "Story<IonMenuComponent>",
                     "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/LineChart.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/LineChart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/LineChart.stories.ts",
+                    "type": "Story<LineChartComponent>",
+                    "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/Card.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "Story<CardComponent>",
+                    "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
                 }
             ]
         },
@@ -1447,6 +1618,15 @@
                 "name": "IonMenuComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/line-chart/line-chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LineChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1590,6 +1770,26 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/stories/Homepage.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Homepage.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/stories/Input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1601,6 +1801,26 @@
             },
             {
                 "filePath": "src/app/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/LineChart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/LineChart.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

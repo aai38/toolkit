@@ -18,6 +18,7 @@ export default {
     }),
   ],
   argTypes: {
+    onClick: { action: 'clicked' },
     backgroundColor: { control: 'color' },
   },
 } as Meta;

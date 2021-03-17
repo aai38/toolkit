@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import IonDate from '../ion-datetime/ion-datetime.component';
+import  { DialogElementsExample } from '../dialog/dialog.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
@@ -12,26 +12,25 @@ import {FormControl} from '@angular/forms';
 
 export default {
   date : new FormControl(new Date),
-  title: 'Standard-Components/DatePicker',
-  component: IonDate,
+  title: 'Standard-Components/Dialog',
+  component: DialogElementsExample,
   argTypes: {
-    onClick: { action: 'clicked' },
+    onClick: { action: 'clicked' } ,
   },
   decorators: [
     moduleMetadata({
-      declarations: [IonDate],
+      declarations: [DialogElementsExample],
       imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule],
     }),
   ],
   
 } as Meta;
 
-const Template: Story<IonDate> = (args) => ({
-  component: IonDate,
+const Template: Story<DialogElementsExample> = (args) => ({
+  component: DialogElementsExample,
   props: args,
 });
 
 export const Standard = Template.bind({});
 Standard.args = {
-    label : 'Enter date'
 };

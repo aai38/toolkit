@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from '../material.module';
+import { CommonModule } from '@angular/common';
 
 
 export default {
@@ -16,7 +17,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [IonMenuComponent],
-      imports: [IonicModule, ReactiveFormsModule, MaterialModule],
+      imports: [IonicModule, ReactiveFormsModule, MaterialModule, CommonModule],
     }),
   ],
   

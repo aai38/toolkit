@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import {MaterialModule} from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HomePage } from './home.page';
+import  HomePage from './home.page';
 
 describe('HomePage', () => {
   let component: HomePage;

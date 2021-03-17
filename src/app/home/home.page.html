@@ -1,14 +1,21 @@
 <ion-header [translucent]="true">
+
+    <app-ion-menu></app-ion-menu>
+
     <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+
         <div layout="row" layout-align="start center">
+            <ion-buttons slot="start">
+                <ion-menu-button menu="custom" autoHide="false"></ion-menu-button>
+            </ion-buttons>
+
 
             <ion-title>
                 Study
             </ion-title>
             <storybookInput></storybookInput>
+            <app-dialog></app-dialog>
+
             <h4>Expansion Panel</h4>
 
             <mat-accordion>
