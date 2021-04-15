@@ -7,40 +7,66 @@ import { Color, Label } from 'ng2-charts';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
 })
-export class LineChartComponent  {
+export class LineChartComponent  implements OnInit{
 
   constructor() { }
 
-  lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'heart rate' },
-  ];
+  public chartDatasets;
+  public chartLabels: string[];
+  public lineChartColors;
+  public lineChartOptions;
 
-  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+  @Input() chartLabelInput: string ;
+  @Input() dataArrayInput?: number[];
 
-  lineChartOptions = {
-    responsive: true,
-    scales : {
-      yAxes: [{
-          ticks: {
-            max : 100,
-            min : 50
-          }
-      }]
-    }
-  };
+  @Input() minInput: number;
+  @Input() maxInput: number;
+  
+  @Input() borderColorInput?: string;
+  @Input() backgroundColorInput?: string;
 
-  @Input()
-  lineChartColors: Color[] = [
-    {
-      borderColor: 'black',
-      backgroundColor: 'rgba(38,47,133,0.3)',
-    },
-  ];
+  @Input() labelArray?: string[];
 
-  lineChartLegend = true;
+
+  //@Input() chartOptionsInput: any;
+
+  //@Input() lineChartColors: string;
+  @Input() lineChartLegend : boolean;
   lineChartPlugins = [];
   lineChartType = 'line';
 
+  ngOnInit(): void {
+    this.chartDatasets = [{
+      data: this.dataArrayInput,
+      label: this.chartLabelInput
+    }];
+    this.lineChartColors = [
+      {
+        borderColor: this.borderColorInput,
+        backgroundColor: this.backgroundColorInput,
+      },
+    ];
+
+    this.lineChartOptions = {
+      responsive: true,
+      scales : {
+        yAxes: [{
+            ticks: {
+              max : this.maxInput,
+              min : this.minInput
+            }
+        }]
+      }
+    };
+    this.chartLabels = this.labelArray;
+  }
   
 
+  
 }
+
+
+
+
+
+

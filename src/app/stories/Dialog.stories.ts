@@ -1,12 +1,14 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import  { DialogElementsExample } from '../dialog/dialog.component';
+import {DialogElementsExampleDialog} from '../dialog/dialog.component'
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormControl} from '@angular/forms';
+import { action } from '@storybook/addon-actions';
 
 
 
@@ -15,11 +17,11 @@ export default {
   title: 'Standard-Components/Dialog',
   component: DialogElementsExample,
   argTypes: {
-    onClick: { action: 'clicked' } ,
+    onClick: { action: 'openDialog()' } ,
   },
   decorators: [
     moduleMetadata({
-      declarations: [DialogElementsExample],
+      declarations: [DialogElementsExample, DialogElementsExampleDialog],
       imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule],
     }),
   ],
@@ -33,4 +35,6 @@ const Template: Story<DialogElementsExample> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
+  onClick: "openDialog()"
 };
+

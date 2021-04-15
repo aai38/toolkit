@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -8,11 +8,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DialogElementsExample {
   constructor(public dialog: MatDialog) {}
+  
 
+  @Output()
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
+  
 }
+
+
 
 
 @Component({

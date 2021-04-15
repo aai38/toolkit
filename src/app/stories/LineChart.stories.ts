@@ -17,7 +17,11 @@ export default {
   title: 'Standard-Components/Line chart',
   component: LineChartComponent,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColorInput: { control: 'color' },
+    borderColorInput: { control: 'color' },
+    lineChartLegend: {control: 'boolean'},
+    minInput: {control: 'number'},
+    maxInput: {control: 'number'}
   },
   decorators: [
     moduleMetadata({
@@ -37,5 +41,17 @@ const Template: Story<LineChartComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-    lineChartColors: ""
+    backgroundColorInput:"red",
+    borderColorInput:"black",
+    labelArray:['January', 'February', 'March', 'April', 'May', 'June'],
+    dataArrayInput:[85, 72, 78, 75, 77, 75],
+    chartLabelInput:"heart rate",
+    lineChartLegend: true,
+    maxInput: 100,
+    minInput: 50
+
+
+
+
+    
 };

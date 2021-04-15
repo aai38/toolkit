@@ -1,3 +1,21 @@
 .card {
     margin: 10px;
+    white-space: normal !important;
+}
+
+.content {
+    position: relative;
+}
+
+.picture {
+    text-align: center;
+}
+
+.button {
+    font-style: blueviolet;
+    float: right;
+}
+
+.label {
+    white-space: normal !important;
 }
