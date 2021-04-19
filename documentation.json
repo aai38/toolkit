@@ -127,152 +127,8 @@
             "templateData": "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
         },
         {
-            "name": "BarChartComponent",
-            "id": "component-BarChartComponent-65ba2e1920344d18d2747ddb06430b6d",
-            "file": "src/app/bar-chart/bar-chart.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-bar-chart",
-            "styleUrls": [
-                "./bar-chart.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./bar-chart.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "backgroundColorInput",
-                    "line": 22,
-                    "type": "string"
-                },
-                {
-                    "name": "barChartLegend",
-                    "line": 30,
-                    "type": "boolean"
-                },
-                {
-                    "name": "borderColorInput",
-                    "line": 21,
-                    "type": "string"
-                },
-                {
-                    "name": "chartLabelInput",
-                    "line": 17,
-                    "type": "string"
-                },
-                {
-                    "name": "dataArrayInput",
-                    "line": 18,
-                    "type": "number[]"
-                },
-                {
-                    "name": "labelArray",
-                    "line": 24,
-                    "type": "string[]"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "barChartColors",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "barChartOptions",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "barChartPlugins",
-                    "defaultValue": "[]",
-                    "type": "[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 31
-                },
-                {
-                    "name": "barChartType",
-                    "defaultValue": "'bar'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 32
-                },
-                {
-                    "name": "chartDatasets",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartLabels",
-                    "type": "string[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "modifierKind": [
-                        114
-                    ]
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 34
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-bar-chart',\n  templateUrl: './bar-chart.component.html',\n  styleUrls: ['./bar-chart.component.scss'],\n})\nexport class BarChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public barChartColors;\n  public barChartOptions;\n\n  @Input() chartLabelInput: string ;\n  @Input() dataArrayInput?: number[];\n\n  \n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() barChartLegend : boolean;\n  barChartPlugins = [];\n  barChartType = 'bar';\n\n  ngOnInit(): void {\n    this.chartDatasets = [{\n      data: this.dataArrayInput,\n      label: this.chartLabelInput\n    }];\n    this.barChartColors = [\n      {\n        borderColor: this.borderColorInput,\n        backgroundColor: this.backgroundColorInput,\n      },\n    ];\n\n    this.barChartOptions = {\n      responsive: true,\n      \n    };\n    this.chartLabels = this.labelArray;\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./bar-chart.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"barChartOptions\" [colors]=\"barChartColors\" [legend]=\"barChartLegend\" chartType=\"bar\" [plugins]=\"barChartPlugins\">\n</canvas>\n</div>"
-        },
-        {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-47f14eae7e5b088901bf5cfb5f04dd11",
+            "id": "component-ButtonComponent-482492358858de0d1c05eed1d15d38e6",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -291,28 +147,31 @@
             "inputsClass": [
                 {
                     "name": "backgroundColor",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 21,
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 19,
                     "type": "string"
+                },
+                {
+                    "name": "color",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 25,
+                    "type": "\"primary\" | \"accent\" | \"warn\""
+                },
+                {
+                    "name": "disabled",
+                    "line": 31,
+                    "type": "boolean"
                 },
                 {
                     "name": "label",
                     "defaultValue": "'Button'",
                     "description": "<p>Button contents</p>\n",
-                    "line": 35
+                    "line": 39
                 },
                 {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 15
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "'medium'",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 27,
-                    "type": "\"small\" | \"medium\" | \"large\""
+                    "name": "type",
+                    "line": 28,
+                    "type": "\"basic\" | \"raised\" | \"stroke\" | \"flat\""
                 }
             ],
             "outputsClass": [
@@ -320,7 +179,7 @@
                     "name": "onClick",
                     "defaultValue": "new EventEmitter<Event>()",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 41,
+                    "line": 45,
                     "type": "EventEmitter"
                 }
             ],
@@ -331,7 +190,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  color: 'primary' | 'accent' | 'warn';\n\n  @Input()\n  type: 'basic' | 'raised' | 'stroke' | 'flat';\n\n  @Input()\n  disabled?: boolean;\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  \n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -340,22 +199,11 @@
                 }
             ],
             "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 43
-                    }
-                }
-            },
-            "templateData": "<ion-item>\n    <button class=\"button_class\" mat-button type=\"button\" (click)=\"onClick.emit($event)\" [ngClass]=\"classes\" [ngStyle]=\"{ 'background-color': backgroundColor }\">\n    {{ label }}\n</button>\n</ion-item>"
+            "templateData": "<ion-item>\n\n    <ng-template [ngIf]=\"type == 'basic'\">\n        <div>\n            <button class=\"button_class\" mat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'raised'\">\n        <div>\n            <button class=\"button_class\" mat-raised-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'flat'\">\n        <div>\n            <button class=\"button_class\" mat-flat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'stroke'\">\n        <div>\n            <button class=\"button_class\" mat-stroked-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n</ion-item>"
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-fc0512eba140abe24a1703a12c7f88f3",
+            "id": "component-CardComponent-abd53bfab478e41f72e6f8972e3363c0",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -373,28 +221,38 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "backgroundColor",
-                    "line": 19,
+                    "name": "description",
+                    "line": 27,
                     "type": "string"
                 },
                 {
-                    "name": "button",
-                    "line": 27,
-                    "type": "ButtonComponent"
+                    "name": "headline",
+                    "line": 25,
+                    "type": "string"
                 },
                 {
                     "name": "height",
-                    "line": 25,
+                    "line": 23,
                     "type": "number"
                 },
                 {
                     "name": "image",
-                    "line": 21,
+                    "line": 19,
                     "type": "string"
                 },
                 {
+                    "name": "mat_button",
+                    "line": 31,
+                    "type": "ButtonComponent"
+                },
+                {
+                    "name": "showPicture",
+                    "line": 29,
+                    "type": "boolean"
+                },
+                {
                     "name": "width",
-                    "line": 23,
+                    "line": 21,
                     "type": "number"
                 }
             ],
@@ -406,7 +264,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  backgroundColor?: string;\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  button?: ButtonComponent;\n\n\n}\n",
+            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  headline?: string;\n  @Input()\n  description?: string;\n  @Input()\n  showPicture?: boolean;\n  @Input()\n  mat_button?: ButtonComponent;\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -421,7 +279,7 @@
                 "args": [],
                 "line": 15
             },
-            "templateData": "<ion-card>\n    <ion-item>\n        <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n        <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <div style=\"text-align:center;\">\n\n            <img class=\"picture\" [src]=\"image\" alt=\"some Picture\" [width]=\"width\" [height]=\"height\">\n        </div>\n        <br> There is the describtion of the study.\n        <storybook-button mat-button class=\"button\">link </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
+            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" alt=\"some Picture\" [width]=\"width\" [height]=\"height\">\n            </div>\n        </ng-template>\n        <br> {{description}}\n        <storybook-button mat-button class=\"button\"> </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
         },
         {
             "name": "DialogElementsExample",
@@ -630,50 +488,61 @@
             "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n</div>"
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-246e2a69dc126a3bd76c6328dd3b93e2",
-            "file": "src/app/storybook_example_header/header.component.ts",
+            "name": "EmptyStatesComponent",
+            "id": "component-EmptyStatesComponent-f16cdaadfd48671de8b252b01ae80274",
+            "file": "src/app/empty-states/empty-states.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-header",
+            "selector": "app-empty-states",
             "styleUrls": [
-                "./header.css"
+                "./empty-states.css"
             ],
             "styles": [],
-            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./empty-states.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "line": 53,
-                    "type": "unknown"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 62,
-                    "type": "EventEmitter"
+                    "name": "alternative",
+                    "line": 25,
+                    "type": "string"
                 },
                 {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 56,
-                    "type": "EventEmitter"
+                    "name": "emptyLabel",
+                    "line": 16,
+                    "type": "string"
                 },
                 {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 59,
-                    "type": "EventEmitter"
+                    "name": "height",
+                    "line": 21,
+                    "type": "number"
+                },
+                {
+                    "name": "image",
+                    "line": 23,
+                    "type": "string"
+                },
+                {
+                    "name": "src",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "line": 13,
+                    "type": "\"studies\" | \"info\" | \"news\""
+                },
+                {
+                    "name": "width",
+                    "line": 19,
+                    "type": "number"
                 }
             ],
+            "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
             "hostBindings": [],
@@ -681,15 +550,22 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-empty-states',\n  templateUrl: './empty-states.component.html',\n  styleUrls: ['./empty-states.css'],\n})\nexport class EmptyStatesComponent  {\n\n  constructor() { }\n  \n  @Input()\n  type: 'studies' | 'info' | 'news';\n\n  @Input()\n  emptyLabel?: string;\n\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  image?: string;\n  @Input()\n  alternative: string;\n  @Input()\n  src: string;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n",
-                    "styleUrl": "./header.css"
+                    "data": ".label {\n    text-align: center;\n    white-space: normal !important;\n}\n\n\n/*.content {\n    background-image: url('blabla.jpg');\n    background-color: transparent;\n    background-size: cover;\n    opacity: 0.6;\n}*/",
+                    "styleUrl": "./empty-states.css"
                 }
             ],
-            "stylesData": ""
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<ion-item>\n    <ion-content padding class=\"content\" [ngStyle]=\"{ 'background-color': 'url(blabla.jpg)' }\">\n        <ng-template [ngIf]=\"type == 'studies'\">\n            <div style=\"text-align:center;\">\n\n                <br class=\"label\"> {{ emptyLabel}}\n            </div>\n        </ng-template>\n    </ion-content>\n</ion-item>"
         },
         {
             "name": "HomePage",
@@ -1002,7 +878,7 @@
         },
         {
             "name": "LineChartComponent",
-            "id": "component-LineChartComponent-31c0454b0e6a95ae8693f647a38c30cc",
+            "id": "component-LineChartComponent-acf14f157d5bc256ed6f947de41b4d03",
             "file": "src/app/line-chart/line-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1021,47 +897,62 @@
             "inputsClass": [
                 {
                     "name": "backgroundColorInput",
-                    "line": 26,
+                    "line": 28,
                     "type": "string"
                 },
                 {
                     "name": "borderColorInput",
-                    "line": 25,
+                    "line": 27,
                     "type": "string"
                 },
                 {
                     "name": "chartLabelInput",
-                    "line": 19,
+                    "line": 21,
                     "type": "string"
                 },
                 {
+                    "name": "chartLegend",
+                    "line": 36,
+                    "type": "boolean"
+                },
+                {
+                    "name": "chartType",
+                    "line": 19,
+                    "type": "\"bar\" | \"line\" | \"doughnut\""
+                },
+                {
                     "name": "dataArrayInput",
-                    "line": 20,
+                    "line": 22,
                     "type": "number[]"
                 },
                 {
                     "name": "labelArray",
-                    "line": 28,
+                    "line": 30,
                     "type": "string[]"
                 },
                 {
-                    "name": "lineChartLegend",
-                    "line": 34,
-                    "type": "boolean"
-                },
-                {
                     "name": "maxInput",
-                    "line": 23,
+                    "line": 25,
                     "type": "number"
                 },
                 {
                     "name": "minInput",
-                    "line": 22,
+                    "line": 24,
                     "type": "number"
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "chartColors",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        114
+                    ]
+                },
                 {
                     "name": "chartDatasets",
                     "type": "",
@@ -1083,17 +974,7 @@
                     ]
                 },
                 {
-                    "name": "lineChartColors",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "lineChartOptions",
+                    "name": "chartOptions",
                     "type": "",
                     "optional": false,
                     "description": "",
@@ -1103,20 +984,12 @@
                     ]
                 },
                 {
-                    "name": "lineChartPlugins",
+                    "name": "chartPlugins",
                     "defaultValue": "[]",
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 35
-                },
-                {
-                    "name": "lineChartType",
-                    "defaultValue": "'line'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 36
+                    "line": 37
                 }
             ],
             "methodsClass": [
@@ -1126,7 +999,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38
+                    "line": 39
                 }
             ],
             "hostBindings": [],
@@ -1134,7 +1007,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent  implements OnInit{\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public lineChartColors;\n  public lineChartOptions;\n\n  @Input() chartLabelInput: string ;\n  @Input() dataArrayInput?: number[];\n\n  @Input() minInput: number;\n  @Input() maxInput: number;\n  \n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() lineChartLegend : boolean;\n  lineChartPlugins = [];\n  lineChartType = 'line';\n\n  ngOnInit(): void {\n    this.chartDatasets = [{\n      data: this.dataArrayInput,\n      label: this.chartLabelInput\n    }];\n    this.lineChartColors = [\n      {\n        borderColor: this.borderColorInput,\n        backgroundColor: this.backgroundColorInput,\n      },\n    ];\n\n    this.lineChartOptions = {\n      responsive: true,\n      scales : {\n        yAxes: [{\n            ticks: {\n              max : this.maxInput,\n              min : this.minInput\n            }\n        }]\n      }\n    };\n    this.chartLabels = this.labelArray;\n  }\n  \n\n  \n}\n\n\n\n\n\n\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut';\n\n  @Input() chartLabelInput: string;\n  @Input() dataArrayInput?: number[];\n\n  @Input() minInput: number;\n  @Input() maxInput: number;\n\n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean;\n  chartPlugins = [];\n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar') {\n      this.chartDatasets = [{\n        data: this.dataArrayInput,\n        label: this.chartLabelInput\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColorInput,\n          backgroundColor: this.backgroundColorInput,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maxInput,\n              min: this.minInput\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labelArray;\n    }\n    else if (this.chartType == 'doughnut') {\n      this.chartDatasets = this.dataArrayInput;\n      this.chartLabels = this.labelArray;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1152,69 +1025,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\" [plugins]=\"lineChartPlugins\">\n  </canvas>\n</div>"
-        },
-        {
-            "name": "PageComponent",
-            "id": "component-PageComponent-cca1a8911321fa17756ce90c90de65cc",
-            "file": "src/app/storybook_example_header/page.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-page",
-            "styleUrls": [
-                "./page.css"
-            ],
-            "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://www.learnstorybook.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Learn Storybook\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\">\n          docs\n        </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "line": 66,
-                    "type": "unknown"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 75,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 69,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "line": 72,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://www.learnstorybook.com\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Learn Storybook\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\">\n          docs\n        </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nh2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\np {\n  margin: 1em 0;\n}\n\na {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nli {\n  margin-bottom: 8px;\n}\n\n.tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
-                }
-            ],
-            "stylesData": ""
+            "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>"
         }
     ],
     "modules": [
@@ -1302,9 +1113,6 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "BarChartComponent"
-                        },
-                        {
                             "name": "ButtonComponent"
                         },
                         {
@@ -1315,6 +1123,9 @@
                         },
                         {
                             "name": "DoughnutChartComponent"
+                        },
+                        {
+                            "name": "EmptyStatesComponent"
                         },
                         {
                             "name": "HomePage"
@@ -1427,6 +1238,14 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Bar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Checked",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1451,6 +1270,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Doughnut",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1467,34 +1294,10 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
-                "name": "LoggedIn",
+                "name": "Line",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
+                "file": "src/app/stories/Chart.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1514,18 +1317,10 @@
                 "type": "any"
             },
             {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/BarChart.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1565,6 +1360,14 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/EmptyStates.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Homepage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1581,33 +1384,9 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/LineChart.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/DoughnutChart.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/BarChart.stories.ts",
-                "type": "Story<BarChartComponent>",
-                "defaultValue": "(args) => ({\n  component: BarChartComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1624,6 +1403,14 @@
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "Story<CardComponent>",
                 "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "Story<LineChartComponent>",
+                "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1653,9 +1440,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Header.stories.ts",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
+                "file": "src/app/stories/EmptyStates.stories.ts",
+                "type": "Story<EmptyStatesComponent>",
+                "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1677,55 +1464,57 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/LineChart.stories.ts",
-                "type": "Story<LineChartComponent>",
-                "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "Story<IonMenuComponent>",
                 "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
             },
             {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Page.stories.ts",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/DoughnutChart.stories.ts",
-                "type": "Story<DoughnutChartComponent>",
-                "defaultValue": "(args) => ({\n  component: DoughnutChartComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "WithoutImage",
+                "name": "withoutPicture",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n    <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <div style=\"text-align:right;\">\n     <storybook-button mat-button class=\"button\" slot=\"end\"></storybook-button>\n     </div>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
-            },
-            {
-                "name": "WithoutStudies",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/Card.stories.ts",
-                "type": "",
-                "defaultValue": "() => ({\n  template: ` <ion-card>\n  <ion-item>\n  \n      \n  </ion-item>\n  <ion-card-content class=\"content\">\n  <div style=\"text-align:center;\">\n  <ion-label class=\"label\"> No studies available </ion-label>\n  </div>\n  </ion-card-content>\n  </ion-card>`,\n  styleUrls: ['../card/cardWithoutStudies.css']\n  })"
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/stories/Chart.stories.ts": [
+                {
+                    "name": "Bar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Doughnut",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Line",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "Story<LineChartComponent>",
+                    "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Checkbox.stories.ts": [
                 {
                     "name": "Checked",
@@ -1797,58 +1586,6 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/app/stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Header.stories.ts",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  component: Header,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Page.stories.ts",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
-                }
-            ],
             "src/app/stories/Button.stories.ts": [
                 {
                     "name": "Primary",
@@ -1859,7 +1596,7 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Secondary",
+                    "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Button.stories.ts",
@@ -1873,24 +1610,6 @@
                     "file": "src/app/stories/Button.stories.ts",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/BarChart.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/BarChart.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/BarChart.stories.ts",
-                    "type": "Story<BarChartComponent>",
-                    "defaultValue": "(args) => ({\n  component: BarChartComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Card.stories.ts": [
@@ -1911,20 +1630,12 @@
                     "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
                 },
                 {
-                    "name": "WithoutImage",
+                    "name": "withoutPicture",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n    <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <div style=\"text-align:right;\">\n     <storybook-button mat-button class=\"button\" slot=\"end\"></storybook-button>\n     </div>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
-                },
-                {
-                    "name": "WithoutStudies",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: ` <ion-card>\n  <ion-item>\n  \n      \n  </ion-item>\n  <ion-card-content class=\"content\">\n  <div style=\"text-align:center;\">\n  <ion-label class=\"label\"> No studies available </ion-label>\n  </div>\n  </ion-card-content>\n  </ion-card>`,\n  styleUrls: ['../card/cardWithoutStudies.css']\n  })"
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "src/app/stories/DatePicker.stories.ts": [
@@ -1963,6 +1674,24 @@
                     "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/EmptyStates.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/EmptyStates.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/EmptyStates.stories.ts",
+                    "type": "Story<EmptyStatesComponent>",
+                    "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Homepage.stories.ts": [
                 {
                     "name": "Standard",
@@ -1999,24 +1728,6 @@
                     "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/LineChart.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/LineChart.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/LineChart.stories.ts",
-                    "type": "Story<LineChartComponent>",
-                    "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
-                }
-            ],
             "src/app/stories/Menu.stories.ts": [
                 {
                     "name": "Standard",
@@ -2033,24 +1744,6 @@
                     "file": "src/app/stories/Menu.stories.ts",
                     "type": "Story<IonMenuComponent>",
                     "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/DoughnutChart.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/DoughnutChart.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/DoughnutChart.stories.ts",
-                    "type": "Story<DoughnutChartComponent>",
-                    "defaultValue": "(args) => ({\n  component: DoughnutChartComponent,\n  props: args,\n})"
                 }
             ]
         },
@@ -2125,22 +1818,13 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/bar-chart/bar-chart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "BarChartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/15",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
+                "coveragePercent": 57,
+                "coverageCount": "4/7",
+                "status": "good"
             },
             {
                 "filePath": "src/app/card/card.component.ts",
@@ -2148,7 +1832,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -2174,6 +1858,15 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "DoughnutChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/empty-states/empty-states.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EmptyStatesComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/9",
                 "status": "low"
@@ -2233,26 +1926,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/BarChart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Standard",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/BarChart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/stories/Button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2267,7 +1940,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "Standard",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2307,17 +1980,47 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithoutImage",
+                "name": "withoutPicture",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/Card.stories.ts",
+                "filePath": "src/app/stories/Chart.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "WithoutStudies",
+                "name": "Bar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Doughnut",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Line",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2403,7 +2106,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/DoughnutChart.stories.ts",
+                "filePath": "src/app/stories/EmptyStates.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2413,37 +2116,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/DoughnutChart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Header.stories.ts",
+                "filePath": "src/app/stories/EmptyStates.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2493,26 +2166,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/LineChart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Standard",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/LineChart.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/stories/Menu.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2530,54 +2183,6 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/storybook_example_header/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/storybook_example_header/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
                 "status": "low"
             },
             {

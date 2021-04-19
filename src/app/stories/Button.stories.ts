@@ -18,6 +18,18 @@ export default {
     }),
   ],
   argTypes: {
+    type: {
+      control: {
+        type: 'radio',
+        options: ['basic', 'flat', 'raised', 'stroke']
+      }
+    },
+    color: {
+      control: {
+        type: 'radio',
+        options: [ 'primary', 'accent', 'warn']
+      }
+    },
     onClick: { action: 'clicked' },
     backgroundColor: { control: 'color' },
   },
@@ -28,18 +40,21 @@ const Template: Story<Button> = (args: Button) => ({
   props: args,
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
+export const Standard = Template.bind({});
+Standard.args = {
   label: 'Hello',
-  backgroundColor: "RGBA(118,38,133,1)",
-  type: 'basic'
+  type: 'basic',
+  disabled: false
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-  backgroundColor: "RGBA(43,6,231,1)"
-};
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Primary',
+  type: 'flat',
+  color: 'primary',
+  disabled: false
+}
+
+
 
 

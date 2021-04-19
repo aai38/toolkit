@@ -22,12 +22,12 @@ import { HomePageRoutingModule } from './home-routing.module';
 import ButtonComponent from '../button/button.component';
 import IonMenuComponent from '../ion-menu/ion-menu.component'
 import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
-import { LineChartComponent } from '../line-chart/line-chart.component';
+import { ChartComponent } from '../chart/chart.component';
 import { MatMenu } from '@angular/material/menu';
 import { DialogElementsExample } from '../dialog/dialog.component';
-import { BarChartComponent } from '../bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from '../doughnut-chart/doughnut-chart.component';
 import { MatIconModule } from '@angular/material/icon';
+import { EmptyStatesComponent } from '../empty-states/empty-states.component';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { MatIconModule } from '@angular/material/icon';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, LineChartComponent, DialogElementsExample, BarChartComponent, DoughnutChartComponent],
+  declarations: [HomePage, EmptyStatesComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, DoughnutChartComponent],
   exports: [
     HomePage,
   ],

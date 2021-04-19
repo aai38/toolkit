@@ -7,6 +7,8 @@ import {MaterialModule} from '../material.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormControl} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -20,7 +22,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [IonDate],
-      imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule],
+      imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule, BrowserAnimationsModule],
     }),
   ],
   

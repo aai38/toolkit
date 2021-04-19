@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LineChartComponent } from './line-chart.component';
+import { EmptyStatesComponent } from './empty-states.component';
 
-describe('LineChartComponent', () => {
-  let component: LineChartComponent;
-  let fixture: ComponentFixture<LineChartComponent>;
+describe('EmptyStatesComponent', () => {
+  let component: EmptyStatesComponent;
+  let fixture: ComponentFixture<EmptyStatesComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LineChartComponent ],
+      declarations: [ EmptyStatesComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LineChartComponent);
+    fixture = TestBed.createComponent(EmptyStatesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

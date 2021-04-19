@@ -22,7 +22,6 @@ export default {
     }),
   ],
   argTypes: {
-    backgroundColor: { control: 'color' },
     width: {control: 'number'},
     height: {control: 'number'}
   },
@@ -40,7 +39,8 @@ Standard.args = {
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
-  showPicture: true
+  showPicture: true,
+  alternative: 'some Picture'
 };
 
 export const withoutPicture = Template.bind({});

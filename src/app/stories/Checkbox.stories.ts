@@ -18,6 +18,12 @@ export default {
     }),
   ],
   argTypes: {
+    color: {
+      control: {
+        type: 'radio',
+        options: ['primary', 'warn', 'accent']
+      }
+    },
     checked: {control: 'boolean'},
   },
   

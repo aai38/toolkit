@@ -11,8 +11,6 @@ export default class ButtonComponent {
   /**
    * Is this the principal call to action on the page?
    */
-  @Input()
-  primary = false;
 
   /**
    * What background color to use
@@ -24,10 +22,13 @@ export default class ButtonComponent {
    * How large should the button be?
    */
   @Input()
-  size: 'small' | 'medium' | 'large' = 'medium';
+  color: 'primary' | 'accent' | 'warn';
 
   @Input()
   type: 'basic' | 'raised' | 'stroke' | 'flat';
+
+  @Input()
+  disabled?: boolean;
 
   /**
    * Button contents
@@ -43,9 +44,5 @@ export default class ButtonComponent {
   @Output()
   onClick = new EventEmitter<Event>();
 
-  public get classes(): string[] {
-    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-
-    return ['storybook-button', `storybook-button--${this.size}`, mode];
-  }
+  
 }
