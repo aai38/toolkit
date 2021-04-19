@@ -39,7 +39,7 @@ export const Standard = Template.bind({});
 Standard.args = {
   type: 'studies',
   emptyLabel: 'no studies available',
-  src: 'assets/blabla.jpg'
+  src: 'blabla.jpg'
   
 };
 

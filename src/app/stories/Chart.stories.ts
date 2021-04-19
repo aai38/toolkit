@@ -17,11 +17,11 @@ export default {
   title: 'Standard-Components/Chart',
   component: ChartComponent,
   argTypes: {
-    backgroundColorInput: { control: 'color' },
-    borderColorInput: { control: 'color' },
+    backgroundColor: { control: 'color' },
+    borderColor: { control: 'color' },
     chartLegend: {control: 'boolean'},
-    minInput: {control: 'number'},
-    maxInput: {control: 'number'},
+    minimalValue: {control: 'number'},
+    maximalValue: {control: 'number'},
     chartType: {
       control: {
         type: 'radio',
@@ -48,32 +48,32 @@ const Template: Story<ChartComponent> = (args) => ({
 export const Line = Template.bind({});
 Line.args = {
     chartType :'line',
-    backgroundColorInput:"red",
-    borderColorInput:"black",
-    labelArray:['January', 'February', 'March', 'April', 'May', 'June'],
-    dataArrayInput:[85, 72, 78, 75, 77, 75],
-    chartLabelInput:"heart rate",
+    backgroundColor:"red",
+    borderColor:"black",
+    labels:['January', 'February', 'March', 'April', 'May', 'June'],
+    data:[85, 72, 78, 75, 77, 75],
+    legend:"heart rate",
     chartLegend: true,
-    maxInput: 100,
-    minInput: 50    
+    maximalValue: 100,
+    minimalValue: 50    
 };
 
 export const Bar = Template.bind({});
 Bar.args = {
     chartType: 'bar',
-    backgroundColorInput:"red",
-    borderColorInput:"black",
-    labelArray:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    dataArrayInput:[2, 3, 1, 4, 2, 2, 2, 3],
-    chartLabelInput:"hours on phone",
+    backgroundColor:"red",
+    borderColor:"black",
+    labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    data:[2, 3, 1, 4, 2, 2, 2, 3],
+    legend:"hours on phone",
     chartLegend: true
 };
 
 export const Doughnut = Template.bind({});
 Doughnut.args = {
     chartType:'doughnut',
-    labelArray:['WhatsApp', 'Facebook', 'Jodel'],
-    dataArrayInput:[[2.3, 2.5, 3]],
+    labels:['WhatsApp', 'Facebook', 'Jodel'],
+    data:[[2.3, 2.5, 3]],
     chartLegend: true
     
 };

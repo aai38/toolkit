@@ -18,16 +18,16 @@ export class ChartComponent implements OnInit {
 
   @Input() chartType: 'bar' | 'line' | 'doughnut';
 
-  @Input() chartLabelInput: string;
-  @Input() dataArrayInput?: number[];
+  @Input() legend: string;
+  @Input() data: number[];
 
-  @Input() minInput: number;
-  @Input() maxInput: number;
+  @Input() minimalValue: number;
+  @Input() maximalValue: number;
 
-  @Input() borderColorInput?: string;
-  @Input() backgroundColorInput?: string;
+  @Input() borderColor: string;
+  @Input() backgroundColor: string;
 
-  @Input() labelArray?: string[];
+  @Input() labels: string[];
 
 
   //@Input() chartOptionsInput: any;
@@ -39,13 +39,13 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     if (this.chartType == 'line' || 'bar') {
       this.chartDatasets = [{
-        data: this.dataArrayInput,
-        label: this.chartLabelInput
+        data: this.data,
+        label: this.legend
       }];
       this.chartColors = [
         {
-          borderColor: this.borderColorInput,
-          backgroundColor: this.backgroundColorInput,
+          borderColor: this.borderColor,
+          backgroundColor: this.backgroundColor,
         },
       ];
 
@@ -54,17 +54,17 @@ export class ChartComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              max: this.maxInput,
-              min: this.minInput
+              max: this.maximalValue,
+              min: this.minimalValue
             }
           }]
         }
       };
-      this.chartLabels = this.labelArray;
+      this.chartLabels = this.labels;
     }
     else if (this.chartType == 'doughnut') {
-      this.chartDatasets = this.dataArrayInput;
-      this.chartLabels = this.labelArray;
+      this.chartDatasets = this.data;
+      this.chartLabels = this.labels;
     }
   }
 
