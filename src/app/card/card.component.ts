@@ -27,5 +27,7 @@ export default class CardComponent  {
   description?: string;
   @Input()
   showPicture?: boolean;
+  @Input()
+  mat_button?: ButtonComponent;
 
 }
