@@ -16,15 +16,16 @@ export default class CardComponent  {
 
   constructor() { }
   @Input()
-  backgroundColor?: string;
-  @Input()
   image?: string;
   @Input()
   width?: number;
   @Input()
   height?: number;
   @Input()
-  button?: ButtonComponent;
-
+  headline?: string;
+  @Input()
+  description?: string;
+  @Input()
+  showPicture?: boolean;
 
 }

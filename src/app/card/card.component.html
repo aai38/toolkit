@@ -1,17 +1,20 @@
 <ion-card>
     <ion-item>
-        <ion-icon name="pin" slot="end"></ion-icon>
+        <button mat-icon-button slot="end" color="warn" aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite</mat-icon>
+            </button>
 
-        <ion-label class="label" slot="start">Example headline for study</ion-label>
+        <mat-label class="label" slot="start">{{ headline }}</mat-label>
 
     </ion-item>
     <ion-card-content class="content">
-        <div style="text-align:center;">
-
-            <img class="picture" [src]="image" alt="some Picture" [width]="width" [height]="height">
-        </div>
-        <br> There is the describtion of the study.
-        <storybook-button mat-button class="button">link </storybook-button>
+        <ng-template [ngIf]="showPicture">
+            <div style="text-align:center;">
+                <img class="picture" [src]="image" alt="some Picture" [width]="width" [height]="height">
+            </div>
+        </ng-template>
+        <br> {{description}}
+        <storybook-button mat-button class="button"> </storybook-button>
 
     </ion-card-content>
 </ion-card>

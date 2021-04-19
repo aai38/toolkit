@@ -26,6 +26,9 @@ export default class ButtonComponent {
   @Input()
   size: 'small' | 'medium' | 'large' = 'medium';
 
+  @Input()
+  type: 'basic' | 'raised' | 'stroke' | 'flat';
+
   /**
    * Button contents
    *

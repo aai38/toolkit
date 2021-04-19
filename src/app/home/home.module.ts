@@ -25,6 +25,9 @@ import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
 import { LineChartComponent } from '../line-chart/line-chart.component';
 import { MatMenu } from '@angular/material/menu';
 import { DialogElementsExample } from '../dialog/dialog.component';
+import { BarChartComponent } from '../bar-chart/bar-chart.component';
+import { DoughnutChartComponent } from '../doughnut-chart/doughnut-chart.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -40,12 +43,13 @@ import { DialogElementsExample } from '../dialog/dialog.component';
     MatExpansionModule,
     MatButtonModule,
     MatInputModule,
+    MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, LineChartComponent, DialogElementsExample],
+  declarations: [HomePage, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, LineChartComponent, DialogElementsExample, BarChartComponent, DoughnutChartComponent],
   exports: [
     HomePage,
   ],

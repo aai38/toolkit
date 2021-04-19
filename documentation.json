@@ -127,6 +127,150 @@
             "templateData": "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
         },
         {
+            "name": "BarChartComponent",
+            "id": "component-BarChartComponent-65ba2e1920344d18d2747ddb06430b6d",
+            "file": "src/app/bar-chart/bar-chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-bar-chart",
+            "styleUrls": [
+                "./bar-chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./bar-chart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColorInput",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "barChartLegend",
+                    "line": 30,
+                    "type": "boolean"
+                },
+                {
+                    "name": "borderColorInput",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "chartLabelInput",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "dataArrayInput",
+                    "line": 18,
+                    "type": "number[]"
+                },
+                {
+                    "name": "labelArray",
+                    "line": 24,
+                    "type": "string[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "barChartColors",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "barChartOptions",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "barChartPlugins",
+                    "defaultValue": "[]",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "barChartType",
+                    "defaultValue": "'bar'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "chartDatasets",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartLabels",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        114
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-bar-chart',\n  templateUrl: './bar-chart.component.html',\n  styleUrls: ['./bar-chart.component.scss'],\n})\nexport class BarChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public barChartColors;\n  public barChartOptions;\n\n  @Input() chartLabelInput: string ;\n  @Input() dataArrayInput?: number[];\n\n  \n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() barChartLegend : boolean;\n  barChartPlugins = [];\n  barChartType = 'bar';\n\n  ngOnInit(): void {\n    this.chartDatasets = [{\n      data: this.dataArrayInput,\n      label: this.chartLabelInput\n    }];\n    this.barChartColors = [\n      {\n        borderColor: this.borderColorInput,\n        backgroundColor: this.backgroundColorInput,\n      },\n    ];\n\n    this.barChartOptions = {\n      responsive: true,\n      \n    };\n    this.chartLabels = this.labelArray;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./bar-chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"barChartOptions\" [colors]=\"barChartColors\" [legend]=\"barChartLegend\" chartType=\"bar\" [plugins]=\"barChartPlugins\">\n</canvas>\n</div>"
+        },
+        {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-47f14eae7e5b088901bf5cfb5f04dd11",
             "file": "src/app/button/button.component.ts",
@@ -211,7 +355,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-5eb07e04b817e8ccde780f3cc44e6789",
+            "id": "component-CardComponent-fc0512eba140abe24a1703a12c7f88f3",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -230,22 +374,27 @@
             "inputsClass": [
                 {
                     "name": "backgroundColor",
-                    "line": 18,
+                    "line": 19,
                     "type": "string"
                 },
                 {
+                    "name": "button",
+                    "line": 27,
+                    "type": "ButtonComponent"
+                },
+                {
                     "name": "height",
-                    "line": 24,
+                    "line": 25,
                     "type": "number"
                 },
                 {
                     "name": "image",
-                    "line": 20,
+                    "line": 21,
                     "type": "string"
                 },
                 {
                     "name": "width",
-                    "line": 22,
+                    "line": 23,
                     "type": "number"
                 }
             ],
@@ -257,11 +406,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  backgroundColor?: string;\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n\n\n}\n",
+            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  backgroundColor?: string;\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  button?: ButtonComponent;\n\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".card {\n    margin: 10px;\n}\n\n.content {\n    text-align: center;\n    position: relative;\n}\n\n.label {\n    text-align: center;\n}\n\n.button {\n    font-style: blueviolet;\n    align-items: flex-end;\n}",
+                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.button {\n    font-style: blueviolet;\n    float: right;\n}\n\n.label {\n    white-space: normal !important;\n}",
                     "styleUrl": "./card.css"
                 }
             ],
@@ -270,13 +419,13 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 14
+                "line": 15
             },
-            "templateData": "<ion-card>\n    <ion-item>\n        <ion-icon name=\"pin\" slot=\"start\"></ion-icon>\n\n        <ion-label class=\"label\">Example headline for study</ion-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <img [src]=\"image\" alt=\"some Picture\" [width]=\"width\" [height]=\"height\"> <br> There is the describtion of the study.\n        <storybook-button mat-button class=\"button\" slot=\"end\"></storybook-button>\n    </ion-card-content>\n</ion-card>"
+            "templateData": "<ion-card>\n    <ion-item>\n        <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n        <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <div style=\"text-align:center;\">\n\n            <img class=\"picture\" [src]=\"image\" alt=\"some Picture\" [width]=\"width\" [height]=\"height\">\n        </div>\n        <br> There is the describtion of the study.\n        <storybook-button mat-button class=\"button\">link </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
         },
         {
             "name": "DialogElementsExample",
-            "id": "component-DialogElementsExample-dee9d60fa5a98ff25d81eb2e8306167c",
+            "id": "component-DialogElementsExample-8a934a211db95a10d7f625f716cde7e6",
             "file": "src/app/dialog/dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -293,7 +442,12 @@
             ],
             "viewProviders": [],
             "inputsClass": [],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "openDialog",
+                    "line": 14
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "dialog",
@@ -306,22 +460,13 @@
                     ]
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "openDialog",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12
-                }
-            ],
+            "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n}\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n\n  @Output()\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -354,7 +499,7 @@
         },
         {
             "name": "DialogElementsExampleDialog",
-            "id": "component-DialogElementsExampleDialog-dee9d60fa5a98ff25d81eb2e8306167c",
+            "id": "component-DialogElementsExampleDialog-8a934a211db95a10d7f625f716cde7e6",
             "file": "src/app/dialog/dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -377,11 +522,112 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n}\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n\n  @Output()\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "templateData": "<h1 mat-dialog-title>Dialog with elements</h1>\n<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>\n<div mat-dialog-actions>\n    <button mat-button mat-dialog-close>Close</button>\n</div>"
+        },
+        {
+            "name": "DoughnutChartComponent",
+            "id": "component-DoughnutChartComponent-d03ab200be5c9842d8ec77408f1ae29d",
+            "file": "src/app/doughnut-chart/doughnut-chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-doughnut-chart",
+            "styleUrls": [
+                "./doughnut-chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./doughnut-chart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "dataArrayInput",
+                    "line": 15,
+                    "type": "number[]"
+                },
+                {
+                    "name": "doughnutChartLegend",
+                    "line": 24,
+                    "type": "boolean"
+                },
+                {
+                    "name": "labelArray",
+                    "line": 18,
+                    "type": "string[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "chartDatasets",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartLabels",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "ChartPlugins",
+                    "defaultValue": "[]",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-doughnut-chart',\n  templateUrl: './doughnut-chart.component.html',\n  styleUrls: ['./doughnut-chart.component.scss'],\n})\nexport class DoughnutChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n\n  @Input() dataArrayInput?: number[];\n  \n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() doughnutChartLegend : boolean;\n  ChartPlugins = [];\n\n  ngOnInit(): void {\n    this.chartDatasets = \n       this.dataArrayInput\n    ;\n    \n\n    \n    this.chartLabels = this.labelArray;\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./doughnut-chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n</div>"
         },
         {
             "name": "HeaderComponent",
@@ -499,7 +745,7 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-ion-menu></app-ion-menu>\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button menu=\"custom\" autoHide=\"false\"></ion-menu-button>\n            </ion-buttons>\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n            <h4>Expansion Panel</h4>\n\n            <mat-accordion>\n                <mat-expansion-panel>\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            Personal data\n                        </mat-panel-title>\n                        <mat-panel-description>\n                            Type your name and age\n                        </mat-panel-description>\n                    </mat-expansion-panel-header>\n                    Panel Content\n                </mat-expansion-panel>\n                <mat-expansion-panel (opened)=\"panelOpenState = true\" (closed)=\"panelOpenState = false\">\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            Self aware panel\n                        </mat-panel-title>\n                        <mat-panel-description>\n                            Currently I am {{panelOpenState ? 'open' : 'closed'}}\n                        </mat-panel-description>\n                    </mat-expansion-panel-header>\n                    <p>I'm visible because I am open</p>\n                </mat-expansion-panel>\n            </mat-accordion>\n\n            <h4>Datepicker</h4>\n\n            <mat-form-field>\n                <mat-label>Choose a date</mat-label>\n                <input matInput [matDatepicker]=\"picker\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"ion-padding\">\n\n    <ion-list>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n        <app-card></app-card>\n    </ion-list>\n\n\n\n\n\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-ion-menu></app-ion-menu>\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button menu=\"custom\" autoHide=\"false\"></ion-menu-button>\n            </ion-buttons>\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <mat-form-field>\n                <mat-label>Choose a date</mat-label>\n                <input matInput [matDatepicker]=\"picker\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" [scrollEvents]=\"true\">\n\n\n    <app-line-chart></app-line-chart>\n\n\n\n\n\n</ion-content>"
         },
         {
             "name": "InputComponent",
@@ -756,7 +1002,7 @@
         },
         {
             "name": "LineChartComponent",
-            "id": "component-LineChartComponent-42a999c98e9c387efccfe3881c952aac",
+            "id": "component-LineChartComponent-31c0454b0e6a95ae8693f647a38c30cc",
             "file": "src/app/line-chart/line-chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -774,45 +1020,87 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "lineChartColors",
-                    "defaultValue": "[\n    {\n      borderColor: 'black',\n      backgroundColor: 'rgba(38,47,133,0.3)',\n    },\n  ]",
-                    "line": 33,
-                    "type": "Color[]"
+                    "name": "backgroundColorInput",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "borderColorInput",
+                    "line": 25,
+                    "type": "string"
+                },
+                {
+                    "name": "chartLabelInput",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "dataArrayInput",
+                    "line": 20,
+                    "type": "number[]"
+                },
+                {
+                    "name": "labelArray",
+                    "line": 28,
+                    "type": "string[]"
+                },
+                {
+                    "name": "lineChartLegend",
+                    "line": 34,
+                    "type": "boolean"
+                },
+                {
+                    "name": "maxInput",
+                    "line": 23,
+                    "type": "number"
+                },
+                {
+                    "name": "minInput",
+                    "line": 22,
+                    "type": "number"
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "lineChartData",
-                    "defaultValue": "[\n    { data: [85, 72, 78, 75, 77, 75], label: 'heart rate' },\n  ]",
-                    "type": "ChartDataSets[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 14
-                },
-                {
-                    "name": "lineChartLabels",
-                    "defaultValue": "['January', 'February', 'March', 'April', 'May', 'June']",
-                    "type": "Label[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 18
-                },
-                {
-                    "name": "lineChartLegend",
-                    "defaultValue": "true",
+                    "name": "chartDatasets",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 14,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartLabels",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "lineChartColors",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "lineChartOptions",
-                    "defaultValue": "{\n    responsive: true,\n    scales : {\n      yAxes: [{\n          ticks: {\n            max : 100,\n            min : 50\n          }\n      }]\n    }\n  }",
-                    "type": "object",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 17,
+                    "modifierKind": [
+                        114
+                    ]
                 },
                 {
                     "name": "lineChartPlugins",
@@ -820,7 +1108,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 35
                 },
                 {
                     "name": "lineChartType",
@@ -828,16 +1116,25 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 36
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38
+                }
+            ],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent  {\n\n  constructor() { }\n\n  lineChartData: ChartDataSets[] = [\n    { data: [85, 72, 78, 75, 77, 75], label: 'heart rate' },\n  ];\n\n  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];\n\n  lineChartOptions = {\n    responsive: true,\n    scales : {\n      yAxes: [{\n          ticks: {\n            max : 100,\n            min : 50\n          }\n      }]\n    }\n  };\n\n  @Input()\n  lineChartColors: Color[] = [\n    {\n      borderColor: 'black',\n      backgroundColor: 'rgba(38,47,133,0.3)',\n    },\n  ];\n\n  lineChartLegend = true;\n  lineChartPlugins = [];\n  lineChartType = 'line';\n\n  \n\n}\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent  implements OnInit{\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public lineChartColors;\n  public lineChartOptions;\n\n  @Input() chartLabelInput: string ;\n  @Input() dataArrayInput?: number[];\n\n  @Input() minInput: number;\n  @Input() maxInput: number;\n  \n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() lineChartLegend : boolean;\n  lineChartPlugins = [];\n  lineChartType = 'line';\n\n  ngOnInit(): void {\n    this.chartDatasets = [{\n      data: this.dataArrayInput,\n      label: this.chartLabelInput\n    }];\n    this.lineChartColors = [\n      {\n        borderColor: this.borderColorInput,\n        backgroundColor: this.backgroundColorInput,\n      },\n    ];\n\n    this.lineChartOptions = {\n      responsive: true,\n      scales : {\n        yAxes: [{\n            ticks: {\n              max : this.maxInput,\n              min : this.minInput\n            }\n        }]\n      }\n    };\n    this.chartLabels = this.labelArray;\n  }\n  \n\n  \n}\n\n\n\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -852,7 +1149,10 @@
                 "args": [],
                 "line": 10
             },
-            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"lineChartData\" [labels]=\"lineChartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\" [plugins]=\"lineChartPlugins\">\n  </canvas>\n</div>"
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\" [plugins]=\"lineChartPlugins\">\n  </canvas>\n</div>"
         },
         {
             "name": "PageComponent",
@@ -1002,6 +1302,9 @@
                     "type": "declarations",
                     "elements": [
                         {
+                            "name": "BarChartComponent"
+                        },
+                        {
                             "name": "ButtonComponent"
                         },
                         {
@@ -1009,6 +1312,9 @@
                         },
                         {
                             "name": "DialogElementsExample"
+                        },
+                        {
+                            "name": "DoughnutChartComponent"
                         },
                         {
                             "name": "HomePage"
@@ -1219,6 +1525,14 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/BarChart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1278,6 +1592,22 @@
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/DoughnutChart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/BarChart.stories.ts",
+                "type": "Story<BarChartComponent>",
+                "defaultValue": "(args) => ({\n  component: BarChartComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1368,12 +1698,28 @@
                 "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/DoughnutChart.stories.ts",
+                "type": "Story<DoughnutChartComponent>",
+                "defaultValue": "(args) => ({\n  component: DoughnutChartComponent,\n  props: args,\n})"
+            },
+            {
                 "name": "WithoutImage",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"start\"></ion-icon>\n\n    <ion-label class=\"label\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <storybook-button mat-button slot=\"end\"></storybook-button>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
+                "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n    <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <div style=\"text-align:right;\">\n     <storybook-button mat-button class=\"button\" slot=\"end\"></storybook-button>\n     </div>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
+            },
+            {
+                "name": "WithoutStudies",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "",
+                "defaultValue": "() => ({\n  template: ` <ion-card>\n  <ion-item>\n  \n      \n  </ion-item>\n  <ion-card-content class=\"content\">\n  <div style=\"text-align:center;\">\n  <ion-label class=\"label\"> No studies available </ion-label>\n  </div>\n  </ion-card-content>\n  </ion-card>`,\n  styleUrls: ['../card/cardWithoutStudies.css']\n  })"
             }
         ],
         "functions": [],
@@ -1529,6 +1875,24 @@
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/BarChart.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/BarChart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/BarChart.stories.ts",
+                    "type": "Story<BarChartComponent>",
+                    "defaultValue": "(args) => ({\n  component: BarChartComponent,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Card.stories.ts": [
                 {
                     "name": "Standard",
@@ -1552,7 +1916,15 @@
                     "subtype": "variable",
                     "file": "src/app/stories/Card.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"start\"></ion-icon>\n\n    <ion-label class=\"label\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <storybook-button mat-button slot=\"end\"></storybook-button>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
+                    "defaultValue": "() => ({\ntemplate: ` <ion-card>\n<ion-item>\n    <ion-icon name=\"pin\" slot=\"end\"></ion-icon>\n\n    <ion-label class=\"label\" slot=\"start\">Example headline for study</ion-label>\n    \n</ion-item>\n<ion-card-content class=\"content\">\n     <br> There is the describtion of the study.\n     <div style=\"text-align:right;\">\n     <storybook-button mat-button class=\"button\" slot=\"end\"></storybook-button>\n     </div>\n\n</ion-card-content>\n</ion-card>`,\nstyleUrls: ['../card/card.css']\n})"
+                },
+                {
+                    "name": "WithoutStudies",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: ` <ion-card>\n  <ion-item>\n  \n      \n  </ion-item>\n  <ion-card-content class=\"content\">\n  <div style=\"text-align:center;\">\n  <ion-label class=\"label\"> No studies available </ion-label>\n  </div>\n  </ion-card-content>\n  </ion-card>`,\n  styleUrls: ['../card/cardWithoutStudies.css']\n  })"
                 }
             ],
             "src/app/stories/DatePicker.stories.ts": [
@@ -1662,6 +2034,24 @@
                     "type": "Story<IonMenuComponent>",
                     "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
                 }
+            ],
+            "src/app/stories/DoughnutChart.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/DoughnutChart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/DoughnutChart.stories.ts",
+                    "type": "Story<DoughnutChartComponent>",
+                    "defaultValue": "(args) => ({\n  component: DoughnutChartComponent,\n  props: args,\n})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -1735,6 +2125,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/bar-chart/bar-chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BarChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/15",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1749,7 +2148,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -1768,6 +2167,15 @@
                 "name": "DialogElementsExampleDialog",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/doughnut-chart/doughnut-chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DoughnutChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1821,7 +2229,27 @@
                 "linktype": "component",
                 "name": "LineChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/17",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/BarChart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/BarChart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1880,6 +2308,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithoutImage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutStudies",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1956,6 +2394,26 @@
             },
             {
                 "filePath": "src/app/stories/Dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/DoughnutChart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/DoughnutChart.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

@@ -1,5 +1,27 @@
 <ion-item>
-    <button class="button_class" mat-button type="button" (click)="onClick.emit($event)" [ngClass]="classes" [ngStyle]="{ 'background-color': backgroundColor }">
-    {{ label }}
-</button>
+
+    <ng-template [ngIf]="type == 'basic'">
+        <div>
+            <button class="button_class" mat-button (click)="onClick.emit($event)" [ngClass]="classes" [ngStyle]="{ 'background-color': backgroundColor }"> {{ label }}
+            </button>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="type == 'raised'">
+        <div>
+            <button class="button_class" mat-raised-button (click)="onClick.emit($event)" [ngClass]="classes" [ngStyle]="{ 'background-color': backgroundColor }"> {{ label }}
+            </button>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="type == 'flat'">
+        <div>
+            <button class="button_class" mat-flat-button (click)="onClick.emit($event)" [ngClass]="classes" [ngStyle]="{ 'background-color': backgroundColor }"> {{ label }}
+            </button>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="type == 'stroke'">
+        <div>
+            <button class="button_class" mat-stroked-button (click)="onClick.emit($event)" [ngClass]="classes" [ngStyle]="{ 'background-color': backgroundColor }"> {{ label }}
+            </button>
+        </div>
+    </ng-template>
 </ion-item>

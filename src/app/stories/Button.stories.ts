@@ -32,7 +32,8 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Hello',
-  backgroundColor: "RGBA(118,38,133,1)"
+  backgroundColor: "RGBA(118,38,133,1)",
+  type: 'basic'
 };
 
 export const Secondary = Template.bind({});
