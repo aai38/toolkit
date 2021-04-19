@@ -10,11 +10,11 @@
     <ion-card-content class="content">
         <ng-template [ngIf]="showPicture">
             <div style="text-align:center;">
-                <img class="picture" [src]="image" alt="some Picture" [width]="width" [height]="height">
+                <img class="picture" [src]="image" [alt]="alternative" [width]="width" [height]="height">
             </div>
         </ng-template>
         <br> {{description}}
-        <storybook-button [mat-button]="mat_button" class="button"> </storybook-button>
+        <storybook-button mat-button class="button"> </storybook-button>
 
     </ion-card-content>
 </ion-card>

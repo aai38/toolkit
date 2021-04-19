@@ -28,6 +28,6 @@ export default class CardComponent  {
   @Input()
   showPicture?: boolean;
   @Input()
-  mat_button?: ButtonComponent;
+  alternative?: string;
 
 }
