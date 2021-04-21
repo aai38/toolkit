@@ -19,7 +19,7 @@ export default class ButtonComponent {
   backgroundColor?: string;
 
   /**
-   * How large should the button be?
+   * Which button it should be?
    */
   @Input()
   color: 'primary' | 'accent' | 'warn';
@@ -36,7 +36,7 @@ export default class ButtonComponent {
    * @required
    */
   @Input()
-  label = 'Button';
+  label:string = 'Button';
 
   /**
    * Optional click handler
