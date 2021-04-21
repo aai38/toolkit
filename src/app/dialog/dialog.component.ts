@@ -9,8 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class DialogElementsExample {
   constructor(public dialog: MatDialog) {}
   
-
-  @Output()
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }

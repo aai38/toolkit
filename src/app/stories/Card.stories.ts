@@ -8,8 +8,9 @@ import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
 import { MatButtonModule } from '@angular/material/button';
 import Button from '../button/button.component'; 
-import ButtonStories from './Button.stories';
 import { MatIconModule } from '@angular/material/icon';
+
+import * as ButtonStories from './Button.stories'
 
 
 export default {
@@ -34,6 +35,7 @@ const Template: Story<CardComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
+  label: 'View',
   image: "assets/blabla.jpg",
   width: 300,
   height: 300,

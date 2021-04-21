@@ -8,23 +8,14 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 // This default export determines where your story goes in the story list
 @Component({
   selector: 'storybookInput',
-  template: `
-    <ion-item>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>{{ label }}</mat-label>
-        <input matInput [placeholder]=placeholder [value]=value>
-      </mat-form-field>
-    </form>
-    </ion-item>
-    `,
+  templateUrl: './input.component.html',
   styleUrls: ['./input.css'],
 })
 export default class InputComponent {
     @Input()
-    placeholder?= 'string';
+    placeholder:string = 'Type anything...';
     @Input()
-    label ?= 'string';
+    label = 'Search';
     @Input()
-    value?= 'string'
+    value= '';
 }

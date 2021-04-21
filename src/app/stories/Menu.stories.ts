@@ -6,18 +6,18 @@ import { moduleMetadata } from '@storybook/angular';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { CommonModule } from '@angular/common';
+import { MenuController } from '@ionic/angular';
 
 
 export default {
   title: 'Standard-Components/Menu',
   component: IonMenuComponent,
   argTypes: {
-    backgroundColor: { control: 'color' },
   },
   decorators: [
     moduleMetadata({
       declarations: [IonMenuComponent],
-      imports: [IonicModule, ReactiveFormsModule, MaterialModule, CommonModule],
+      imports: [IonicModule, ReactiveFormsModule, MaterialModule, CommonModule, MenuController],
     }),
   ],
   
@@ -30,6 +30,5 @@ const Template: Story<IonMenuComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  required: true,
-  backgroundColor: "white"
+  required: true
 };

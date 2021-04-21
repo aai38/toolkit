@@ -17,7 +17,6 @@ export default {
   title: 'Standard-Components/Dialog',
   component: DialogElementsExample,
   argTypes: {
-    onClick: { action: 'openDialog()' } ,
   },
   decorators: [
     moduleMetadata({
@@ -35,6 +34,5 @@ const Template: Story<DialogElementsExample> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  onClick: "openDialog()"
 };
 

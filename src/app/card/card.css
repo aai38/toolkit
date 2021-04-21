@@ -11,11 +11,10 @@
     text-align: center;
 }
 
-.button {
-    font-style: blueviolet;
-    float: right;
-}
-
 .label {
     white-space: normal !important;
+}
+
+.button {
+    float: right;
 }

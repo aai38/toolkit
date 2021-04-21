@@ -7,7 +7,7 @@
 
 <ng-template [ngIf]="chartType == 'doughnut'">
     <div class="chart-wrapper-doughnut">
-        <canvas baseChart [data]="chartDatasets" [labels]="chartLabels" chartType="doughnut">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="doughnut">
 </canvas>
     </div>
 </ng-template>

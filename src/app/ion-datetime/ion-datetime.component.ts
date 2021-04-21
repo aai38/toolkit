@@ -11,7 +11,7 @@ export default class IonDate  {
   date = new FormControl(new Date());
 
   @Input()
-    label?: string;
+    label?: string = 'Choose date';
 
 
 }

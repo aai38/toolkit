@@ -1,4 +1,4 @@
-import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgModule, Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -12,22 +12,30 @@ import ButtonComponent from '../button/button.component';
   templateUrl: './card.component.html',
   styleUrls: ['./card.css'],
 })
-export default class CardComponent  {
+export default class CardComponent implements OnInit {
 
   constructor() { }
-  @Input()
-  image?: string;
-  @Input()
-  width?: number;
-  @Input()
-  height?: number;
-  @Input()
-  headline?: string;
-  @Input()
-  description?: string;
-  @Input()
-  showPicture?: boolean;
-  @Input()
-  alternative?: string;
+  public labelNew: string;
 
+  @Input()
+  image?: string = '../assets/blabla.jpg';
+  @Input()
+  width?: number = 300;
+  @Input()
+  height?: number = 200;
+  @Input()
+  headline?: string = 'Example headline';
+  @Input()
+  description?: string = 'Example description';
+  @Input()
+  showPicture?: boolean = true;
+  @Input()
+  alternative?: string = 'some picture';
+
+  @Input()
+  label: string ='View';
+
+  ngOnInit() {
+    this.labelNew = this.label;
+  }
 }

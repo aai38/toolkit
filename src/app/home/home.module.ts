@@ -25,7 +25,6 @@ import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
 import { ChartComponent } from '../chart/chart.component';
 import { MatMenu } from '@angular/material/menu';
 import { DialogElementsExample } from '../dialog/dialog.component';
-import { DoughnutChartComponent } from '../doughnut-chart/doughnut-chart.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptyStatesComponent } from '../empty-states/empty-states.component';
 
@@ -49,7 +48,7 @@ import { EmptyStatesComponent } from '../empty-states/empty-states.component';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, EmptyStatesComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, DoughnutChartComponent],
+  declarations: [HomePage, EmptyStatesComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
   exports: [
     HomePage,
   ],

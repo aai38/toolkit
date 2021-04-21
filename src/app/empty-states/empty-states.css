@@ -1,8 +1,25 @@
 .label {
-    text-align: center;
     white-space: normal !important;
 }
 
-.content {
+.content_picture {
     opacity: 0.4;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    /* margin is -0.5 * dimension */
+    margin-top: -50px;
+    display: block;
+}
+
+.mat-icon {
+    font-size: 100px;
+    margin-left: 20px;
+}
+
+.scroll {
+    height: 100%;
 }

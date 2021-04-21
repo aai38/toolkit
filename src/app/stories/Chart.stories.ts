@@ -73,7 +73,7 @@ export const Doughnut = Template.bind({});
 Doughnut.args = {
     chartType:'doughnut',
     labels:['WhatsApp', 'Facebook', 'Jodel'],
-    data:[[2.3, 2.5, 3]],
+    dataDoughnut:[2, 2, 3],
     chartLegend: true
     
 };

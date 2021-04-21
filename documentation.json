@@ -203,7 +203,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-abd53bfab478e41f72e6f8972e3363c0",
+            "id": "component-CardComponent-dd543acbd55c3fe50c2ff7cf29392fd2",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -220,6 +220,11 @@
             ],
             "viewProviders": [],
             "inputsClass": [
+                {
+                    "name": "alternative",
+                    "line": 31,
+                    "type": "string"
+                },
                 {
                     "name": "description",
                     "line": 27,
@@ -241,11 +246,6 @@
                     "type": "string"
                 },
                 {
-                    "name": "mat_button",
-                    "line": 31,
-                    "type": "ButtonComponent"
-                },
-                {
                     "name": "showPicture",
                     "line": 29,
                     "type": "boolean"
@@ -264,7 +264,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  headline?: string;\n  @Input()\n  description?: string;\n  @Input()\n  showPicture?: boolean;\n  @Input()\n  mat_button?: ButtonComponent;\n\n}\n",
+            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  headline?: string;\n  @Input()\n  description?: string;\n  @Input()\n  showPicture?: boolean;\n  @Input()\n  alternative?: string;\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -279,11 +279,162 @@
                 "args": [],
                 "line": 15
             },
-            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" alt=\"some Picture\" [width]=\"width\" [height]=\"height\">\n            </div>\n        </ng-template>\n        <br> {{description}}\n        <storybook-button mat-button class=\"button\"> </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
+            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n            </div>\n        </ng-template>\n        <br> {{description}}\n        <storybook-button mat-button class=\"button\"> </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
+        },
+        {
+            "name": "ChartComponent",
+            "id": "component-ChartComponent-b885e191f603eaeefc0b6dee2e74d3b4",
+            "file": "src/app/chart/chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-line-chart",
+            "styleUrls": [
+                "./chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./chart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "borderColor",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "chartLegend",
+                    "line": 36,
+                    "type": "boolean"
+                },
+                {
+                    "name": "chartType",
+                    "line": 19,
+                    "type": "\"bar\" | \"line\" | \"doughnut\""
+                },
+                {
+                    "name": "data",
+                    "line": 22,
+                    "type": "number[]"
+                },
+                {
+                    "name": "labels",
+                    "line": 30,
+                    "type": "string[]"
+                },
+                {
+                    "name": "legend",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "maximalValue",
+                    "line": 25,
+                    "type": "number"
+                },
+                {
+                    "name": "minimalValue",
+                    "line": 24,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "chartColors",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartDatasets",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartLabels",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartOptions",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        114
+                    ]
+                },
+                {
+                    "name": "chartPlugins",
+                    "defaultValue": "[]",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 37
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut';\n\n  @Input() legend: string;\n  @Input() data: number[];\n\n  @Input() minimalValue: number;\n  @Input() maximalValue: number;\n\n  @Input() borderColor: string;\n  @Input() backgroundColor: string;\n\n  @Input() labels: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean;\n  chartPlugins = [];\n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar') {\n      this.chartDatasets = [{\n        data: this.data,\n        label: this.legend\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColor,\n          backgroundColor: this.backgroundColor,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maximalValue,\n              min: this.minimalValue\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labels;\n    }\n    else if (this.chartType == 'doughnut') {\n      this.chartDatasets = this.data;\n      this.chartLabels = this.labels;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>"
         },
         {
             "name": "DialogElementsExample",
-            "id": "component-DialogElementsExample-8a934a211db95a10d7f625f716cde7e6",
+            "id": "component-DialogElementsExample-bee0e9cdda3cec70aa3c5bbeb2fe0b2c",
             "file": "src/app/dialog/dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -300,12 +451,7 @@
             ],
             "viewProviders": [],
             "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "openDialog",
-                    "line": 14
-                }
-            ],
+            "outputsClass": [],
             "propertiesClass": [
                 {
                     "name": "dialog",
@@ -318,13 +464,22 @@
                     ]
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "openDialog",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n\n  @Output()\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -357,7 +512,7 @@
         },
         {
             "name": "DialogElementsExampleDialog",
-            "id": "component-DialogElementsExampleDialog-8a934a211db95a10d7f625f716cde7e6",
+            "id": "component-DialogElementsExampleDialog-bee0e9cdda3cec70aa3c5bbeb2fe0b2c",
             "file": "src/app/dialog/dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -380,7 +535,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n\n  @Output()\n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
+            "sourceCode": "import { Component, EventEmitter, OnInit, Output } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\n\n@Component({\n  selector: 'app-dialog',\n  templateUrl: './dialogButton.component.html',\n  styleUrls: ['./dialog.component.scss'],\n})\nexport class DialogElementsExample {\n  constructor(public dialog: MatDialog) {}\n  \n  openDialog() {\n    this.dialog.open(DialogElementsExampleDialog);\n  }\n  \n}\n\n\n\n\n@Component({\n  selector: 'dialog-component',\n  templateUrl: './dialog.component.html',\n})\nexport class DialogElementsExampleDialog {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -554,7 +709,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".label {\n    text-align: center;\n    white-space: normal !important;\n}\n\n\n/*.content {\n    background-image: url('blabla.jpg');\n    background-color: transparent;\n    background-size: cover;\n    opacity: 0.6;\n}*/",
+                    "data": ".label {\n    white-space: normal !important;\n}\n\n.content_picture {\n    opacity: 0.4;\n    position: absolute;\n    width: 200px;\n    height: 100px;\n    top: 50%;\n    left: 50%;\n    margin-left: -100px;\n    /* margin is -0.5 * dimension */\n    margin-top: -50px;\n    display: block;\n}\n\n.mat-icon {\n    font-size: 100px;\n    margin-left: 20px;\n}\n\n.scroll {\n    height: 100%;\n}",
                     "styleUrl": "./empty-states.css"
                 }
             ],
@@ -565,7 +720,7 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<ion-item>\n    <ion-content padding class=\"content\" [ngStyle]=\"{ 'background-color': 'url(blabla.jpg)' }\">\n        <ng-template [ngIf]=\"type == 'studies'\">\n            <div style=\"text-align:center;\">\n\n                <br class=\"label\"> {{ emptyLabel}}\n            </div>\n        </ng-template>\n    </ion-content>\n</ion-item>"
+            "templateData": "<meta name=\"color-scheme\" content=\"light dark\" />\n\n<body>\n\n    <ng-template [ngIf]=\"type == 'studies'\">\n        <div class=\"content_picture\">\n            <mat-icon>broken_image</mat-icon>\n            <br class=\"label\"> {{ emptyLabel}}\n        </div>\n    </ng-template>\n\n</body>"
         },
         {
             "name": "HomePage",
@@ -625,7 +780,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-06e664d2096e43a75eef14d1227825da",
+            "id": "component-InputComponent-36b47143c111b6bc0622b34494c00227",
             "file": "src/app/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -637,24 +792,24 @@
                 "./input.css"
             ],
             "styles": [],
-            "template": "<ion-item>\n<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <mat-label>{{ label }}</mat-label>\n    <input matInput [placeholder]=placeholder [value]=value>\n  </mat-form-field>\n</form>\n</ion-item>\n",
+            "template": "./input.component.html",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "label",
                     "defaultValue": "'string'",
-                    "line": 27
+                    "line": 18
                 },
                 {
                     "name": "placeholder",
                     "defaultValue": "'string'",
-                    "line": 25
+                    "line": 16
                 },
                 {
                     "name": "value",
                     "defaultValue": "'string'",
-                    "line": 29
+                    "line": 20
                 }
             ],
             "outputsClass": [],
@@ -665,7 +820,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormBuilder } from '@angular/forms';\nimport { IonicModule, IonicRouteStrategy } from '@ionic/angular';\n\n\n// This default export determines where your story goes in the story list\n@Component({\n  selector: 'storybookInput',\n  template: `\n    <ion-item>\n    <form class=\"example-form\">\n      <mat-form-field class=\"example-full-width\">\n        <mat-label>{{ label }}</mat-label>\n        <input matInput [placeholder]=placeholder [value]=value>\n      </mat-form-field>\n    </form>\n    </ion-item>\n    `,\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n    @Input()\n    placeholder?= 'string';\n    @Input()\n    label ?= 'string';\n    @Input()\n    value?= 'string'\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormBuilder } from '@angular/forms';\nimport { IonicModule, IonicRouteStrategy } from '@ionic/angular';\n\n\n// This default export determines where your story goes in the story list\n@Component({\n  selector: 'storybookInput',\n  template: './input.component.html',\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n    @Input()\n    placeholder= 'string';\n    @Input()\n    label = 'string';\n    @Input()\n    value= 'string'\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -875,157 +1030,6 @@
                 ]
             },
             "templateData": "<ion-menu side=\"start\" menuId=\"custom\" contentId=\"main\" class=\"my-custom-menu\">\n    <ion-header>\n        <ion-toolbar color=\"tertiary\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button></ion-menu-button>\n            </ion-buttons>\n            <ion-title>Custom Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-content>\n\n        <ion-list>\n            <ion-menu-toggle auto-hide=\"false\">\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n            </ion-menu-toggle>\n        </ion-list>\n    </ion-content>\n</ion-menu>\n<ion-router-outlet id=\"main\" main></ion-router-outlet>"
-        },
-        {
-            "name": "LineChartComponent",
-            "id": "component-LineChartComponent-acf14f157d5bc256ed6f947de41b4d03",
-            "file": "src/app/line-chart/line-chart.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-line-chart",
-            "styleUrls": [
-                "./line-chart.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./line-chart.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "backgroundColorInput",
-                    "line": 28,
-                    "type": "string"
-                },
-                {
-                    "name": "borderColorInput",
-                    "line": 27,
-                    "type": "string"
-                },
-                {
-                    "name": "chartLabelInput",
-                    "line": 21,
-                    "type": "string"
-                },
-                {
-                    "name": "chartLegend",
-                    "line": 36,
-                    "type": "boolean"
-                },
-                {
-                    "name": "chartType",
-                    "line": 19,
-                    "type": "\"bar\" | \"line\" | \"doughnut\""
-                },
-                {
-                    "name": "dataArrayInput",
-                    "line": 22,
-                    "type": "number[]"
-                },
-                {
-                    "name": "labelArray",
-                    "line": 30,
-                    "type": "string[]"
-                },
-                {
-                    "name": "maxInput",
-                    "line": 25,
-                    "type": "number"
-                },
-                {
-                    "name": "minInput",
-                    "line": 24,
-                    "type": "number"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "chartColors",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 16,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartDatasets",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartLabels",
-                    "type": "string[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 15,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartOptions",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 17,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartPlugins",
-                    "defaultValue": "[]",
-                    "type": "[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 37
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 39
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './line-chart.component.html',\n  styleUrls: ['./line-chart.component.scss'],\n})\nexport class LineChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut';\n\n  @Input() chartLabelInput: string;\n  @Input() dataArrayInput?: number[];\n\n  @Input() minInput: number;\n  @Input() maxInput: number;\n\n  @Input() borderColorInput?: string;\n  @Input() backgroundColorInput?: string;\n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean;\n  chartPlugins = [];\n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar') {\n      this.chartDatasets = [{\n        data: this.dataArrayInput,\n        label: this.chartLabelInput\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColorInput,\n          backgroundColor: this.backgroundColorInput,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maxInput,\n              min: this.minInput\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labelArray;\n    }\n    else if (this.chartType == 'doughnut') {\n      this.chartDatasets = this.dataArrayInput;\n      this.chartLabels = this.labelArray;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./line-chart.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 10
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>"
         }
     ],
     "modules": [
@@ -1119,6 +1123,9 @@
                             "name": "CardComponent"
                         },
                         {
+                            "name": "ChartComponent"
+                        },
+                        {
                             "name": "DialogElementsExample"
                         },
                         {
@@ -1141,9 +1148,6 @@
                         },
                         {
                             "name": "IonMenuComponent"
-                        },
-                        {
-                            "name": "LineChartComponent"
                         }
                     ]
                 },
@@ -1409,8 +1413,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Chart.stories.ts",
-                "type": "Story<LineChartComponent>",
-                "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
+                "type": "Story<ChartComponent>",
+                "defaultValue": "(args) => ({\n  component: ChartComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1511,8 +1515,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Chart.stories.ts",
-                    "type": "Story<LineChartComponent>",
-                    "defaultValue": "(args) => ({\n  component: LineChartComponent,\n  props: args,\n})"
+                    "type": "Story<ChartComponent>",
+                    "defaultValue": "(args) => ({\n  component: ChartComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Checkbox.stories.ts": [
@@ -1836,6 +1840,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/chart/chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/17",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/dialog/dialog.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1914,15 +1927,6 @@
                 "name": "IonMenuComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/line-chart/line-chart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "LineChartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/17",
                 "status": "low"
             },
             {

@@ -18,23 +18,25 @@ export class ChartComponent implements OnInit {
 
   @Input() chartType: 'bar' | 'line' | 'doughnut';
 
-  @Input() legend: string;
-  @Input() data: number[];
+  @Input() legend: string = "heart rate";
+  @Input() data: number[] = [10, 20, 10, 15, 10];
 
-  @Input() minimalValue: number;
-  @Input() maximalValue: number;
+  @Input() minimalValue: number ;
+  @Input() maximalValue: number ;
 
-  @Input() borderColor: string;
-  @Input() backgroundColor: string;
+  @Input() borderColor: string = "red";
+  @Input() backgroundColor: string = "black";
 
-  @Input() labels: string[];
+  @Input() labels: string[] = ['One', 'Two', 'Three', 'For', 'Five'];
 
 
   //@Input() chartOptionsInput: any;
 
   //@Input() lineChartColors: string;
-  @Input() chartLegend: boolean;
+  @Input() chartLegend: boolean = true;
   chartPlugins = [];
+
+  
 
   ngOnInit(): void {
     if (this.chartType == 'line' || 'bar') {
@@ -63,7 +65,9 @@ export class ChartComponent implements OnInit {
       this.chartLabels = this.labels;
     }
     else if (this.chartType == 'doughnut') {
-      this.chartDatasets = this.data;
+      this.chartDatasets = [{
+        data: this.data
+      }] ;
       this.chartLabels = this.labels;
     }
   }
