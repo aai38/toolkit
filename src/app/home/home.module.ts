@@ -27,6 +27,8 @@ import { MatMenu } from '@angular/material/menu';
 import { DialogElementsExample } from '../dialog/dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptyStatesComponent } from '../empty-states/empty-states.component';
+import { RadioButtonComponent } from '../radio-button/radio-button.component';
+import { SelectComponent } from '../select/select.component';
 
 
 @NgModule({
@@ -48,7 +50,7 @@ import { EmptyStatesComponent } from '../empty-states/empty-states.component';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, EmptyStatesComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
+  declarations: [HomePage, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
   exports: [
     HomePage,
   ],
