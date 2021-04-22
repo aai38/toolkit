@@ -25,7 +25,7 @@ export default {
     chartType: {
       control: {
         type: 'radio',
-        options: ['line', 'bar', 'doughnut']
+        options: ['line', 'bar', 'doughnut', 'radar', 'pie', 'bubble', 'polarArea', 'scatter']
       }
     }
   },
@@ -54,8 +54,8 @@ Line.args = {
     data:[85, 72, 78, 75, 77, 75],
     legend:"heart rate",
     chartLegend: true,
-    maximalValue: 100,
-    minimalValue: 50    
+    maximalValue_y: 100,
+    minimalValue_y: 50    
 };
 
 export const Bar = Template.bind({});
@@ -73,7 +73,66 @@ export const Doughnut = Template.bind({});
 Doughnut.args = {
     chartType:'doughnut',
     labels:['WhatsApp', 'Facebook', 'Jodel'],
-    dataDoughnut:[2, 2, 3],
+    data:[2, 2, 3],
     chartLegend: true
     
+};
+
+export const Radar = Template.bind({});
+Radar.args = {
+  chartType:'radar',
+  labels: ['Punctuality', 'Communication', 'Problem Solving',
+  'Team Player', 'Coding', 'Technical Knowledge', 'Meeting Deadlines'],
+  data: [0, 1, 2, 3, 4, 5, 6],
+  legend: "Employee Skill Analysis"
+}
+
+export const Pie = Template.bind({});
+Pie.args = {
+  chartType:'pie',
+  labels: ['SkyFi', 'Drama', 'Comedy'],
+  data: [30, 50, 20]
+}
+
+export const Bubble = Template.bind({});
+Bubble.args = {
+    chartType: 'bubble',
+    backgroundColor:"red",
+    borderColor:"black",
+    data:[
+    {x: 15, y: 15, r: 15 },
+    { x: 25, y: 15, r: 25 },
+    { x: 36, y: 12, r: 33 },
+    { x: 10, y: 18, r: 18 },],
+    legend:"Investment",
+    minimalValue_y: 0,
+    maximalValue_y: 50,
+    minimalValue_x: 0,
+    maximalValue_x: 50,
+    chartLegend: true
+};
+
+export const PolarArea = Template.bind({});
+PolarArea.args = {
+  chartType:'polarArea',
+  labels: ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'],
+  data: [300, 500, 100, 40, 120]
+}
+
+export const Scatter = Template.bind({});
+Scatter.args = {
+    chartType: 'scatter',
+    backgroundColor:"red",
+    borderColor:"black",
+    data:[
+    {x: 15, y: 15 },
+    { x: 25, y: 15},
+    { x: 36, y: 12},
+    { x: 10, y: 18},],
+    legend:"Series A",
+    minimalValue_y: 0,
+    maximalValue_y: 50,
+    minimalValue_x: 0,
+    maximalValue_x: 50,
+    chartLegend: true
 };

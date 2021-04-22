@@ -18,3 +18,38 @@
 </canvas>
     </div>
 </ng-template>
+
+<ng-template [ngIf]="chartType == 'radar'">
+    <div class="chart-wrapper">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [labels]="chartLabels" chartType="radar">
+  </canvas>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="chartType == 'pie'">
+    <div class="chart-wrapper">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="pie" [options]="chartOptions" [plugins]="chartPlugins" [legend]="chartLegend">
+      </canvas>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="chartType == 'bubble'">
+    <div class="chart-wrapper">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" chartType="bubble">
+      </canvas>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="chartType == 'polarArea'">
+    <div style="display: block;">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [legend]="chartLegend" chartType="polarArea">
+        </canvas>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="chartType == 'scatter'">
+    <div style="display: block;">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" chartType="scatter">
+        </canvas>
+    </div>
+</ng-template>

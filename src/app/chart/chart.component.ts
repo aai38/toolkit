@@ -16,13 +16,15 @@ export class ChartComponent implements OnInit {
   public chartColors;
   public chartOptions;
 
-  @Input() chartType: 'bar' | 'line' | 'doughnut';
+  @Input() chartType: 'bar' | 'line' | 'doughnut' | 'radar' | 'pie' | 'bubble' | 'polarArea' |'scatter';
 
   @Input() legend: string = "heart rate";
   @Input() data: number[] = [10, 20, 10, 15, 10];
 
-  @Input() minimalValue: number ;
-  @Input() maximalValue: number ;
+  @Input() minimalValue_y: number ;
+  @Input() maximalValue_y: number ;
+  @Input() minimalValue_x: number ;
+  @Input() maximalValue_x: number ;
 
   @Input() borderColor: string = "red";
   @Input() backgroundColor: string = "black";
@@ -39,7 +41,7 @@ export class ChartComponent implements OnInit {
   
 
   ngOnInit(): void {
-    if (this.chartType == 'line' || 'bar') {
+    if (this.chartType == 'line' || 'bar' || 'radar' || 'bubble' || 'polarArea' || 'scatter') {
       this.chartDatasets = [{
         data: this.data,
         label: this.legend
@@ -56,15 +58,21 @@ export class ChartComponent implements OnInit {
         scales: {
           yAxes: [{
             ticks: {
-              max: this.maximalValue,
-              min: this.minimalValue
+              max: this.maximalValue_y,
+              min: this.minimalValue_y
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              max: this.maximalValue_x,
+              min: this.minimalValue_x
             }
           }]
         }
       };
       this.chartLabels = this.labels;
     }
-    else if (this.chartType == 'doughnut') {
+    else if (this.chartType == 'doughnut' || 'pie' || 'polarArea') {
       this.chartDatasets = [{
         data: this.data
       }] ;

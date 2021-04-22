@@ -1,6 +1,33 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "Options",
+            "id": "interface-Options-b12e3f145f478138a35bd6ccce3529c8",
+            "file": "src/app/select/select.component.ts",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
+            "properties": [
+                {
+                    "name": "value",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "viewValue",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "classes": [
         {
@@ -128,7 +155,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-482492358858de0d1c05eed1d15d38e6",
+            "id": "component-ButtonComponent-589d53b24c73726f393396a16c7af620",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -153,7 +180,7 @@
                 },
                 {
                     "name": "color",
-                    "description": "<p>How large should the button be?</p>\n",
+                    "description": "<p>Which button it should be?</p>\n",
                     "line": 25,
                     "type": "\"primary\" | \"accent\" | \"warn\""
                 },
@@ -166,7 +193,8 @@
                     "name": "label",
                     "defaultValue": "'Button'",
                     "description": "<p>Button contents</p>\n",
-                    "line": 39
+                    "line": 39,
+                    "type": "string"
                 },
                 {
                     "name": "type",
@@ -190,7 +218,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  color: 'primary' | 'accent' | 'warn';\n\n  @Input()\n  type: 'basic' | 'raised' | 'stroke' | 'flat';\n\n  @Input()\n  disabled?: boolean;\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  \n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * Which button it should be?\n   */\n  @Input()\n  color: 'primary' | 'accent' | 'warn';\n\n  @Input()\n  type: 'basic' | 'raised' | 'stroke' | 'flat';\n\n  @Input()\n  disabled?: boolean;\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label:string = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  \n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -199,11 +227,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ion-item>\n\n    <ng-template [ngIf]=\"type == 'basic'\">\n        <div>\n            <button class=\"button_class\" mat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'raised'\">\n        <div>\n            <button class=\"button_class\" mat-raised-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'flat'\">\n        <div>\n            <button class=\"button_class\" mat-flat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n    <ng-template [ngIf]=\"type == 'stroke'\">\n        <div>\n            <button class=\"button_class\" mat-stroked-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n        </div>\n    </ng-template>\n</ion-item>"
+            "templateData": "<ng-template [ngIf]=\"type == 'basic'\">\n    <div>\n        <button class=\"button_class\" mat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'raised'\">\n    <div>\n        <button class=\"button_class\" mat-raised-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'flat'\">\n    <div>\n        <button class=\"button_class\" mat-flat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'stroke'\">\n    <div>\n        <button class=\"button_class\" mat-stroked-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template #elseBlock>\n    <div>\n        <button class=\"button_class\" mat-button>  View \n            </button>\n    </div>\n</ng-template>"
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-dd543acbd55c3fe50c2ff7cf29392fd2",
+            "id": "component-CardComponent-994105694c0798c0a1d3da73da218971",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -222,53 +250,86 @@
             "inputsClass": [
                 {
                     "name": "alternative",
-                    "line": 31,
+                    "defaultValue": "'some picture'",
+                    "line": 33,
                     "type": "string"
                 },
                 {
                     "name": "description",
-                    "line": 27,
+                    "defaultValue": "'Example description'",
+                    "line": 29,
                     "type": "string"
                 },
                 {
                     "name": "headline",
-                    "line": 25,
+                    "defaultValue": "'Example headline'",
+                    "line": 27,
                     "type": "string"
                 },
                 {
                     "name": "height",
-                    "line": 23,
+                    "defaultValue": "200",
+                    "line": 25,
                     "type": "number"
                 },
                 {
                     "name": "image",
-                    "line": 19,
+                    "defaultValue": "'../assets/blabla.jpg'",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'View'",
+                    "line": 36,
                     "type": "string"
                 },
                 {
                     "name": "showPicture",
-                    "line": 29,
+                    "defaultValue": "true",
+                    "line": 31,
                     "type": "boolean"
                 },
                 {
                     "name": "width",
-                    "line": 21,
+                    "defaultValue": "300",
+                    "line": 23,
                     "type": "number"
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "labelNew",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        114
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38
+                }
+            ],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent  {\n\n  constructor() { }\n  @Input()\n  image?: string;\n  @Input()\n  width?: number;\n  @Input()\n  height?: number;\n  @Input()\n  headline?: string;\n  @Input()\n  description?: string;\n  @Input()\n  showPicture?: boolean;\n  @Input()\n  alternative?: string;\n\n}\n",
+            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent implements OnInit {\n\n  constructor() { }\n  public labelNew: string;\n\n  @Input()\n  image?: string = '../assets/blabla.jpg';\n  @Input()\n  width?: number = 300;\n  @Input()\n  height?: number = 200;\n  @Input()\n  headline?: string = 'Example headline';\n  @Input()\n  description?: string = 'Example description';\n  @Input()\n  showPicture?: boolean = true;\n  @Input()\n  alternative?: string = 'some picture';\n\n  @Input()\n  label: string ='View';\n\n  ngOnInit() {\n    this.labelNew = this.label;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.button {\n    font-style: blueviolet;\n    float: right;\n}\n\n.label {\n    white-space: normal !important;\n}",
+                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.label {\n    white-space: normal !important;\n}\n\n.button {\n    float: right;\n}",
                     "styleUrl": "./card.css"
                 }
             ],
@@ -279,11 +340,14 @@
                 "args": [],
                 "line": 15
             },
-            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n            </div>\n        </ng-template>\n        <br> {{description}}\n        <storybook-button mat-button class=\"button\"> </storybook-button>\n\n    </ion-card-content>\n</ion-card>"
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n\n            </div>\n        </ng-template>\n        <div>\n            <br> {{description}}\n\n            <storybook-button class=\"button\" type=\"raised\" color=\"primary\">{{labelNew}} </storybook-button>\n        </div>\n    </ion-card-content>\n</ion-card>"
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-b885e191f603eaeefc0b6dee2e74d3b4",
+            "id": "component-ChartComponent-c0b64acc47547a21cc3fb1b0263b21b0",
             "file": "src/app/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -302,46 +366,62 @@
             "inputsClass": [
                 {
                     "name": "backgroundColor",
-                    "line": 28,
+                    "defaultValue": "\"black\"",
+                    "line": 30,
                     "type": "string"
                 },
                 {
                     "name": "borderColor",
-                    "line": 27,
+                    "defaultValue": "\"red\"",
+                    "line": 29,
                     "type": "string"
                 },
                 {
                     "name": "chartLegend",
-                    "line": 36,
+                    "defaultValue": "true",
+                    "line": 38,
                     "type": "boolean"
                 },
                 {
                     "name": "chartType",
                     "line": 19,
-                    "type": "\"bar\" | \"line\" | \"doughnut\""
+                    "type": "\"bar\" | \"line\" | \"doughnut\" | \"radar\" | \"pie\" | \"bubble\" | \"polarArea\" | \"scatter\""
                 },
                 {
                     "name": "data",
+                    "defaultValue": "[10, 20, 10, 15, 10]",
                     "line": 22,
                     "type": "number[]"
                 },
                 {
                     "name": "labels",
-                    "line": 30,
+                    "defaultValue": "['One', 'Two', 'Three', 'For', 'Five']",
+                    "line": 32,
                     "type": "string[]"
                 },
                 {
                     "name": "legend",
+                    "defaultValue": "\"heart rate\"",
                     "line": 21,
                     "type": "string"
                 },
                 {
-                    "name": "maximalValue",
+                    "name": "maximalValue_x",
+                    "line": 27,
+                    "type": "number"
+                },
+                {
+                    "name": "maximalValue_y",
                     "line": 25,
                     "type": "number"
                 },
                 {
-                    "name": "minimalValue",
+                    "name": "minimalValue_x",
+                    "line": 26,
+                    "type": "number"
+                },
+                {
+                    "name": "minimalValue_y",
                     "line": 24,
                     "type": "number"
                 }
@@ -394,7 +474,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 37
+                    "line": 39
                 }
             ],
             "methodsClass": [
@@ -404,7 +484,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39
+                    "line": 43
                 }
             ],
             "hostBindings": [],
@@ -412,7 +492,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut';\n\n  @Input() legend: string;\n  @Input() data: number[];\n\n  @Input() minimalValue: number;\n  @Input() maximalValue: number;\n\n  @Input() borderColor: string;\n  @Input() backgroundColor: string;\n\n  @Input() labels: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean;\n  chartPlugins = [];\n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar') {\n      this.chartDatasets = [{\n        data: this.data,\n        label: this.legend\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColor,\n          backgroundColor: this.backgroundColor,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maximalValue,\n              min: this.minimalValue\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labels;\n    }\n    else if (this.chartType == 'doughnut') {\n      this.chartDatasets = this.data;\n      this.chartLabels = this.labels;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut' | 'radar' | 'pie' | 'bubble' | 'polarArea' |'scatter';\n\n  @Input() legend: string = \"heart rate\";\n  @Input() data: number[] = [10, 20, 10, 15, 10];\n\n  @Input() minimalValue_y: number ;\n  @Input() maximalValue_y: number ;\n  @Input() minimalValue_x: number ;\n  @Input() maximalValue_x: number ;\n\n  @Input() borderColor: string = \"red\";\n  @Input() backgroundColor: string = \"black\";\n\n  @Input() labels: string[] = ['One', 'Two', 'Three', 'For', 'Five'];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean = true;\n  chartPlugins = [];\n\n  \n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar' || 'radar' || 'bubble' || 'polarArea' || 'scatter') {\n      this.chartDatasets = [{\n        data: this.data,\n        label: this.legend\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColor,\n          backgroundColor: this.backgroundColor,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maximalValue_y,\n              min: this.minimalValue_y\n            }\n          }],\n          xAxes: [{\n            ticks: {\n              max: this.maximalValue_x,\n              min: this.minimalValue_x\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labels;\n    }\n    else if (this.chartType == 'doughnut' || 'pie' || 'polarArea') {\n      this.chartDatasets = [{\n        data: this.data\n      }] ;\n      this.chartLabels = this.labels;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -430,7 +510,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>"
+            "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'radar'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" [labels]=\"chartLabels\" chartType=\"radar\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'pie'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"pie\" [options]=\"chartOptions\" [plugins]=\"chartPlugins\" [legend]=\"chartLegend\">\n      </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bubble'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bubble\">\n      </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'polarArea'\">\n    <div style=\"display: block;\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [legend]=\"chartLegend\" chartType=\"polarArea\">\n        </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'scatter'\">\n    <div style=\"display: block;\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" chartType=\"scatter\">\n        </canvas>\n    </div>\n</ng-template>"
         },
         {
             "name": "DialogElementsExample",
@@ -542,107 +622,6 @@
             "templateData": "<h1 mat-dialog-title>Dialog with elements</h1>\n<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>\n<div mat-dialog-actions>\n    <button mat-button mat-dialog-close>Close</button>\n</div>"
         },
         {
-            "name": "DoughnutChartComponent",
-            "id": "component-DoughnutChartComponent-d03ab200be5c9842d8ec77408f1ae29d",
-            "file": "src/app/doughnut-chart/doughnut-chart.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-doughnut-chart",
-            "styleUrls": [
-                "./doughnut-chart.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./doughnut-chart.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "dataArrayInput",
-                    "line": 15,
-                    "type": "number[]"
-                },
-                {
-                    "name": "doughnutChartLegend",
-                    "line": 24,
-                    "type": "boolean"
-                },
-                {
-                    "name": "labelArray",
-                    "line": 18,
-                    "type": "string[]"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "chartDatasets",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 12,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "chartLabels",
-                    "type": "string[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 13,
-                    "modifierKind": [
-                        114
-                    ]
-                },
-                {
-                    "name": "ChartPlugins",
-                    "defaultValue": "[]",
-                    "type": "[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 25
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 27
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-doughnut-chart',\n  templateUrl: './doughnut-chart.component.html',\n  styleUrls: ['./doughnut-chart.component.scss'],\n})\nexport class DoughnutChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n\n  @Input() dataArrayInput?: number[];\n  \n\n  @Input() labelArray?: string[];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() doughnutChartLegend : boolean;\n  ChartPlugins = [];\n\n  ngOnInit(): void {\n    this.chartDatasets = \n       this.dataArrayInput\n    ;\n    \n\n    \n    this.chartLabels = this.labelArray;\n  }\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./doughnut-chart.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"chart-wrapper\">\n    <canvas baseChart [data]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n</div>"
-        },
-        {
             "name": "EmptyStatesComponent",
             "id": "component-EmptyStatesComponent-f16cdaadfd48671de8b252b01ae80274",
             "file": "src/app/empty-states/empty-states.component.ts",
@@ -720,7 +699,7 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<meta name=\"color-scheme\" content=\"light dark\" />\n\n<body>\n\n    <ng-template [ngIf]=\"type == 'studies'\">\n        <div class=\"content_picture\">\n            <mat-icon>broken_image</mat-icon>\n            <br class=\"label\"> {{ emptyLabel}}\n        </div>\n    </ng-template>\n\n</body>"
+            "templateData": "<body>\n\n    <ng-template [ngIf]=\"type == 'studies'\">\n        <div class=\"content_picture\">\n            <mat-icon>broken_image</mat-icon>\n            <br class=\"label\"> {{ emptyLabel}}\n        </div>\n    </ng-template>\n\n</body>"
         },
         {
             "name": "HomePage",
@@ -776,11 +755,11 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-ion-menu></app-ion-menu>\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button menu=\"custom\" autoHide=\"false\"></ion-menu-button>\n            </ion-buttons>\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <mat-form-field>\n                <mat-label>Choose a date</mat-label>\n                <input matInput [matDatepicker]=\"picker\">\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n                <mat-datepicker #picker></mat-datepicker>\n            </mat-form-field>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" [scrollEvents]=\"true\">\n\n\n    <app-line-chart></app-line-chart>\n\n\n\n\n\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-ion-menu></app-ion-menu>\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button menu=\"custom\" autoHide=\"false\"></ion-menu-button>\n            </ion-buttons>\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <app-ion-datetime></app-ion-datetime>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n\n    <app-line-chart chartType=\"pie\"></app-line-chart>\n\n\n\n\n\n</ion-content>"
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-36b47143c111b6bc0622b34494c00227",
+            "id": "component-InputComponent-e47d62ab26225c68eaa156bfcb6d3440",
             "file": "src/app/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -792,23 +771,25 @@
                 "./input.css"
             ],
             "styles": [],
-            "template": "./input.component.html",
-            "templateUrl": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "label",
-                    "defaultValue": "'string'",
+                    "defaultValue": "'Search'",
                     "line": 18
                 },
                 {
                     "name": "placeholder",
-                    "defaultValue": "'string'",
-                    "line": 16
+                    "defaultValue": "'Type anything...'",
+                    "line": 16,
+                    "type": "string"
                 },
                 {
                     "name": "value",
-                    "defaultValue": "'string'",
+                    "defaultValue": "''",
                     "line": 20
                 }
             ],
@@ -820,7 +801,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormBuilder } from '@angular/forms';\nimport { IonicModule, IonicRouteStrategy } from '@ionic/angular';\n\n\n// This default export determines where your story goes in the story list\n@Component({\n  selector: 'storybookInput',\n  template: './input.component.html',\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n    @Input()\n    placeholder= 'string';\n    @Input()\n    label = 'string';\n    @Input()\n    value= 'string'\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormBuilder } from '@angular/forms';\nimport { IonicModule, IonicRouteStrategy } from '@ionic/angular';\n\n\n// This default export determines where your story goes in the story list\n@Component({\n  selector: 'storybookInput',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.css'],\n})\nexport default class InputComponent {\n    @Input()\n    placeholder:string = 'Type anything...';\n    @Input()\n    label = 'Search';\n    @Input()\n    value= '';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -828,11 +809,12 @@
                     "styleUrl": "./input.css"
                 }
             ],
-            "stylesData": ""
+            "stylesData": "",
+            "templateData": "<form class=\"example-form\">\n    <mat-form-field class=\"example-full-width\">\n        <mat-label>{{ label }}</mat-label>\n        <input matInput [placeholder]=placeholder [value]=value>\n    </mat-form-field>\n</form>"
         },
         {
             "name": "IonCheckboxComponent",
-            "id": "component-IonCheckboxComponent-d1e716967035577c9a1e02c80dc3d828",
+            "id": "component-IonCheckboxComponent-d679cefe4687b9106e66ee9629db0646",
             "file": "src/app/ion-checkbox/ion-checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -852,7 +834,8 @@
                 {
                     "name": "checked",
                     "defaultValue": "false",
-                    "line": 15
+                    "line": 15,
+                    "type": "boolean"
                 },
                 {
                     "name": "color",
@@ -862,7 +845,8 @@
                 {
                     "name": "disabled",
                     "defaultValue": "false",
-                    "line": 18
+                    "line": 18,
+                    "type": "boolean"
                 },
                 {
                     "name": "label",
@@ -878,7 +862,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-ion-checkbox',\n  templateUrl: './ion-checkbox.component.html',\n  styleUrls: ['./ion-checkbox.component.scss'],\n})\nexport default class IonCheckboxComponent {\n\n  constructor() { }\n  @Input()\n  label? = 'string';\n  \n  @Input()\n  checked? = false;\n\n  @Input()\n  disabled? = false;\n\n\n  @Input()\n  color?: string;\n\n\n  \n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-ion-checkbox',\n  templateUrl: './ion-checkbox.component.html',\n  styleUrls: ['./ion-checkbox.component.scss'],\n})\nexport default class IonCheckboxComponent {\n\n  constructor() { }\n  @Input()\n  label? = 'string';\n  \n  @Input()\n  checked: boolean = false;\n\n  @Input()\n  disabled: boolean = false;\n\n\n  @Input()\n  color?: string;\n\n\n  \n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -893,11 +877,11 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<ion-item>\n    <div id='check'>\n        <mat-checkbox class=\"example-margin\" [color]=color [checked]=checked [disabled]=disabled> {{ label }} </mat-checkbox>\n    </div>\n</ion-item>"
+            "templateData": "<div id='check'>\n    <mat-checkbox class=\"example-margin\" [color]=color [checked]=checked [disabled]=disabled> {{ label }} </mat-checkbox>\n</div>"
         },
         {
             "name": "IonDate",
-            "id": "component-IonDate-c2172e8a1f1915374e60257f280d2990",
+            "id": "component-IonDate-9fc819f462ac6e309b0202a72ed4a741",
             "file": "src/app/ion-datetime/ion-datetime.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -916,6 +900,7 @@
             "inputsClass": [
                 {
                     "name": "label",
+                    "defaultValue": "'Choose date'",
                     "line": 14,
                     "type": "string"
                 }
@@ -937,7 +922,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {FormControl} from '@angular/forms';\n\n@Component({\n  selector: 'app-ion-datetime',\n  templateUrl: './ion-datetime.component.html',\n  styleUrls: ['./ion-datetime.component.scss'],\n})\nexport default class IonDate  {\n\n  date = new FormControl(new Date());\n\n  @Input()\n    label?: string;\n\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {FormControl} from '@angular/forms';\n\n@Component({\n  selector: 'app-ion-datetime',\n  templateUrl: './ion-datetime.component.html',\n  styleUrls: ['./ion-datetime.component.scss'],\n})\nexport default class IonDate  {\n\n  date = new FormControl(new Date());\n\n  @Input()\n    label?: string = 'Choose date';\n\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -946,7 +931,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ion-item>\n    <mat-form-field appearance=\"fill\" class=\"example-form-field\">\n        <mat-label>Enter a date range</mat-label>\n        <mat-date-range-input [rangePicker]=\"rangePicker\">\n            <input matStartDate placeholder=\"Start date\">\n            <input matEndDate placeholder=\"End date\">\n        </mat-date-range-input>\n        <mat-datepicker-toggle matSuffix [for]=\"rangePicker\"></mat-datepicker-toggle>\n        <mat-date-range-picker #rangePicker>\n            <mat-date-range-picker-actions>\n                <button mat-button matDateRangePickerCancel>Cancel</button>\n                <button mat-raised-button color=\"primary\" matDateRangePickerApply>Apply</button>\n            </mat-date-range-picker-actions>\n        </mat-date-range-picker>\n    </mat-form-field>\n</ion-item>"
+            "templateData": "<mat-form-field appearance=\"fill\" class=\"example-form-field\">\n    <mat-label>Enter a date range</mat-label>\n    <mat-date-range-input [rangePicker]=\"rangePicker\">\n        <input matStartDate placeholder=\"Start date\">\n        <input matEndDate placeholder=\"End date\">\n    </mat-date-range-input>\n    <mat-datepicker-toggle matSuffix [for]=\"rangePicker\"></mat-datepicker-toggle>\n    <mat-date-range-picker #rangePicker>\n        <mat-date-range-picker-actions>\n            <button mat-button matDateRangePickerCancel>Cancel</button>\n            <button mat-raised-button color=\"primary\" matDateRangePickerApply>Apply</button>\n        </mat-date-range-picker-actions>\n    </mat-date-range-picker>\n</mat-form-field>"
         },
         {
             "name": "IonMenuComponent",
@@ -1030,6 +1015,138 @@
                 ]
             },
             "templateData": "<ion-menu side=\"start\" menuId=\"custom\" contentId=\"main\" class=\"my-custom-menu\">\n    <ion-header>\n        <ion-toolbar color=\"tertiary\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button></ion-menu-button>\n            </ion-buttons>\n            <ion-title>Custom Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-content>\n\n        <ion-list>\n            <ion-menu-toggle auto-hide=\"false\">\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n            </ion-menu-toggle>\n        </ion-list>\n    </ion-content>\n</ion-menu>\n<ion-router-outlet id=\"main\" main></ion-router-outlet>"
+        },
+        {
+            "name": "RadioButtonComponent",
+            "id": "component-RadioButtonComponent-2916aa3eafca2b2e147a56e28c4ae028",
+            "file": "src/app/radio-button/radio-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-radio-button",
+            "styleUrls": [
+                "./radio-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./radio-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'primary'",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "line": 15,
+                    "type": "boolean"
+                },
+                {
+                    "name": "labels",
+                    "defaultValue": "['Winter', 'Spring', 'Summer', 'Autumn']",
+                    "line": 12,
+                    "type": "string[]"
+                },
+                {
+                    "name": "radioButtonsLabel",
+                    "defaultValue": "\"Pick one Option\"",
+                    "line": 13,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-radio-button',\n  templateUrl: './radio-button.component.html',\n  styleUrls: ['./radio-button.component.scss'],\n})\nexport class RadioButtonComponent {\n\n  constructor() { }\n\n  @Input() labels: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];\n  @Input() radioButtonsLabel: string = \"Pick one Option\";\n  @Input() color: string = 'primary';\n  @Input() disabled: boolean = false;\n\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-radio-group {\n    display: flex;\n    flex-direction: column;\n    margin: 15px 0;\n}\n\n.example-radio-button {\n    margin: 5px;\n}",
+                    "styleUrl": "./radio-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<mat-radio-group class=\"example-radio-group\" aria-label=\"Select an option\">\n    <label id=\"radio-button-label\">{{radioButtonsLabel}}</label>\n    <mat-radio-button class=\"example-radio-button\" [color]=\"color\" [disabled]=\"disabled\" *ngFor=\"let label of labels\" [value]=\"label\">{{ label }}</mat-radio-button>\n\n</mat-radio-group>"
+        },
+        {
+            "name": "SelectComponent",
+            "id": "component-SelectComponent-b12e3f145f478138a35bd6ccce3529c8",
+            "file": "src/app/select/select.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-select",
+            "styleUrls": [
+                "./select.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./select.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "defaultValue": "\"Food\"",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ]",
+                    "line": 17,
+                    "type": "Options[]"
+                },
+                {
+                    "name": "requiredSelection",
+                    "defaultValue": "false",
+                    "line": 23,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./select.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 14
+            },
+            "templateData": "<mat-form-field appearance=\"fill\">\n    <mat-label>{{label}}</mat-label>\n    <ng-template [ngIf]=\"requiredSelection ==false\">\n        <mat-select>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">\n                {{option.viewValue}}\n            </mat-option>\n        </mat-select>\n    </ng-template>\n    <ng-template [ngIf]=\"requiredSelection\">\n        <mat-select matNativeControl required>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">{{option.viewValue}}</mat-option>\n        </mat-select>\n    </ng-template>\n</mat-form-field>"
         }
     ],
     "modules": [
@@ -1127,9 +1244,6 @@
                         },
                         {
                             "name": "DialogElementsExample"
-                        },
-                        {
-                            "name": "DoughnutChartComponent"
                         },
                         {
                             "name": "EmptyStatesComponent"
@@ -1250,6 +1364,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Bubble",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Checked",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1306,10 +1428,34 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Pie",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "PolarArea",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Radar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chart.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1321,10 +1467,10 @@
                 "type": "any"
             },
             {
-                "name": "Standard",
+                "name": "Scatter",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/app/stories/Chart.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1348,7 +1494,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/DatePicker.stories.ts",
+                "file": "src/app/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1364,6 +1510,14 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1372,7 +1526,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
+                "file": "src/app/stories/DatePicker.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1393,12 +1547,20 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Template",
+                "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "src/app/stories/RadioButton.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Template",
@@ -1428,9 +1590,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/DatePicker.stories.ts",
-                "type": "Story<IonDate>",
-                "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                "file": "src/app/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1444,6 +1606,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "Story<EmptyStatesComponent>",
                 "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
@@ -1452,9 +1622,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "Story<HomePage>",
-                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                "file": "src/app/stories/DatePicker.stories.ts",
+                "type": "Story<IonDate>",
+                "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1471,6 +1641,22 @@
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "Story<IonMenuComponent>",
                 "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/RadioButton.stories.ts",
+                "type": "Story<RadioButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: RadioButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Select.stories.ts",
+                "type": "Story<SelectComponent>",
+                "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
             },
             {
                 "name": "withoutPicture",
@@ -1495,6 +1681,14 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
+                    "name": "Bubble",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
                     "name": "Doughnut",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -1504,6 +1698,38 @@
                 },
                 {
                     "name": "Line",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Pie",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "PolarArea",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Radar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chart.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Scatter",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Chart.stories.ts",
@@ -1642,24 +1868,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/app/stories/DatePicker.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/DatePicker.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/DatePicker.stories.ts",
-                    "type": "Story<IonDate>",
-                    "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
-                }
-            ],
             "src/app/stories/Dialog.stories.ts": [
                 {
                     "name": "Standard",
@@ -1676,6 +1884,24 @@
                     "file": "src/app/stories/Dialog.stories.ts",
                     "type": "Story<DialogElementsExample>",
                     "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/Homepage.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "Story<HomePage>",
+                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/EmptyStates.stories.ts": [
@@ -1696,12 +1922,12 @@
                     "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Homepage.stories.ts": [
+            "src/app/stories/DatePicker.stories.ts": [
                 {
                     "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
+                    "file": "src/app/stories/DatePicker.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -1709,9 +1935,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "Story<HomePage>",
-                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                    "file": "src/app/stories/DatePicker.stories.ts",
+                    "type": "Story<IonDate>",
+                    "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Input.stories.ts": [
@@ -1748,6 +1974,42 @@
                     "file": "src/app/stories/Menu.stories.ts",
                     "type": "Story<IonMenuComponent>",
                     "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/RadioButton.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/RadioButton.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/RadioButton.stories.ts",
+                    "type": "Story<RadioButtonComponent>",
+                    "defaultValue": "(args) => ({\n  component: RadioButtonComponent,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/Select.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Select.stories.ts",
+                    "type": "Story<SelectComponent>",
+                    "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
                 }
             ]
         },
@@ -1836,7 +2098,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -1845,7 +2107,7 @@
                 "linktype": "component",
                 "name": "ChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/17",
+                "coverageCount": "0/19",
                 "status": "low"
             },
             {
@@ -1864,15 +2126,6 @@
                 "name": "DialogElementsExampleDialog",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/doughnut-chart/doughnut-chart.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "DoughnutChartComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1927,6 +2180,33 @@
                 "name": "IonMenuComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/radio-button/radio-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RadioButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/select/select.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/select/select.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Options",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -2004,6 +2284,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Bubble",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Doughnut",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -2015,6 +2305,46 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Line",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Pie",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PolarArea",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Radar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chart.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Scatter",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2181,6 +2511,46 @@
             },
             {
                 "filePath": "src/app/stories/Menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/RadioButton.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/RadioButton.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Select.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

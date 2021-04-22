@@ -12,10 +12,10 @@ export default class IonCheckboxComponent {
   label? = 'string';
   
   @Input()
-  checked? = false;
+  checked: boolean = false;
 
   @Input()
-  disabled? = false;
+  disabled: boolean = false;
 
 
   @Input()

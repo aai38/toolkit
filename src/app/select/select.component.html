@@ -1,0 +1,18 @@
+<mat-form-field appearance="fill">
+    <mat-label>{{label}}</mat-label>
+    <ng-template [ngIf]="requiredSelection ==false">
+        <mat-select>
+            <mat-option *ngFor="let option of options" [value]="option.value">
+                {{option.viewValue}}
+            </mat-option>
+        </mat-select>
+    </ng-template>
+    <ng-template [ngIf]="requiredSelection">
+        <mat-select matNativeControl required>
+            <mat-option *ngFor="let option of options" [value]="option.value">{{option.viewValue}}</mat-option>
+        </mat-select>
+        <ng-template [ngIf]="showHint">
+            <mat-hint>{{hint}}</mat-hint>
+        </ng-template>
+    </ng-template>
+</mat-form-field>
