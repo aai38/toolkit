@@ -30,10 +30,14 @@ export default class CardComponent implements OnInit {
   @Input()
   showPicture?: boolean = true;
   @Input()
+  loading: boolean = false;
+  @Input()
   alternative?: string = 'some picture';
 
   @Input()
   label: string ='View';
+  @Input()
+  icon: string = 'star_border';
 
   ngOnInit() {
     this.labelNew = this.label;
