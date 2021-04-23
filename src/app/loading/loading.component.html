@@ -1,0 +1,6 @@
+<ng-template [ngIf]="spinner==false">
+    <mat-progress-bar class="progress" [color]="color" [mode]="mode" [value]="value"></mat-progress-bar>
+</ng-template>
+<ng-template [ngIf]="spinner">
+    <mat-spinner class="spinner" [color]="color" [mode]="mode" [value]="value"></mat-spinner>
+</ng-template>

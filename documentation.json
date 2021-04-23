@@ -3,10 +3,10 @@
     "interfaces": [
         {
             "name": "Options",
-            "id": "interface-Options-b12e3f145f478138a35bd6ccce3529c8",
+            "id": "interface-Options-ddf04398d2428a9954e75d70a7b807ec",
             "file": "src/app/select/select.component.ts",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n  @Input() showHint: boolean = true;\n  @Input() hint: string =\"hint\";\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
             "properties": [
                 {
                     "name": "value",
@@ -1087,7 +1087,7 @@
         },
         {
             "name": "SelectComponent",
-            "id": "component-SelectComponent-b12e3f145f478138a35bd6ccce3529c8",
+            "id": "component-SelectComponent-ddf04398d2428a9954e75d70a7b807ec",
             "file": "src/app/select/select.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1105,6 +1105,12 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "hint",
+                    "defaultValue": "\"hint\"",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
                     "name": "label",
                     "defaultValue": "\"Food\"",
                     "line": 24,
@@ -1121,6 +1127,12 @@
                     "defaultValue": "false",
                     "line": 23,
                     "type": "boolean"
+                },
+                {
+                    "name": "showHint",
+                    "defaultValue": "true",
+                    "line": 26,
+                    "type": "boolean"
                 }
             ],
             "outputsClass": [],
@@ -1131,7 +1143,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormControl, Validators } from '@angular/forms';\n\ninterface Options {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss'],\n})\nexport class SelectComponent  {\n\n  constructor() { }\n  @Input() options: Options[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  @Input() requiredSelection: boolean = false;\n  @Input() label: string= \"Food\";\n\n  @Input() showHint: boolean = true;\n  @Input() hint: string =\"hint\";\n\n  //selectFormControl = new FormControl('', Validators.required);\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1146,7 +1158,7 @@
                 "args": [],
                 "line": 14
             },
-            "templateData": "<mat-form-field appearance=\"fill\">\n    <mat-label>{{label}}</mat-label>\n    <ng-template [ngIf]=\"requiredSelection ==false\">\n        <mat-select>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">\n                {{option.viewValue}}\n            </mat-option>\n        </mat-select>\n    </ng-template>\n    <ng-template [ngIf]=\"requiredSelection\">\n        <mat-select matNativeControl required>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">{{option.viewValue}}</mat-option>\n        </mat-select>\n    </ng-template>\n</mat-form-field>"
+            "templateData": "<mat-form-field appearance=\"fill\">\n    <mat-label>{{label}}</mat-label>\n    <ng-template [ngIf]=\"requiredSelection ==false\">\n        <mat-select>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">\n                {{option.viewValue}}\n            </mat-option>\n        </mat-select>\n    </ng-template>\n    <ng-template [ngIf]=\"requiredSelection\">\n        <mat-select matNativeControl required>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">{{option.viewValue}}</mat-option>\n        </mat-select>\n        <ng-template [ngIf]=\"showHint\">\n            <mat-hint>{{hint}}</mat-hint>\n        </ng-template>\n    </ng-template>\n</mat-form-field>"
         }
     ],
     "modules": [
@@ -1262,6 +1274,12 @@
                         },
                         {
                             "name": "IonMenuComponent"
+                        },
+                        {
+                            "name": "RadioButtonComponent"
+                        },
+                        {
+                            "name": "SelectComponent"
                         }
                     ]
                 },
@@ -1478,6 +1496,14 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Button.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1494,7 +1520,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
+                "file": "src/app/stories/DatePicker.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1510,14 +1536,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1526,7 +1544,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/DatePicker.stories.ts",
+                "file": "src/app/stories/Homepage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1566,6 +1584,14 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
                 "type": "Story<CardComponent>",
                 "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
@@ -1590,9 +1616,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "src/app/stories/DatePicker.stories.ts",
+                "type": "Story<IonDate>",
+                "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1606,14 +1632,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "Story<HomePage>",
-                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "Story<EmptyStatesComponent>",
                 "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
@@ -1622,9 +1640,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/DatePicker.stories.ts",
-                "type": "Story<IonDate>",
-                "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1868,6 +1886,24 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
+            "src/app/stories/DatePicker.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/DatePicker.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/DatePicker.stories.ts",
+                    "type": "Story<IonDate>",
+                    "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Dialog.stories.ts": [
                 {
                     "name": "Standard",
@@ -1884,24 +1920,6 @@
                     "file": "src/app/stories/Dialog.stories.ts",
                     "type": "Story<DialogElementsExample>",
                     "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/Homepage.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "Story<HomePage>",
-                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/EmptyStates.stories.ts": [
@@ -1922,12 +1940,12 @@
                     "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/DatePicker.stories.ts": [
+            "src/app/stories/Homepage.stories.ts": [
                 {
                     "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/DatePicker.stories.ts",
+                    "file": "src/app/stories/Homepage.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -1935,9 +1953,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/DatePicker.stories.ts",
-                    "type": "Story<IonDate>",
-                    "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "Story<HomePage>",
+                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Input.stories.ts": [
@@ -2197,7 +2215,7 @@
                 "linktype": "component",
                 "name": "SelectComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

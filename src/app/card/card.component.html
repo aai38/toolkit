@@ -1,7 +1,7 @@
 <ion-card>
     <ion-item>
         <button mat-icon-button slot="end" aria-label="Example icon button with a heart icon">
-            <mat-icon>star_border</mat-icon>
+            <mat-icon>{{icon}}</mat-icon>
             </button>
 
         <mat-label class="label" slot="start">{{ headline }}</mat-label>
@@ -11,6 +11,12 @@
         <ng-template [ngIf]="showPicture">
             <div style="text-align:center;">
                 <img class="picture" [src]="image" [alt]="alternative" [width]="width" [height]="height">
+
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="loading">
+            <div style="text-align:center;">
+                <mat-spinner class="spinner"></mat-spinner>
 
             </div>
         </ng-template>

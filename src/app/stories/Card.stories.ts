@@ -42,7 +42,9 @@ Standard.args = {
   headline: "Headline of study",
   description: "Description of the study",
   showPicture: true,
-  alternative: 'some Picture'
+  alternative: 'some Picture',
+  icon: 'star_border',
+  loading: false
 };
 
 export const withoutPicture = Template.bind({});
@@ -52,7 +54,20 @@ withoutPicture.args = {
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
-  showPicture: false
+  showPicture: false,
+  icon: 'star_border',
+  loading: false
 };
 
+export const loadPicture = Template.bind({});
+loadPicture.args = {
+  image: "assets/blabla.jpg",
+  width: 300,
+  height: 300,
+  headline: "Headline of study",
+  description: "Description of the study",
+  showPicture: false,
+  icon: 'star_border',
+  loading: true
+};
 

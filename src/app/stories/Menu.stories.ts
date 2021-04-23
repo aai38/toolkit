@@ -3,10 +3,9 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import IonMenuComponent from '../ion-menu/ion-menu.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
-import { ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from '../material.module';
-import { CommonModule } from '@angular/common';
-import { MenuController } from '@ionic/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 export default {
@@ -17,7 +16,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [IonMenuComponent],
-      imports: [IonicModule, ReactiveFormsModule, MaterialModule, CommonModule, MenuController],
+      imports: [IonicModule, MaterialModule, BrowserAnimationsModule],
     }),
   ],
   
@@ -30,5 +29,11 @@ const Template: Story<IonMenuComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  required: true
+  menu_icon: 'menu',
+  items: [
+    {title: 'First', icon: 'favorite'},
+    {title: 'Second', icon: 'share'},
+    {title: 'Third', icon: 'star'}
+  ],
+  header1: 'Items'
 };
