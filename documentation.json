@@ -2,6 +2,32 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "Items",
+            "id": "interface-Items-b3308147d4f84e509012ce90953e0793",
+            "file": "src/app/ion-menu/ion-menu.component.ts",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n  @Input() header1: string ='Items';\n}\n\n\n\n",
+            "properties": [
+                {
+                    "name": "icon",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        },
+        {
             "name": "Options",
             "id": "interface-Options-ddf04398d2428a9954e75d70a7b807ec",
             "file": "src/app/select/select.component.ts",
@@ -231,7 +257,7 @@
         },
         {
             "name": "CardComponent",
-            "id": "component-CardComponent-994105694c0798c0a1d3da73da218971",
+            "id": "component-CardComponent-ecb58ac614f4a2e82d996dc509fd3cd6",
             "file": "src/app/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -251,7 +277,7 @@
                 {
                     "name": "alternative",
                     "defaultValue": "'some picture'",
-                    "line": 33,
+                    "line": 35,
                     "type": "string"
                 },
                 {
@@ -273,6 +299,12 @@
                     "type": "number"
                 },
                 {
+                    "name": "icon",
+                    "defaultValue": "'star_border'",
+                    "line": 40,
+                    "type": "string"
+                },
+                {
                     "name": "image",
                     "defaultValue": "'../assets/blabla.jpg'",
                     "line": 21,
@@ -281,8 +313,14 @@
                 {
                     "name": "label",
                     "defaultValue": "'View'",
-                    "line": 36,
+                    "line": 38,
                     "type": "string"
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "false",
+                    "line": 33,
+                    "type": "boolean"
                 },
                 {
                     "name": "showPicture",
@@ -317,7 +355,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38
+                    "line": 42
                 }
             ],
             "hostBindings": [],
@@ -325,11 +363,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent implements OnInit {\n\n  constructor() { }\n  public labelNew: string;\n\n  @Input()\n  image?: string = '../assets/blabla.jpg';\n  @Input()\n  width?: number = 300;\n  @Input()\n  height?: number = 200;\n  @Input()\n  headline?: string = 'Example headline';\n  @Input()\n  description?: string = 'Example description';\n  @Input()\n  showPicture?: boolean = true;\n  @Input()\n  alternative?: string = 'some picture';\n\n  @Input()\n  label: string ='View';\n\n  ngOnInit() {\n    this.labelNew = this.label;\n  }\n}\n",
+            "sourceCode": "import { NgModule, Component, Input, Output, EventEmitter, OnInit } from '@angular/core';\n\nimport { BrowserModule } from '@angular/platform-browser';\nimport { RouteReuseStrategy } from '@angular/router';\nimport ButtonComponent from '../button/button.component';\n\n\n\n\n@Component({\n  selector: 'app-card',\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n})\nexport default class CardComponent implements OnInit {\n\n  constructor() { }\n  public labelNew: string;\n\n  @Input()\n  image?: string = '../assets/blabla.jpg';\n  @Input()\n  width?: number = 300;\n  @Input()\n  height?: number = 200;\n  @Input()\n  headline?: string = 'Example headline';\n  @Input()\n  description?: string = 'Example description';\n  @Input()\n  showPicture?: boolean = true;\n  @Input()\n  loading: boolean = false;\n  @Input()\n  alternative?: string = 'some picture';\n\n  @Input()\n  label: string ='View';\n  @Input()\n  icon: string = 'star_border';\n\n  ngOnInit() {\n    this.labelNew = this.label;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.label {\n    white-space: normal !important;\n}\n\n.button {\n    float: right;\n}",
+                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.label {\n    white-space: normal !important;\n}\n\n.button {\n    float: right;\n}\n\n.spinner {\n    left: 50%;\n    margin-left: -4em;\n}",
                     "styleUrl": "./card.css"
                 }
             ],
@@ -343,7 +381,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>star_border</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n\n            </div>\n        </ng-template>\n        <div>\n            <br> {{description}}\n\n            <storybook-button class=\"button\" type=\"raised\" color=\"primary\">{{labelNew}} </storybook-button>\n        </div>\n    </ion-card-content>\n</ion-card>"
+            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>{{icon}}</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"showPicture\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n\n            </div>\n        </ng-template>\n        <ng-template [ngIf]=\"loading\">\n            <div style=\"text-align:center;\">\n                <mat-spinner class=\"spinner\"></mat-spinner>\n\n            </div>\n        </ng-template>\n        <div>\n            <br> {{description}}\n\n            <storybook-button class=\"button\" type=\"raised\" color=\"primary\">{{labelNew}} </storybook-button>\n        </div>\n    </ion-card-content>\n</ion-card>"
         },
         {
             "name": "ChartComponent",
@@ -755,7 +793,7 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-ion-menu></app-ion-menu>\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button menu=\"custom\" autoHide=\"false\"></ion-menu-button>\n            </ion-buttons>\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <app-ion-datetime></app-ion-datetime>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n\n    <app-line-chart chartType=\"pie\"></app-line-chart>\n\n\n\n\n\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n\n\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <app-ion-datetime></app-ion-datetime>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n\n    <app-line-chart chartType=\"pie\"></app-line-chart>\n\n\n\n\n\n</ion-content>"
         },
         {
             "name": "InputComponent",
@@ -935,7 +973,7 @@
         },
         {
             "name": "IonMenuComponent",
-            "id": "component-IonMenuComponent-4b2e6dabbc93756a4375a1ed4adb428a",
+            "id": "component-IonMenuComponent-b3308147d4f84e509012ce90953e0793",
             "file": "src/app/ion-menu/ion-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -951,45 +989,48 @@
                 "./ion-menu.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
+            "inputsClass": [
                 {
-                    "name": "openCustom",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 22
+                    "name": "header1",
+                    "defaultValue": "'Items'",
+                    "line": 24,
+                    "type": "string"
                 },
                 {
-                    "name": "openEnd",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 18
+                    "name": "items",
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ]",
+                    "line": 19,
+                    "type": "Items[]"
                 },
                 {
-                    "name": "openFirst",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 13
+                    "name": "menu_icon",
+                    "defaultValue": "'menu'",
+                    "line": 18,
+                    "type": "string"
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showFiller",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                }
+            ],
+            "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n\n  openFirst() {\n    this.menu.enable(true, 'first');\n    this.menu.open('first');\n  }\n\n  openEnd() {\n    this.menu.open('end');\n  }\n\n  openCustom() {\n    this.menu.enable(true, 'custom');\n    this.menu.open('custom');\n  }\n}\n\n\n\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n  @Input() header1: string ='Items';\n}\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".my-custom-menu {\n    --width: 500px;\n}",
+                    "data": ".example-container {\n    width: 500px;\n    height: 300px;\n    border: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n.example-sidenav-content {\n    display: flex;\n    margin-left: 5px;\n}\n\n.example-sidenav {\n    padding: 20px;\n}",
                     "styleUrl": "./ion-menu.component.scss"
                 }
             ],
@@ -1003,7 +1044,7 @@
                         "type": "MenuController"
                     }
                 ],
-                "line": 9,
+                "line": 14,
                 "jsdoctags": [
                     {
                         "name": "menu",
@@ -1014,7 +1055,88 @@
                     }
                 ]
             },
-            "templateData": "<ion-menu side=\"start\" menuId=\"custom\" contentId=\"main\" class=\"my-custom-menu\">\n    <ion-header>\n        <ion-toolbar color=\"tertiary\">\n            <ion-buttons slot=\"start\">\n                <ion-menu-button></ion-menu-button>\n            </ion-buttons>\n            <ion-title>Custom Menu</ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-content>\n\n        <ion-list>\n            <ion-menu-toggle auto-hide=\"false\">\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n                <ion-item>Menu Item</ion-item>\n            </ion-menu-toggle>\n        </ion-list>\n    </ion-content>\n</ion-menu>\n<ion-router-outlet id=\"main\" main></ion-router-outlet>"
+            "templateData": "<mat-drawer-container class=\"example-container\" autosize>\n    <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n        <mat-sidenav-container>\n            <mat-nav-list>\n                <h2 matSubheader>{{header1}}</h2>\n                <a *ngFor=\"let item of items\" mat-list-item>\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n                <mat-divider></mat-divider>\n            </mat-nav-list>\n        </mat-sidenav-container>\n    </mat-drawer>\n\n    <div class=\"example-sidenav-content\">\n        <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n            <mat-icon>{{menu_icon}}</mat-icon>\n      </button>\n    </div>\n\n</mat-drawer-container>"
+        },
+        {
+            "name": "LoadingComponent",
+            "id": "component-LoadingComponent-86677293012339a83752f26b838cb006",
+            "file": "src/app/loading/loading.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-loading",
+            "styleUrls": [
+                "./loading.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./loading.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'primary'",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "mode",
+                    "defaultValue": "\"indeterminate\"",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "spinner",
+                    "defaultValue": "true",
+                    "line": 14,
+                    "type": "boolean"
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "10",
+                    "line": 13,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-loading',\n  templateUrl: './loading.component.html',\n  styleUrls: ['./loading.component.scss'],\n})\nexport class LoadingComponent implements OnInit {\n\n  constructor() { }\n\n  @Input() mode: string = \"indeterminate\";\n  @Input() value: number = 10;\n  @Input() spinner: boolean = true;\n  @Input() color: string = 'primary';\n  ngOnInit() {}\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".progress {\n    position: absolute;\n    top: 50%;\n}\n\n.spinner {\n    position: absolute;\n    height: 100px;\n    width: 100px;\n    top: 50%;\n    left: 50%;\n    margin-left: -50px;\n    margin-top: -50px;\n}",
+                    "styleUrl": "./loading.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<ng-template [ngIf]=\"spinner==false\">\n    <mat-progress-bar class=\"progress\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-progress-bar>\n</ng-template>\n<ng-template [ngIf]=\"spinner\">\n    <mat-spinner class=\"spinner\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-spinner>\n</ng-template>"
         },
         {
             "name": "RadioButtonComponent",
@@ -1159,6 +1281,92 @@
                 "line": 14
             },
             "templateData": "<mat-form-field appearance=\"fill\">\n    <mat-label>{{label}}</mat-label>\n    <ng-template [ngIf]=\"requiredSelection ==false\">\n        <mat-select>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">\n                {{option.viewValue}}\n            </mat-option>\n        </mat-select>\n    </ng-template>\n    <ng-template [ngIf]=\"requiredSelection\">\n        <mat-select matNativeControl required>\n            <mat-option *ngFor=\"let option of options\" [value]=\"option.value\">{{option.viewValue}}</mat-option>\n        </mat-select>\n        <ng-template [ngIf]=\"showHint\">\n            <mat-hint>{{hint}}</mat-hint>\n        </ng-template>\n    </ng-template>\n</mat-form-field>"
+        },
+        {
+            "name": "ToolbarComponent",
+            "id": "component-ToolbarComponent-3e4ca6ff7a617b4d64266b897f9c66e8",
+            "file": "src/app/toolbar/toolbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toolbar",
+            "styleUrls": [
+                "./toolbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./toolbar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "icon1",
+                    "defaultValue": "'favorite'",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "icon2",
+                    "defaultValue": "'share'",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "menu_icon",
+                    "defaultValue": "'menu'",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "showIcon2",
+                    "defaultValue": "false",
+                    "line": 19,
+                    "type": "boolean"
+                },
+                {
+                    "name": "showIcons",
+                    "defaultValue": "true",
+                    "line": 18,
+                    "type": "boolean"
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'My App'",
+                    "line": 16,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss'],\n})\nexport class ToolbarComponent  {\n\n  constructor() { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n\n  @Input() showIcons: boolean = true;\n  @Input() showIcon2: boolean = false;\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-spacer {\n    flex: 1 1 auto;\n}",
+                    "styleUrl": "./toolbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<p>\n    <mat-toolbar [color]=\"color\">\n        <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\">\n    <mat-icon>{{menu_icon}}</mat-icon>\n  </button>\n        <span>{{title}}</span>\n        <ng-template [ngIf]=\"showIcons\">\n            <span class=\"example-spacer\"></span>\n            <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>{{icon1}}</mat-icon>\n  </button>\n            <ng-template [ngIf]=\"showIcon2\">\n                <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n   <mat-icon>{{icon2}}</mat-icon>\n </button>\n            </ng-template>\n        </ng-template>\n    </mat-toolbar>\n</p>"
         }
     ],
     "modules": [
@@ -1276,10 +1484,16 @@
                             "name": "IonMenuComponent"
                         },
                         {
+                            "name": "LoadingComponent"
+                        },
+                        {
                             "name": "RadioButtonComponent"
                         },
                         {
                             "name": "SelectComponent"
+                        },
+                        {
+                            "name": "ToolbarComponent"
                         }
                     ]
                 },
@@ -1382,6 +1596,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Bar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Loading.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Bubble",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1446,6 +1668,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "loadPicture",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Pie",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1493,6 +1723,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Spinner",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Loading.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1528,14 +1766,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Dialog.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -1544,7 +1774,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
+                "file": "src/app/stories/Dialog.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1553,6 +1783,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Input.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1577,6 +1815,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Toolbar.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1624,14 +1870,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Dialog.stories.ts",
-                "type": "Story<DialogElementsExample>",
-                "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/EmptyStates.stories.ts",
                 "type": "Story<EmptyStatesComponent>",
                 "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
@@ -1640,9 +1878,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "Story<HomePage>",
-                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                "file": "src/app/stories/Dialog.stories.ts",
+                "type": "Story<DialogElementsExample>",
+                "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1656,9 +1894,25 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "Story<IonMenuComponent>",
                 "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Loading.stories.ts",
+                "type": "Story<LoadingComponent>",
+                "defaultValue": "(args) => ({\n  component: LoadingComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1675,6 +1929,14 @@
                 "file": "src/app/stories/Select.stories.ts",
                 "type": "Story<SelectComponent>",
                 "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Toolbar.stories.ts",
+                "type": "Story<ToolbarComponent>",
+                "defaultValue": "(args) => ({\n  component: ToolbarComponent,\n  props: args,\n})"
             },
             {
                 "name": "withoutPicture",
@@ -1763,6 +2025,32 @@
                     "defaultValue": "(args) => ({\n  component: ChartComponent,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/Loading.stories.ts": [
+                {
+                    "name": "Bar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Loading.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Spinner",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Loading.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Loading.stories.ts",
+                    "type": "Story<LoadingComponent>",
+                    "defaultValue": "(args) => ({\n  component: LoadingComponent,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Checkbox.stories.ts": [
                 {
                     "name": "Checked",
@@ -1834,6 +2122,40 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
+            "src/app/stories/Card.stories.ts": [
+                {
+                    "name": "loadPicture",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "Story<CardComponent>",
+                    "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "withoutPicture",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Card.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/app/stories/Button.stories.ts": [
                 {
                     "name": "Primary",
@@ -1860,32 +2182,6 @@
                     "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Card.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "Story<CardComponent>",
-                    "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
-                },
-                {
-                    "name": "withoutPicture",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Card.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                }
-            ],
             "src/app/stories/DatePicker.stories.ts": [
                 {
                     "name": "Standard",
@@ -1902,24 +2198,6 @@
                     "file": "src/app/stories/DatePicker.stories.ts",
                     "type": "Story<IonDate>",
                     "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/Dialog.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Dialog.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Dialog.stories.ts",
-                    "type": "Story<DialogElementsExample>",
-                    "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/EmptyStates.stories.ts": [
@@ -1940,12 +2218,12 @@
                     "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Homepage.stories.ts": [
+            "src/app/stories/Dialog.stories.ts": [
                 {
                     "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
+                    "file": "src/app/stories/Dialog.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -1953,9 +2231,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "Story<HomePage>",
-                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                    "file": "src/app/stories/Dialog.stories.ts",
+                    "type": "Story<DialogElementsExample>",
+                    "defaultValue": "(args) => ({\n  component: DialogElementsExample,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Input.stories.ts": [
@@ -1974,6 +2252,24 @@
                     "file": "src/app/stories/Input.stories.ts",
                     "type": "Story<Input>",
                     "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
+                }
+            ],
+            "src/app/stories/Homepage.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "Story<HomePage>",
+                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Menu.stories.ts": [
@@ -2029,6 +2325,24 @@
                     "type": "Story<SelectComponent>",
                     "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
                 }
+            ],
+            "src/app/stories/Toolbar.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Toolbar.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Toolbar.stories.ts",
+                    "type": "Story<ToolbarComponent>",
+                    "defaultValue": "(args) => ({\n  component: ToolbarComponent,\n  props: args,\n})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -2080,7 +2394,7 @@
         ]
     },
     "coverage": {
-        "count": 1,
+        "count": 0,
         "status": "low",
         "files": [
             {
@@ -2116,7 +2430,7 @@
                 "linktype": "component",
                 "name": "CardComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -2197,7 +2511,25 @@
                 "linktype": "component",
                 "name": "IonMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/ion-menu/ion-menu.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Items",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/loading/loading.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoadingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -2253,6 +2585,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "loadPicture",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2518,6 +2860,36 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/stories/Loading.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Bar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Loading.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Spinner",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Loading.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/stories/Menu.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2575,6 +2947,35 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/toolbar/toolbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToolbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

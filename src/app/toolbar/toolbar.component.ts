@@ -15,7 +15,4 @@ export class ToolbarComponent  {
   @Input() icon2: string = 'share';
   @Input() title: string = 'My App';
 
-  @Input() showIcons: boolean = true;
-  @Input() showIcon2: boolean = false;
-
 }

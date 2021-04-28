@@ -18,12 +18,6 @@ export default {
     }),
   ],
   argTypes: {
-    type: {
-      control: {
-        type: 'radio',
-        options: ['studies', 'info', 'news']
-      }
-    },
     width: {control: 'number'},
     height: {control: 'number'}
   },
@@ -37,9 +31,9 @@ const Template: Story<EmptyStatesComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  type: 'studies',
   emptyLabel: 'no studies available',
-  src: 'blabla.jpg'
+  icon: 'broken_image',
+  buttonLabel: 'go to main page'
   
 };
 

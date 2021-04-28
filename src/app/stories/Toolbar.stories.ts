@@ -37,8 +37,6 @@ Standard.args = {
   icon1: 'favorite',
   icon2: 'share',
   menu_icon: 'menu',
-  showIcons: true,
-  showIcon2: false,
   color: 'basic'
 
 };

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -12,6 +12,8 @@ export class DialogElementsExample {
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
   }
+  @Input()
+  label: string ='Launch Dialog';
   
 }
 

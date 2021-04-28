@@ -1,10 +1,9 @@
 <body>
 
-    <ng-template [ngIf]="type == 'studies'">
-        <div class="content_picture">
-            <mat-icon>broken_image</mat-icon>
-            <br class="label"> {{ emptyLabel}}
-        </div>
-    </ng-template>
+    <div class="content_picture">
+        <mat-icon>{{icon}}</mat-icon>
+        <br class="label"> {{ emptyLabel}}
+        <button mat-button color="primary">{{buttonLabel}}</button>
+    </div>
 
 </body>

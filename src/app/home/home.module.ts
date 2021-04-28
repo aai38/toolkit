@@ -31,6 +31,8 @@ import { RadioButtonComponent } from '../radio-button/radio-button.component';
 import { SelectComponent } from '../select/select.component';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { LoadingComponent } from '../loading/loading.component';
+import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
+import { SliderComponent } from '../slider/slider.component';
 
 
 @NgModule({
@@ -52,7 +54,7 @@ import { LoadingComponent } from '../loading/loading.component';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, LoadingComponent, ToolbarComponent,SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
+  declarations: [HomePage, SliderComponent, SlideToggleComponent, LoadingComponent, ToolbarComponent,SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
   exports: [
     HomePage,
   ],

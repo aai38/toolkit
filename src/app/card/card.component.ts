@@ -28,8 +28,6 @@ export default class CardComponent implements OnInit {
   @Input()
   description?: string = 'Example description';
   @Input()
-  showPicture?: boolean = true;
-  @Input()
   loading: boolean = false;
   @Input()
   alternative?: string = 'some picture';

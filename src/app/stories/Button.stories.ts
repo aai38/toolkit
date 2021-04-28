@@ -55,6 +55,22 @@ Primary.args = {
   disabled: false
 }
 
+export const AccentStroke = Template.bind({});
+AccentStroke.args = {
+  label: 'Stroke',
+  type: 'stroke',
+  color: 'accent',
+  disabled: false
+}
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Disabled',
+  type: 'flat',
+  color: 'primary',
+  disabled: true
+}
+
 
 
 

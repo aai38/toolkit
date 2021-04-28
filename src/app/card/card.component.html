@@ -8,7 +8,7 @@
 
     </ion-item>
     <ion-card-content class="content">
-        <ng-template [ngIf]="showPicture">
+        <ng-template [ngIf]="image">
             <div style="text-align:center;">
                 <img class="picture" [src]="image" [alt]="alternative" [width]="width" [height]="height">
 
@@ -20,10 +20,12 @@
 
             </div>
         </ng-template>
-        <div>
-            <br> {{description}}
+        <ng-template [ngIf]="!image">
+            <div>
+                <br> {{description}}
 
-            <storybook-button class="button" type="raised" color="primary">{{labelNew}} </storybook-button>
-        </div>
+                <storybook-button class="button" type="raised" color="primary">{{labelNew}} </storybook-button>
+            </div>
+        </ng-template>
     </ion-card-content>
 </ion-card>

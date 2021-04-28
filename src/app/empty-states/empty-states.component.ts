@@ -9,8 +9,6 @@ export class EmptyStatesComponent  {
 
   constructor() { }
   
-  @Input()
-  type: 'studies' | 'info' | 'news';
 
   @Input()
   emptyLabel?: string;
@@ -20,9 +18,7 @@ export class EmptyStatesComponent  {
   @Input()
   height?: number;
   @Input()
-  image?: string;
+  icon: string = 'broken_image';
   @Input()
-  alternative: string;
-  @Input()
-  src: string;
+  buttonLabel: string = 'go to main page'
 }

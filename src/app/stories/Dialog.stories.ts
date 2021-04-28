@@ -32,5 +32,6 @@ const Template: Story<DialogElementsExample> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
+  label: 'Launch Dialog'
 };
 

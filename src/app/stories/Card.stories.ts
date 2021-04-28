@@ -10,7 +10,6 @@ import { MatButtonModule } from '@angular/material/button';
 import Button from '../button/button.component'; 
 import { MatIconModule } from '@angular/material/icon';
 
-import * as ButtonStories from './Button.stories'
 
 
 export default {
@@ -41,7 +40,6 @@ Standard.args = {
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
-  showPicture: true,
   alternative: 'some Picture',
   icon: 'star_border',
   loading: false
@@ -49,24 +47,22 @@ Standard.args = {
 
 export const withoutPicture = Template.bind({});
 withoutPicture.args = {
-  image: "assets/blabla.jpg",
+  image: "",
   width: 300,
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
-  showPicture: false,
   icon: 'star_border',
   loading: false
 };
 
 export const loadPicture = Template.bind({});
 loadPicture.args = {
-  image: "assets/blabla.jpg",
+  image: "",
   width: 300,
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
-  showPicture: false,
   icon: 'star_border',
   loading: true
 };
