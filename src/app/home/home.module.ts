@@ -33,6 +33,10 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 import { SliderComponent } from '../slider/slider.component';
+import { ChipsComponent } from '../chips/chips.component';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { TabsComponent } from '../tabs/tabs.component';
+import { StepperComponent } from '../stepper/stepper.component';
 
 
 @NgModule({
@@ -54,7 +58,7 @@ import { SliderComponent } from '../slider/slider.component';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, SliderComponent, SlideToggleComponent, LoadingComponent, ToolbarComponent,SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample],
+  declarations: [HomePage, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, ToolbarComponent,SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, SnackBarComponent],
   exports: [
     HomePage,
   ],

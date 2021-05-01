@@ -31,9 +31,27 @@ export const Standard = Template.bind({});
 Standard.args = {
   menu_icon: 'menu',
   items: [
-    {title: 'First', icon: 'favorite'},
-    {title: 'Second', icon: 'share'},
-    {title: 'Third', icon: 'star'}
+    {title: 'Favorites', icon: 'favorite'},
+    {title: 'Share', icon: 'share'},
+    {title: 'Star', icon: 'star'}
   ],
-  header1: 'Items'
+  header1: 'Items',
+  header2: ''
+};
+
+export const MenuWithTwoParts = Template.bind({});
+MenuWithTwoParts.args = {
+  menu_icon: 'menu',
+  items: [
+    {title: 'Favorites', icon: 'favorite'},
+    {title: 'Share', icon: 'share'},
+    {title: 'Star', icon: 'star'}
+  ],
+  itemsSecond: [
+    {title: 'Profil', icon: 'account_circle'},
+    {title: 'Info', icon: 'info'},
+    {title: 'Home', icon: 'home'}
+  ],
+  header1: 'Items',
+  header2: 'Other Items'
 };

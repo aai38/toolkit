@@ -1,0 +1,24 @@
+<mat-form-field>
+    <mat-label>Message</mat-label>
+    <input matInput [value]="messageValue" #message>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Action</mat-label>
+    <input matInput [value]="actionValue" #action>
+</mat-form-field>
+
+<ng-template [ngIf]="withDuration==true">
+    <mat-form-field>
+        <mat-label>Duration</mat-label>
+        <input matInput [value]="durationValue" #duration>
+    </mat-form-field>
+</ng-template>
+
+<ng-template [ngIf]="withDuration==false">
+    <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+</ng-template>
+
+<ng-template [ngIf]="withDuration==true">
+    <button mat-stroked-button (click)="openSnackBarWithDuration(message.value, action.value, durationValue)">Show snack-bar</button>
+</ng-template>

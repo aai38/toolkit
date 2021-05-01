@@ -1,0 +1,34 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>{{firstStepLabel}}</ng-template>
+            <mat-form-field>
+                <mat-label>{{firstStepInputLabel}}</mat-label>
+                <input matInput [placeholder]="firstStepInputPlaceholder" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>{{nextButtonLabel}}</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [label]="secondStepLabel">
+        <form [formGroup]="secondFormGroup">
+            <mat-form-field>
+                <mat-label>{{secondStepInputLabel}}</mat-label>
+                <input matInput formControlName="secondCtrl" [placeholder]="secondStepInputPlaceholder" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
+                <button mat-button matStepperNext>{{nextButtonLabel}}</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>{{thirdStepLabel}}</ng-template>
+        <p>{{doneText}}</p>
+        <div>
+            <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
+            <button mat-button (click)="stepper.reset()">{{resetButtonLabel}}</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

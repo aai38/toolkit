@@ -21,7 +21,14 @@ export default class IonMenuComponent  {
     {title: 'Second', icon: 'share'},
     {title: 'Third', icon: 'star'}
   ];
+  @Input() itemsSecond: Items[] = [
+    {title: 'First', icon: 'favorite'},
+    {title: 'Second', icon: 'share'},
+    {title: 'Third', icon: 'star'}
+  ];
+
   @Input() header1: string ='Items';
+  @Input() header2: string;
 }
 
 

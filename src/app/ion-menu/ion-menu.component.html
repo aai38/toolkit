@@ -8,6 +8,13 @@
                     {{item.title}}
                 </a>
                 <mat-divider></mat-divider>
+                <ng-template [ngIf]="header2">
+                    <h2 matSubheader>{{header2}}</h2>
+                    <a *ngFor="let item of itemsSecond" mat-list-item>
+                        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                        {{item.title}}
+                    </a>
+                </ng-template>
             </mat-nav-list>
         </mat-sidenav-container>
     </mat-drawer>

@@ -1,0 +1,10 @@
+<mat-form-field [color]="color" class="example-chip-list">
+    <mat-label>{{label}}</mat-label>
+    <mat-chip-list #chipList aria-label="Chip selection">
+        <mat-chip *ngFor="let chip of chips" [selectable]="selectable" [removable]="removable" (removed)="remove(chip)" [color]="chip.colorChip" [selected]="chip.selected">
+            {{chip.name}}
+            <mat-icon matChipRemove *ngIf="removable">{{icon}}</mat-icon>
+        </mat-chip>
+        <input [placeholder]="placeholder" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+</mat-form-field>
