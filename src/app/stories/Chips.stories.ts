@@ -36,6 +36,21 @@ export const Standard = Template.bind({});
 Standard.args = {
     visible: true,
     selectable:  true,
+    removable: false,
+    addOnBlur: true,
+    label: 'Enter Car',
+    placeholder: 'New Car...',
+    chips: [
+      {name: 'Audi', colorChip:undefined, selected:false},
+      {name: 'BMW', colorChip:undefined, selected:false},
+      {name: 'Mercedes', colorChip:undefined, selected:false},
+    ]
+};
+
+export const ColoredRemovableChips = Template.bind({});
+ColoredRemovableChips.args = {
+    visible: true,
+    selectable:  true,
     removable: true,
     addOnBlur: true,
     label: 'Enter Fruit',
@@ -47,3 +62,5 @@ Standard.args = {
       {name: 'Apple', colorChip:'accent', selected:true},
     ]
 };
+
+

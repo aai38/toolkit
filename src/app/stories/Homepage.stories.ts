@@ -11,18 +11,19 @@ import  HomePage  from '../home/home.page';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import IonDatetime from '../ion-datetime/ion-datetime.component'
-import Card from '../card/card.component'
+import ToolbarComponent  from '../toolbar/toolbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export default {
-  title: 'Testing Page/Start',
+  title: 'Pages/HomePage',
   component: HomePage,
   argTypes: {
   },
   decorators: [
     moduleMetadata({
-      declarations: [HomePage, Input, CardComponent, Button, IonMenuComponent, IonDatetime, Card],
-      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule],
+      declarations: [HomePage, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
+      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule],
     }),
   ],
   

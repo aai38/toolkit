@@ -33,13 +33,24 @@ const Template: Story<SelectComponent> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
+  requiredSelection: false,
+  options: [
+    {value: 'germany-0', viewValue: 'Germany'},
+    {value: 'other', viewValue: 'Other'}
+  ],
+  label: 'Select Country',
+  showHint: false
+};
+
+export const SelectionRequired = Template.bind({});
+SelectionRequired.args = {
   requiredSelection: true,
   options: [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
   ],
-  label: 'Food',
+  label: 'Select Food',
   hint: 'Hint',
   showHint: true
 };

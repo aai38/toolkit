@@ -7,8 +7,6 @@ import {MaterialModule} from '../material.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
 
 
 
@@ -20,8 +18,10 @@ export default {
     backgroundColor: { control: 'color' },
     borderColor: { control: 'color' },
     chartLegend: {control: 'boolean'},
-    minimalValue: {control: 'number'},
-    maximalValue: {control: 'number'},
+    minimalValue_x: {control: 'number'},
+    maximalValue_x: {control: 'number'},
+    minimalValue_y: {control: 'number'},
+    maximalValue_y: {control: 'number'},
     chartType: {
       control: {
         type: 'radio',

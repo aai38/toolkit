@@ -20,7 +20,7 @@ export class StepperComponent implements OnInit {
   @Input() secondStepInputLabel: string = "Adress";
   @Input () secondStepInputPlaceholder: string = "Adress";
 
-  @Input() thirdStepLabel: string = "Done";
+  @Input() doneStepLabel: string = "Done";
   @Input() doneText: string = "You are done now";
 
   @Input() backButtonLabel: string = "Back";

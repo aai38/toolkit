@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonDatetime, IonicModule } from '@ionic/angular';
+import { IonContent, IonDatetime, IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import HomePage  from './home.page';
 import CardComponent from '../card/card.component';
@@ -29,7 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { EmptyStatesComponent } from '../empty-states/empty-states.component';
 import { RadioButtonComponent } from '../radio-button/radio-button.component';
 import { SelectComponent } from '../select/select.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
+import  ToolbarComponent  from '../toolbar/toolbar.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 import { SliderComponent } from '../slider/slider.component';
@@ -45,6 +45,7 @@ import { StepperComponent } from '../stepper/stepper.component';
     FormsModule,
     IonicModule,
     IonicModule.forRoot(),
+    IonContent,
     HomePageRoutingModule,
     MaterialModule,
     MatSnackBarModule,
@@ -58,7 +59,7 @@ import { StepperComponent } from '../stepper/stepper.component';
     ChartsModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, ToolbarComponent,SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonMenuComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, SnackBarComponent],
+  declarations: [HomePage,ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, SnackBarComponent],
   exports: [
     HomePage,
   ],

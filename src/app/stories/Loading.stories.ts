@@ -17,12 +17,6 @@ export default {
           options: ['primary', 'warn', 'accent']
         }
       },
-      mode: {
-        control: {
-          type: 'radio',
-          options: ['indeterminate', 'determinate', 'buffer', 'query']
-        }
-      },
       value: {control: 'number'}
   },
   decorators: [
@@ -41,12 +35,23 @@ const Template: Story<LoadingComponent> = (args) => ({
 
 export const Spinner = Template.bind({});
 Spinner.args = {
-  mode : 'indeterminate',
   spinner: true,
   color: 'primary',
   value: 10,
-
+  mode: 'indeterminate'
 };
+Spinner.argTypes = {
+  mode: {
+    control: {
+      type: 'radio',
+      options: [
+        'indeterminate',
+        'determinate'
+      ],
+    },
+    defaultValue: 'indeterminate',
+  },
+}
 
 export const Bar = Template.bind({});
 Bar.args = {
@@ -55,3 +60,12 @@ Bar.args = {
   color: 'primary',
   value: 10
 };
+
+Bar.argTypes = {
+  mode: {
+    control: {
+      type: 'radio',
+      options: ['indeterminate', 'determinate', 'buffer', 'query']
+    }
+  },
+}

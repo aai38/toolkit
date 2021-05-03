@@ -27,8 +27,14 @@ const Template: Story<Input> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  required: true,
-  placeholder: 'Search',
+  placeholder: 'Type anything...',
   value: '',
   label:'Search'
+};
+
+export const WithValue = Template.bind({});
+WithValue.args = {
+  placeholder: 'Type anything...',
+  value: 'SomeValue',
+  label:'Input with Value'
 };

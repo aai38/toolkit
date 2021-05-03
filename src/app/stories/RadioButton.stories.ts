@@ -41,3 +41,11 @@ Standard.args = {
   color: 'primary',
   disabled: false
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  labels: ['Winter', 'Spring', 'Summer', 'Autumn'],
+  radioButtonsLabel: "Pick one Option",
+  color: 'primary',
+  disabled: true
+};

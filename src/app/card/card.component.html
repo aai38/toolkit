@@ -21,11 +21,12 @@
             </div>
         </ng-template>
         <ng-template [ngIf]="!image">
-            <div>
-                <br> {{description}}
 
-                <storybook-button class="button" type="raised" color="primary">{{labelNew}} </storybook-button>
-            </div>
         </ng-template>
+        <div>
+            <br> {{description}}
+
+            <storybook-button class="button" type="raised" color="primary">{{labelNew}} </storybook-button>
+        </div>
     </ion-card-content>
 </ion-card>
