@@ -4,6 +4,7 @@ import { MenuController } from '@ionic/angular';
 interface Items {
   title: string;
   icon: string;
+  link: string;
 }
 
 @Component({
@@ -17,14 +18,14 @@ export default class IonMenuComponent  {
   showFiller = false;
   @Input() menu_icon: string = 'menu';
   @Input() items: Items[] = [
-    {title: 'First', icon: 'favorite'},
-    {title: 'Second', icon: 'share'},
-    {title: 'Third', icon: 'star'}
+    {title: 'First', icon: 'favorite',  link:"/news"},
+    {title: 'Second', icon: 'share' ,link:""},
+    {title: 'Third', icon: 'star',  link:""}
   ];
   @Input() itemsSecond: Items[] = [
-    {title: 'First', icon: 'favorite'},
-    {title: 'Second', icon: 'share'},
-    {title: 'Third', icon: 'star'}
+    {title: 'First', icon: 'favorite', link:""},
+    {title: 'Second', icon: 'share', link:""},
+    {title: 'Third', icon: 'star', link:""}
   ];
 
   @Input() header1: string ='Items';

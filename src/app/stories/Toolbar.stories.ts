@@ -6,6 +6,12 @@ import {MaterialModule} from '../material.module';
 import  ToolbarComponent  from '../toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import IonMenuComponent from '../ion-menu/ion-menu.component';
+import CardComponent from '../card/card.component';
+import ButtonComponent from '../button/button.component';
+import { RouterModule } from '@angular/router';
+import { AppModule } from '../app.module';
+import { APP_BASE_HREF } from '@angular/common';
+
 
 
 export default {
@@ -21,10 +27,19 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      declarations: [ToolbarComponent, IonMenuComponent],
-      imports: [IonicModule, MaterialModule, BrowserAnimationsModule],
-    }),
-  ],
+      declarations: [ToolbarComponent, IonMenuComponent, CardComponent, ButtonComponent],
+      imports: [IonicModule, MaterialModule, BrowserAnimationsModule, RouterModule.forRoot([{
+        path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
+         {
+        useHash: true,
+      }
+    )],
+    providers: [
+      {provide: APP_BASE_HREF, useValue:'/' }
+    ]
+    })],
+    
+  
   
 } as Meta;
 
@@ -39,7 +54,9 @@ Standard.args = {
   icon1: 'favorite',
   icon2: '',
   menu_icon: 'menu',
-  color: 'basic'
+  color: 'basic',
+  showContent: false,
+  disabled: true
 
 };
 
@@ -49,6 +66,22 @@ TwoIcons.args = {
   icon1: 'favorite',
   icon2: 'share',
   menu_icon: 'home',
-  color: 'primary'
+  color: 'primary',
+  showContent: false,
+  disabled: true
+
+
+};
+
+export const ToolbarWithMenuAndContent = Template.bind({});
+ToolbarWithMenuAndContent.args = {
+  title : 'My App',
+  icon1: 'favorite',
+  icon2: 'share',
+  menu_icon: 'home',
+  color: 'primary',
+  showContent: true,
+  disabled: false
+
 
 };

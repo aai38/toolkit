@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { MaterialModule } from '../material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 
@@ -16,9 +18,16 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [IonMenuComponent],
-      imports: [IonicModule, MaterialModule, BrowserAnimationsModule],
-    }),
-  ],
+      imports: [IonicModule, MaterialModule, BrowserAnimationsModule, RouterModule.forRoot([{
+        path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
+         {
+        useHash: true,
+      }
+    )],
+    providers: [
+      {provide: APP_BASE_HREF, useValue:'/' }
+    ]
+    })],
   
 } as Meta;
 

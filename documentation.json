@@ -36,10 +36,10 @@
         },
         {
             "name": "Items",
-            "id": "interface-Items-7b63f2cfe98f2dd4cde6be056c13a714",
+            "id": "interface-Items-54b6be0f977e2158944f74cddd1716e0",
             "file": "src/app/ion-menu/ion-menu.component.ts",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
             "properties": [
                 {
                     "name": "icon",
@@ -47,6 +47,13 @@
                     "optional": false,
                     "description": "",
                     "line": 6
+                },
+                {
+                    "name": "link",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
                 },
                 {
                     "name": "title",
@@ -59,6 +66,42 @@
             "indexSignatures": [],
             "kind": 150,
             "methods": []
+        },
+        {
+            "name": "Items",
+            "id": "interface-Items-2a1965396d55a7f3f977c9c9ad31765c-1",
+            "file": "src/app/toolbar/toolbar.component.ts",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n\n  constructor(private menu: MenuController) { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n  \n\n}\n",
+            "properties": [
+                {
+                    "name": "icon",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "link",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "Items-1"
         },
         {
             "name": "Options",
@@ -243,7 +286,7 @@
                     }
                 ]
             },
-            "templateData": "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n"
+            "templateData": "<ion-app>\n    <a routerLink=\"/home\">Home</a>\n    <a routerLink=\"/news\">News</a>\n    <ion-router-outlet></ion-router-outlet>\n</ion-app>"
         },
         {
             "name": "ButtonComponent",
@@ -427,7 +470,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.label {\n    white-space: normal !important;\n}\n\n.button {\n    float: right;\n}\n\n.spinner {\n    left: 50%;\n    margin-left: -4em;\n}",
+                    "data": ".card {\n    margin: 10px;\n    white-space: normal !important;\n    border-radius: 10px;\n}\n\n.content {\n    position: relative;\n}\n\n.picture {\n    text-align: center;\n}\n\n.label {\n    white-space: normal !important;\n}\n\n.button {\n    float: right;\n}\n\n.spinner {\n    left: 50%;\n    margin-left: -4em;\n}\n\n.row {\n    column-count: 2;\n}",
                     "styleUrl": "./card.css"
                 }
             ],
@@ -441,18 +484,18 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>{{icon}}</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"image\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n\n            </div>\n        </ng-template>\n        <ng-template [ngIf]=\"loading\">\n            <div style=\"text-align:center;\">\n                <mat-spinner class=\"spinner\"></mat-spinner>\n\n            </div>\n        </ng-template>\n        <ng-template [ngIf]=\"!image\">\n            <div>\n                <br> {{description}}\n\n                <storybook-button class=\"button\" type=\"raised\" color=\"primary\">{{labelNew}} </storybook-button>\n            </div>\n        </ng-template>\n    </ion-card-content>\n</ion-card>"
+            "templateData": "<ion-card>\n    <ion-item>\n        <button mat-icon-button slot=\"end\" aria-label=\"Example icon button with a heart icon\">\n            <mat-icon>{{icon}}</mat-icon>\n            </button>\n\n        <mat-label class=\"label\" slot=\"start\">{{ headline }}</mat-label>\n\n    </ion-item>\n    <ion-card-content class=\"content\">\n        <ng-template [ngIf]=\"image\">\n            <div style=\"text-align:center;\">\n                <img class=\"picture\" [src]=\"image\" [alt]=\"alternative\" [width]=\"width\" [height]=\"height\">\n\n            </div>\n        </ng-template>\n        <ng-template [ngIf]=\"loading\">\n            <div style=\"text-align:center;\">\n                <mat-spinner class=\"spinner\"></mat-spinner>\n\n            </div>\n        </ng-template>\n        <ng-template [ngIf]=\"!image\">\n\n        </ng-template>\n        <div class=\"row\">\n            <br> {{description}}\n\n            <storybook-button class=\"button\" type=\"stroke\" color=\"basic\" label=\"View\"> </storybook-button>\n        </div>\n    </ion-card-content>\n</ion-card>"
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-c0b64acc47547a21cc3fb1b0263b21b0",
+            "id": "component-ChartComponent-21bd066320f527136bdce5b07cfd98f4",
             "file": "src/app/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-line-chart",
+            "selector": "app-chart",
             "styleUrls": [
                 "./chart.component.scss"
             ],
@@ -590,7 +633,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-line-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut' | 'radar' | 'pie' | 'bubble' | 'polarArea' |'scatter';\n\n  @Input() legend: string = \"heart rate\";\n  @Input() data: number[] = [10, 20, 10, 15, 10];\n\n  @Input() minimalValue_y: number ;\n  @Input() maximalValue_y: number ;\n  @Input() minimalValue_x: number ;\n  @Input() maximalValue_x: number ;\n\n  @Input() borderColor: string = \"red\";\n  @Input() backgroundColor: string = \"black\";\n\n  @Input() labels: string[] = ['One', 'Two', 'Three', 'For', 'Five'];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean = true;\n  chartPlugins = [];\n\n  \n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar' || 'radar' || 'bubble' || 'polarArea' || 'scatter') {\n      this.chartDatasets = [{\n        data: this.data,\n        label: this.legend\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColor,\n          backgroundColor: this.backgroundColor,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maximalValue_y,\n              min: this.minimalValue_y\n            }\n          }],\n          xAxes: [{\n            ticks: {\n              max: this.maximalValue_x,\n              min: this.minimalValue_x\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labels;\n    }\n    else if (this.chartType == 'doughnut' || 'pie' || 'polarArea') {\n      this.chartDatasets = [{\n        data: this.data\n      }] ;\n      this.chartLabels = this.labels;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { ChartDataSets, ChartOptions } from 'chart.js';\nimport { Color, Label } from 'ng2-charts';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n\n  constructor() { }\n\n  public chartDatasets;\n  public chartLabels: string[];\n  public chartColors;\n  public chartOptions;\n\n  @Input() chartType: 'bar' | 'line' | 'doughnut' | 'radar' | 'pie' | 'bubble' | 'polarArea' |'scatter';\n\n  @Input() legend: string = \"heart rate\";\n  @Input() data: number[] = [10, 20, 10, 15, 10];\n\n  @Input() minimalValue_y: number ;\n  @Input() maximalValue_y: number ;\n  @Input() minimalValue_x: number ;\n  @Input() maximalValue_x: number ;\n\n  @Input() borderColor: string = \"red\";\n  @Input() backgroundColor: string = \"black\";\n\n  @Input() labels: string[] = ['One', 'Two', 'Three', 'For', 'Five'];\n\n\n  //@Input() chartOptionsInput: any;\n\n  //@Input() lineChartColors: string;\n  @Input() chartLegend: boolean = true;\n  chartPlugins = [];\n\n  \n\n  ngOnInit(): void {\n    if (this.chartType == 'line' || 'bar' || 'radar' || 'bubble' || 'polarArea' || 'scatter') {\n      this.chartDatasets = [{\n        data: this.data,\n        label: this.legend\n      }];\n      this.chartColors = [\n        {\n          borderColor: this.borderColor,\n          backgroundColor: this.backgroundColor,\n        },\n      ];\n\n      this.chartOptions = {\n        responsive: true,\n        scales: {\n          yAxes: [{\n            ticks: {\n              max: this.maximalValue_y,\n              min: this.minimalValue_y\n            }\n          }],\n          xAxes: [{\n            ticks: {\n              max: this.maximalValue_x,\n              min: this.minimalValue_x\n            }\n          }]\n        }\n      };\n      this.chartLabels = this.labels;\n    }\n    else if (this.chartType == 'doughnut' || 'pie' || 'polarArea') {\n      this.chartDatasets = [{\n        data: this.data\n      }] ;\n      this.chartLabels = this.labels;\n    }\n  }\n\n}\n\n\n\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1007,7 +1050,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "#container {\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    top: 50%;\n    transform: translateY(-50%);\n}\n\n#container strong {\n    font-size: 20px;\n    line-height: 26px;\n}\n\n#container p {\n    font-size: 16px;\n    line-height: 22px;\n    color: #8c8c8c;\n    margin: 0;\n}\n\n#container a {\n    text-decoration: none;\n}",
+                    "data": "",
                     "styleUrl": "home.page.scss"
                 }
             ],
@@ -1018,7 +1061,7 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n\n\n\n    <ion-toolbar>\n\n        <div layout=\"row\" layout-align=\"start center\">\n\n\n            <ion-title>\n                Study\n            </ion-title>\n            <storybookInput></storybookInput>\n            <app-dialog></app-dialog>\n\n\n\n            <h4>Datepicker</h4>\n\n            <app-ion-datetime></app-ion-datetime>\n        </div>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n\n    <app-line-chart chartType=\"pie\"></app-line-chart>\n\n\n\n\n\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-toolbar showContent=true></app-toolbar>\n    <ion-router-outlet></ion-router-outlet>\n\n\n</ion-header>\n\n\n\n\n<ion-footer></ion-footer>"
         },
         {
             "name": "InputComponent",
@@ -1266,7 +1309,7 @@
         },
         {
             "name": "IonMenuComponent",
-            "id": "component-IonMenuComponent-7b63f2cfe98f2dd4cde6be056c13a714",
+            "id": "component-IonMenuComponent-54b6be0f977e2158944f74cddd1716e0",
             "file": "src/app/ion-menu/ion-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1286,30 +1329,30 @@
                 {
                     "name": "header1",
                     "defaultValue": "'Items'",
-                    "line": 30,
-                    "type": "string"
-                },
-                {
-                    "name": "header2",
                     "line": 31,
                     "type": "string"
                 },
                 {
+                    "name": "header2",
+                    "line": 32,
+                    "type": "string"
+                },
+                {
                     "name": "items",
-                    "defaultValue": "[\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ]",
-                    "line": 19,
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ]",
+                    "line": 20,
                     "type": "Items[]"
                 },
                 {
                     "name": "itemsSecond",
-                    "defaultValue": "[\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ]",
-                    "line": 24,
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ]",
+                    "line": 25,
                     "type": "Items[]"
                 },
                 {
                     "name": "menu_icon",
                     "defaultValue": "'menu'",
-                    "line": 18,
+                    "line": 19,
                     "type": "string"
                 }
             ],
@@ -1321,7 +1364,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 }
             ],
             "methodsClass": [],
@@ -1330,11 +1373,11 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite'},\n    {title: 'Second', icon: 'share'},\n    {title: 'Third', icon: 'star'}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".example-container {\n    width: 500px;\n    height: 300px;\n    border: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n.example-sidenav-content {\n    display: flex;\n    margin-left: 5px;\n}\n\n.example-sidenav {\n    padding: 20px;\n}",
+                    "data": ".example-sidenav-content {\n    display: flex;\n    margin-left: 5px;\n}\n\nmat-sidenav {\n    margin: 16px;\n    width: 200px;\n    border-right: none;\n    border-radius: 10px;\n    padding: 16px;\n    text-align: center;\n}\n\n.example-spacer {\n    flex: 1 1 auto;\n}\n\n.content {\n    height: calc(100vh - 98px);\n    border-radius: 10px;\n    margin: 16px;\n    margin-left: 32px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: lightgray;\n}\n\nmat-sidenav-container {\n    height: calc(100vh - 65px);\n}\n\n.menu-button {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    font-size: 1rem;\n    mat-icon {\n        margin-right: 8px;\n    }\n}\n\nmat-divider {\n    margin-top: 16px;\n    margin-bottom: 16px;\n    background-color: rgba(255, 255, 255, 0.5);\n}",
                     "styleUrl": "./ion-menu.component.scss"
                 }
             ],
@@ -1348,7 +1391,7 @@
                         "type": "MenuController"
                     }
                 ],
-                "line": 14,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "menu",
@@ -1359,7 +1402,7 @@
                     }
                 ]
             },
-            "templateData": "<mat-drawer-container class=\"example-container\" autosize>\n    <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n        <mat-sidenav-container>\n            <mat-nav-list>\n                <h2 matSubheader>{{header1}}</h2>\n                <a *ngFor=\"let item of items\" mat-list-item>\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n                <mat-divider></mat-divider>\n                <ng-template [ngIf]=\"header2\">\n                    <h2 matSubheader>{{header2}}</h2>\n                    <a *ngFor=\"let item of itemsSecond\" mat-list-item>\n                        <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                        {{item.title}}\n                    </a>\n                </ng-template>\n            </mat-nav-list>\n        </mat-sidenav-container>\n    </mat-drawer>\n\n    <div class=\"example-sidenav-content\">\n        <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n            <mat-icon>{{menu_icon}}</mat-icon>\n      </button>\n    </div>\n\n</mat-drawer-container>"
+            "templateData": "<div class=\"example-sidenav-content\">\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n            <mat-icon>{{menu_icon}}</mat-icon>\n      </button>\n</div>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a *ngFor=\"let item of items\" mat-list-item [routerLink]=\"item.link\">\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n        <div class=\"content mat-elevation-z8\">\n            Main content here!\n        </div>\n        <ion-router-outlet></ion-router-outlet>\n    </mat-sidenav-content>\n</mat-sidenav-container>"
         },
         {
             "name": "LoadingComponent",
@@ -1441,6 +1484,62 @@
                 "OnInit"
             ],
             "templateData": "<ng-template [ngIf]=\"spinner==false\">\n    <mat-progress-bar class=\"progress\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-progress-bar>\n</ng-template>\n<ng-template [ngIf]=\"spinner\">\n    <mat-spinner class=\"spinner\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-spinner>\n</ng-template>"
+        },
+        {
+            "name": "NewsComponent",
+            "id": "component-NewsComponent-8a0d030465b066d97e8f0a224e800a1e",
+            "file": "src/app/news/news.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-news",
+            "styleUrls": [
+                "./news.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./news.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-news',\n  templateUrl: './news.component.html',\n  styleUrls: ['./news.component.scss'],\n})\nexport class NewsComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit() {}\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./news.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>\n  news works!\n</p>\n"
         },
         {
             "name": "RadioButtonComponent",
@@ -1938,7 +2037,7 @@
         },
         {
             "name": "StepperComponent",
-            "id": "component-StepperComponent-daa7797984a42b3317c185bb609e32fe",
+            "id": "component-StepperComponent-19616648326e7b450f9ddcfe2952296f",
             "file": "src/app/stepper/stepper.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1959,6 +2058,12 @@
                     "name": "backButtonLabel",
                     "defaultValue": "\"Back\"",
                     "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "doneStepLabel",
+                    "defaultValue": "\"Done\"",
+                    "line": 23,
                     "type": "string"
                 },
                 {
@@ -2025,12 +2130,6 @@
                     "defaultValue": "\"Fill out your Adress\"",
                     "line": 19,
                     "type": "string"
-                },
-                {
-                    "name": "thirdStepLabel",
-                    "defaultValue": "\"Done\"",
-                    "line": 23,
-                    "type": "string"
                 }
             ],
             "outputsClass": [],
@@ -2065,7 +2164,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'app-stepper',\n  templateUrl: './stepper.component.html',\n  styleUrls: ['./stepper.component.scss'],\n})\nexport class StepperComponent implements OnInit {\n\n\n  @Input() isLinear = false;\n  firstFormGroup: FormGroup;\n  secondFormGroup: FormGroup;\n  @Input() firstStepLabel: string = \"Fill out your name\";\n  @Input() firstStepInputLabel: string = \"Name\";\n  @Input () firstStepInputPlaceholder: string = \"Prename Lastname\";\n\n  @Input() secondStepLabel: string = \"Fill out your Adress\";\n  @Input() secondStepInputLabel: string = \"Adress\";\n  @Input () secondStepInputPlaceholder: string = \"Adress\";\n\n  @Input() thirdStepLabel: string = \"Done\";\n  @Input() doneText: string = \"You are done now\";\n\n  @Input() backButtonLabel: string = \"Back\";\n  @Input() nextButtonLabel: string = \"Next\";\n  @Input() resetButtonLabel: string = \"Reset\";\n\n  @Input() horizontal: boolean = false;\n\n  constructor(private _formBuilder: FormBuilder) {}\n\n  \n\n  ngOnInit() {\n    this.firstFormGroup = this._formBuilder.group({\n      firstCtrl: ['', Validators.required]\n    });\n    this.secondFormGroup = this._formBuilder.group({\n      secondCtrl: ['', Validators.required]\n    });\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'app-stepper',\n  templateUrl: './stepper.component.html',\n  styleUrls: ['./stepper.component.scss'],\n})\nexport class StepperComponent implements OnInit {\n\n\n  @Input() isLinear = false;\n  firstFormGroup: FormGroup;\n  secondFormGroup: FormGroup;\n  @Input() firstStepLabel: string = \"Fill out your name\";\n  @Input() firstStepInputLabel: string = \"Name\";\n  @Input () firstStepInputPlaceholder: string = \"Prename Lastname\";\n\n  @Input() secondStepLabel: string = \"Fill out your Adress\";\n  @Input() secondStepInputLabel: string = \"Adress\";\n  @Input () secondStepInputPlaceholder: string = \"Adress\";\n\n  @Input() doneStepLabel: string = \"Done\";\n  @Input() doneText: string = \"You are done now\";\n\n  @Input() backButtonLabel: string = \"Back\";\n  @Input() nextButtonLabel: string = \"Next\";\n  @Input() resetButtonLabel: string = \"Reset\";\n\n  @Input() horizontal: boolean = false;\n\n  constructor(private _formBuilder: FormBuilder) {}\n\n  \n\n  ngOnInit() {\n    this.firstFormGroup = this._formBuilder.group({\n      firstCtrl: ['', Validators.required]\n    });\n    this.secondFormGroup = this._formBuilder.group({\n      secondCtrl: ['', Validators.required]\n    });\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2097,7 +2196,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\n    <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n            <ng-template matStepLabel>{{firstStepLabel}}</ng-template>\n            <mat-form-field>\n                <mat-label>{{firstStepInputLabel}}</mat-label>\n                <input matInput [placeholder]=\"firstStepInputPlaceholder\" formControlName=\"firstCtrl\" required>\n            </mat-form-field>\n            <div>\n                <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n            </div>\n        </form>\n    </mat-step>\n    <mat-step [stepControl]=\"secondFormGroup\" [label]=\"secondStepLabel\">\n        <form [formGroup]=\"secondFormGroup\">\n            <mat-form-field>\n                <mat-label>{{secondStepInputLabel}}</mat-label>\n                <input matInput formControlName=\"secondCtrl\" [placeholder]=\"secondStepInputPlaceholder\" required>\n            </mat-form-field>\n            <div>\n                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n                <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n            </div>\n        </form>\n    </mat-step>\n    <mat-step>\n        <ng-template matStepLabel>{{thirdStepLabel}}</ng-template>\n        <p>{{doneText}}</p>\n        <div>\n            <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n            <button mat-button (click)=\"stepper.reset()\">{{resetButtonLabel}}</button>\n        </div>\n    </mat-step>\n</mat-horizontal-stepper>"
+            "templateData": "<ng-template [ngIf]=\"horizontal\">\n    <mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\n        <mat-step [stepControl]=\"firstFormGroup\">\n            <form [formGroup]=\"firstFormGroup\">\n                <ng-template matStepLabel>{{firstStepLabel}}</ng-template>\n                <mat-form-field>\n                    <mat-label>{{firstStepInputLabel}}</mat-label>\n                    <input matInput [placeholder]=\"firstStepInputPlaceholder\" formControlName=\"firstCtrl\" required>\n                </mat-form-field>\n                <div>\n                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n                </div>\n            </form>\n        </mat-step>\n        <ng-template [ngIf]=\"secondStepLabel || secondStepInputLabel || secondStepInputPlaceholder\">\n            <mat-step [stepControl]=\"secondFormGroup\" [label]=\"secondStepLabel\">\n                <form [formGroup]=\"secondFormGroup\">\n                    <mat-form-field>\n                        <mat-label>{{secondStepInputLabel}}</mat-label>\n                        <input matInput formControlName=\"secondCtrl\" [placeholder]=\"secondStepInputPlaceholder\" required>\n                    </mat-form-field>\n                    <div>\n                        <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n                        <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n                    </div>\n                </form>\n            </mat-step>\n        </ng-template>\n        <mat-step>\n            <ng-template matStepLabel>{{doneStepLabel}}</ng-template>\n            <p>{{doneText}}</p>\n            <div>\n                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n                <button mat-button (click)=\"stepper.reset()\">{{resetButtonLabel}}</button>\n            </div>\n        </mat-step>\n    </mat-horizontal-stepper>\n</ng-template>\n\n<ng-template [ngIf]=\"horizontal==false\">\n    <mat-vertical-stepper [linear]=\"isLinear\" #stepper>\n        <mat-step [stepControl]=\"firstFormGroup\">\n            <form [formGroup]=\"firstFormGroup\">\n                <ng-template matStepLabel>{{firstStepLabel}}</ng-template>\n                <mat-form-field>\n                    <mat-label>{{firstStepInputLabel}}</mat-label>\n                    <input matInput [placeholder]=\"firstStepInputPlaceholder\" formControlName=\"firstCtrl\" required>\n                </mat-form-field>\n                <div>\n                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n                </div>\n            </form>\n        </mat-step>\n        <ng-template [ngIf]=\"secondStepLabel || secondStepInputLabel || secondStepInputPlaceholder\">\n            <mat-step [stepControl]=\"secondFormGroup\" [label]=\"secondStepLabel\">\n                <form [formGroup]=\"secondFormGroup\">\n                    <mat-form-field>\n                        <mat-label>{{secondStepInputLabel}}</mat-label>\n                        <input matInput formControlName=\"secondCtrl\" [placeholder]=\"secondStepInputPlaceholder\" required>\n                    </mat-form-field>\n                    <div>\n                        <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n                        <button mat-button matStepperNext>{{nextButtonLabel}}</button>\n                    </div>\n                </form>\n            </mat-step>\n        </ng-template>\n        <mat-step>\n            <ng-template matStepLabel>{{doneStepLabel}}</ng-template>\n            <p>{{doneText}}</p>\n            <div>\n                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>\n                <button mat-button (click)=\"stepper.reset()\">{{resetButtonLabel}}</button>\n            </div>\n        </mat-step>\n    </mat-vertical-stepper>\n</ng-template>"
         },
         {
             "name": "TabsComponent",
@@ -2174,7 +2273,7 @@
         },
         {
             "name": "ToolbarComponent",
-            "id": "component-ToolbarComponent-767edacdab4cf04a73f5aa3aa0a84e9d",
+            "id": "component-ToolbarComponent-2a1965396d55a7f3f977c9c9ad31765c",
             "file": "src/app/toolbar/toolbar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2193,47 +2292,91 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "line": 12,
+                    "line": 39,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "line": 33,
+                    "type": "boolean"
+                },
+                {
+                    "name": "header1",
+                    "defaultValue": "'Items'",
+                    "line": 30,
+                    "type": "string"
+                },
+                {
+                    "name": "header2",
+                    "line": 31,
                     "type": "string"
                 },
                 {
                     "name": "icon1",
                     "defaultValue": "'favorite'",
-                    "line": 14,
+                    "line": 41,
                     "type": "string"
                 },
                 {
                     "name": "icon2",
                     "defaultValue": "'share'",
-                    "line": 15,
+                    "line": 42,
                     "type": "string"
+                },
+                {
+                    "name": "items",
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ]",
+                    "line": 19,
+                    "type": "Items[]"
+                },
+                {
+                    "name": "itemsSecond",
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ]",
+                    "line": 24,
+                    "type": "Items[]"
                 },
                 {
                     "name": "menu_icon",
                     "defaultValue": "'menu'",
-                    "line": 13,
+                    "line": 40,
                     "type": "string"
+                },
+                {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "line": 32,
+                    "type": "boolean"
                 },
                 {
                     "name": "title",
                     "defaultValue": "'My App'",
-                    "line": 16,
+                    "line": 43,
                     "type": "string"
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showFiller",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
             "methodsClass": [],
             "hostBindings": [],
             "hostListeners": [],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss'],\n})\nexport class ToolbarComponent  {\n\n  constructor() { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n\n  constructor(private menu: MenuController) { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n  \n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".example-spacer {\n    flex: 1 1 auto;\n}",
+                    "data": "mat-sidenav {\n    margin: 16px;\n    width: 200px;\n    border-right: none;\n    border-radius: 10px;\n    padding: 16px;\n    text-align: center;\n}\n\n.example-spacer {\n    flex: 1 1 auto;\n}\n\n.content {\n    height: calc(100vh - 98px);\n    border-radius: 10px;\n    margin: 16px;\n    margin-left: 32px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: lightgray;\n}\n\nmat-sidenav-container {\n    height: calc(100vh - 65px);\n}\n\n.menu-button {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    font-size: 1rem;\n    mat-icon {\n        margin-right: 8px;\n    }\n}\n\nmat-divider {\n    margin-top: 16px;\n    margin-bottom: 16px;\n    background-color: rgba(255, 255, 255, 0.5);\n}",
                     "styleUrl": "./toolbar.component.scss"
                 }
             ],
@@ -2241,10 +2384,24 @@
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
-                "args": [],
-                "line": 8
+                "args": [
+                    {
+                        "name": "menu",
+                        "type": "MenuController"
+                    }
+                ],
+                "line": 33,
+                "jsdoctags": [
+                    {
+                        "name": "menu",
+                        "type": "MenuController",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
-            "templateData": "<p>\n    <mat-toolbar [color]=\"color\">\n        <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\">\n    <mat-icon>{{menu_icon}}</mat-icon>\n  </button>\n        <span>{{title}}</span>\n        <ng-template [ngIf]=\"icon1\">\n            <span class=\"example-spacer\"></span>\n            <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>{{icon1}}</mat-icon>\n  </button>\n            <ng-template [ngIf]=\"icon1 && icon2\">\n                <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n   <mat-icon>{{icon2}}</mat-icon>\n </button>\n            </ng-template>\n        </ng-template>\n    </mat-toolbar>\n</p>"
+            "templateData": "<mat-toolbar [color]=\"color\">\n    <button mat-icon-button [disabled]=\"disabled\" class=\"example-icon\" aria-label=\"Example icon-button with menu icon\" (click)=\"drawer.toggle()\">\n    <mat-icon>{{menu_icon}}</mat-icon>\n  </button>\n    <span>{{title}}</span>\n    <ng-template [ngIf]=\"icon1\">\n        <span class=\"example-spacer\"></span>\n        <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>{{icon1}}</mat-icon>\n  </button>\n        <ng-template [ngIf]=\"icon1 && icon2\">\n            <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n   <mat-icon>{{icon2}}</mat-icon>\n </button>\n        </ng-template>\n    </ng-template>\n</mat-toolbar>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a *ngFor=\"let item of items\" mat-list-item [routerLink]=\"item.link\">\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n\n        <ng-template [ngIf]=\"showContent\">\n            <app-card></app-card>\n        </ng-template>\n        <ng-template></ng-template>\n        <ion-router-outlet name=\"side\"></ion-router-outlet>\n    </mat-sidenav-content>\n</mat-sidenav-container>"
         }
     ],
     "modules": [
@@ -2400,6 +2557,9 @@
                             "name": "HomePageRoutingModule"
                         },
                         {
+                            "name": "IonContent"
+                        },
+                        {
                             "name": "MaterialModule"
                         }
                     ]
@@ -2532,6 +2692,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "ColoredRemovableChips",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chips.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2552,6 +2720,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Checkbox.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/RadioButton.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2675,6 +2851,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "SelectionRequired",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Select.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "SliderWithThumblabel",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2687,6 +2871,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Loading.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/App.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2710,7 +2902,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Chips.stories.ts",
+                "file": "src/app/stories/Checkbox.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2718,7 +2910,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Checkbox.stories.ts",
+                "file": "src/app/stories/Chips.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2750,14 +2942,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Input.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -2766,7 +2950,23 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/stories/Menu.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/NewsPage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2814,14 +3014,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Stepper.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Tabs.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -2838,17 +3030,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Button.stories.ts",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
+                "file": "src/app/stories/App.stories.ts",
+                "type": "Story<AppComponent>",
+                "defaultValue": "(args) => ({\n  component: AppComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Card.stories.ts",
-                "type": "Story<CardComponent>",
-                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Button.stories.ts",
+                "type": "Story<Button>",
+                "defaultValue": "(args: Button) => ({\n  component: Button,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2862,9 +3054,9 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Chips.stories.ts",
-                "type": "Story<ChipsComponent>",
-                "defaultValue": "(args) => ({\n  component: ChipsComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2873,6 +3065,14 @@
                 "file": "src/app/stories/Checkbox.stories.ts",
                 "type": "Story<IonCheckboxComponent>",
                 "defaultValue": "(args) => ({\n  component: IonCheckboxComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Chips.stories.ts",
+                "type": "Story<ChipsComponent>",
+                "defaultValue": "(args) => ({\n  component: ChipsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2902,17 +3102,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "Story<HomePage>",
-                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                "file": "src/app/stories/Input.stories.ts",
+                "type": "Story<Input>",
+                "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Input.stories.ts",
-                "type": "Story<Input>",
-                "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2929,6 +3129,14 @@
                 "file": "src/app/stories/Menu.stories.ts",
                 "type": "Story<IonMenuComponent>",
                 "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/NewsPage.stories.ts",
+                "type": "Story<NewsComponent>",
+                "defaultValue": "(args) => ({\n  component: NewsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2995,10 +3203,42 @@
                 "defaultValue": "(args) => ({\n  component: ToolbarComponent,\n  props: args,\n})"
             },
             {
+                "name": "ThreeStepVertical",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Stepper.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "TimeLimitedSnackbar",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Snack-Bar.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "ToolbarWithMenuAndContent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Toolbar.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "TwoIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Toolbar.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "TwoStepHorizontal",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Stepper.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3015,6 +3255,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Card.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithValue",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/Input.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             }
@@ -3233,6 +3481,32 @@
                     "defaultValue": "(args) => ({\n  component: SlideToggleComponent,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/Chips.stories.ts": [
+                {
+                    "name": "ColoredRemovableChips",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chips.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chips.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Chips.stories.ts",
+                    "type": "Story<ChipsComponent>",
+                    "defaultValue": "(args) => ({\n  component: ChipsComponent,\n  props: args,\n})"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -3248,6 +3522,32 @@
                     "subtype": "variable",
                     "file": "src/test.ts",
                     "type": "any"
+                }
+            ],
+            "src/app/stories/RadioButton.stories.ts": [
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/RadioButton.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/RadioButton.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/RadioButton.stories.ts",
+                    "type": "Story<RadioButtonComponent>",
+                    "defaultValue": "(args) => ({\n  component: RadioButtonComponent,\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -3382,6 +3682,32 @@
                     "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/Select.stories.ts": [
+                {
+                    "name": "SelectionRequired",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Select.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Select.stories.ts",
+                    "type": "Story<SelectComponent>",
+                    "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Slider.stories.ts": [
                 {
                     "name": "SliderWithThumblabel",
@@ -3416,12 +3742,12 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/app/stories/Chips.stories.ts": [
+            "src/app/stories/App.stories.ts": [
                 {
                     "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Chips.stories.ts",
+                    "file": "src/app/stories/App.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -3429,9 +3755,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Chips.stories.ts",
-                    "type": "Story<ChipsComponent>",
-                    "defaultValue": "(args) => ({\n  component: ChipsComponent,\n  props: args,\n})"
+                    "file": "src/app/stories/App.stories.ts",
+                    "type": "Story<AppComponent>",
+                    "defaultValue": "(args) => ({\n  component: AppComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Dialog.stories.ts": [
@@ -3470,6 +3796,32 @@
                     "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/Input.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Input.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Input.stories.ts",
+                    "type": "Story<Input>",
+                    "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
+                },
+                {
+                    "name": "WithValue",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Input.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/app/stories/Homepage.stories.ts": [
                 {
                     "name": "Standard",
@@ -3488,12 +3840,12 @@
                     "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
-            "src/app/stories/Input.stories.ts": [
+            "src/app/stories/NewsPage.stories.ts": [
                 {
                     "name": "Standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Input.stories.ts",
+                    "file": "src/app/stories/NewsPage.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
@@ -3501,45 +3853,9 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/stories/Input.stories.ts",
-                    "type": "Story<Input>",
-                    "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/RadioButton.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/RadioButton.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/RadioButton.stories.ts",
-                    "type": "Story<RadioButtonComponent>",
-                    "defaultValue": "(args) => ({\n  component: RadioButtonComponent,\n  props: args,\n})"
-                }
-            ],
-            "src/app/stories/Select.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Select.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Select.stories.ts",
-                    "type": "Story<SelectComponent>",
-                    "defaultValue": "(args) => ({\n  component: SelectComponent,\n  props: args,\n})"
+                    "file": "src/app/stories/NewsPage.stories.ts",
+                    "type": "Story<NewsComponent>",
+                    "defaultValue": "(args) => ({\n  component: NewsComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Snack-Bar.stories.ts": [
@@ -3568,24 +3884,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/app/stories/Stepper.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Stepper.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Stepper.stories.ts",
-                    "type": "Story<StepperComponent>",
-                    "defaultValue": "(args) => ({\n  component: StepperComponent,\n  props: args,\n})"
-                }
-            ],
             "src/app/stories/Toolbar.stories.ts": [
                 {
                     "name": "Standard",
@@ -3602,6 +3900,48 @@
                     "file": "src/app/stories/Toolbar.stories.ts",
                     "type": "Story<ToolbarComponent>",
                     "defaultValue": "(args) => ({\n  component: ToolbarComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "ToolbarWithMenuAndContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Toolbar.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "TwoIcons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Toolbar.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/app/stories/Stepper.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Stepper.stories.ts",
+                    "type": "Story<StepperComponent>",
+                    "defaultValue": "(args) => ({\n  component: StepperComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "ThreeStepVertical",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Stepper.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "TwoStepHorizontal",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Stepper.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ]
         },
@@ -3621,32 +3961,16 @@
                 "children": [
                     {
                         "path": "home",
-                        "loadChildren": "./home/home.module#HomePageModule",
-                        "children": [
-                            {
-                                "kind": "module",
-                                "children": [
-                                    {
-                                        "name": "routes",
-                                        "filename": "src/app/home/home-routing.module.ts",
-                                        "module": "HomePageRoutingModule",
-                                        "children": [
-                                            {
-                                                "path": "",
-                                                "component": "HomePage"
-                                            }
-                                        ],
-                                        "kind": "module"
-                                    }
-                                ],
-                                "module": "HomePageModule"
-                            }
-                        ]
+                        "component": "HomePage"
                     },
                     {
                         "path": "",
                         "redirectTo": "home",
                         "pathMatch": "full"
+                    },
+                    {
+                        "path": "news",
+                        "component": "NewsComponent"
                     }
                 ],
                 "kind": "module"
@@ -3798,7 +4122,7 @@
                 "linktype": "interface",
                 "name": "Items",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -3808,6 +4132,15 @@
                 "name": "LoadingComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/news/news.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NewsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -3871,6 +4204,26 @@
                 "name": "StepperComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/18",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/App.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/App.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -4098,6 +4451,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "ColoredRemovableChips",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Chips.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Standard",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -4224,6 +4587,16 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/stories/Input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithValue",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/stories/Loading.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -4284,6 +4657,36 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/stories/NewsPage.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Standard",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/NewsPage.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/RadioButton.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/stories/RadioButton.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -4299,6 +4702,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SelectionRequired",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4438,7 +4851,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Standard",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4448,7 +4861,17 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Template",
+                "name": "ThreeStepVertical",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Stepper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoStepHorizontal",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4504,6 +4927,26 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/stories/Toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ToolbarWithMenuAndContent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/tabs/tabs.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -4527,7 +4970,16 @@
                 "linktype": "component",
                 "name": "ToolbarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/toolbar/toolbar.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Items",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

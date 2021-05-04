@@ -15,19 +15,19 @@ import ToolbarComponent  from '../toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppModule } from '../app.module';
-import { NewsComponent } from '../news/news.component';
+import { AppComponent } from '../app.component';
 
 
 export default {
-  title: 'Pages/HomePage',
-  component: HomePage,
+  title: 'App/App',
+  component: AppComponent,
   argTypes: {
   },
   decorators: [
     moduleMetadata({
-      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
-      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, AppModule, RouterModule.forRoot([{
-        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) }, ],
+      declarations: [AppComponent, HomePage, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
+      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, RouterModule.forRoot([{
+        path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
          {
         useHash: true,
       }
@@ -40,8 +40,8 @@ export default {
   
 } as Meta;
 
-const Template: Story<HomePage> = (args) => ({
-  component: HomePage,
+const Template: Story<AppComponent> = (args) => ({
+  component: AppComponent,
   props: args,
 });
 

@@ -19,15 +19,15 @@ import { NewsComponent } from '../news/news.component';
 
 
 export default {
-  title: 'Pages/HomePage',
-  component: HomePage,
+  title: 'Pages/NewsPage',
+  component: NewsComponent,
   argTypes: {
   },
   decorators: [
     moduleMetadata({
-      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
+      declarations: [NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
       imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, AppModule, RouterModule.forRoot([{
-        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) }, ],
+        path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
          {
         useHash: true,
       }
@@ -40,8 +40,8 @@ export default {
   
 } as Meta;
 
-const Template: Story<HomePage> = (args) => ({
-  component: HomePage,
+const Template: Story<NewsComponent> = (args) => ({
+  component: NewsComponent,
   props: args,
 });
 

@@ -1,27 +1,31 @@
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <mat-sidenav-container>
-            <mat-nav-list>
-                <h2 matSubheader>{{header1}}</h2>
-                <a *ngFor="let item of items" mat-list-item>
+<div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon>{{menu_icon}}</mat-icon>
+      </button>
+</div>
+
+<mat-sidenav-container>
+    <mat-sidenav #drawer>
+        <mat-nav-list>
+            <h2 matSubheader>{{header1}}</h2>
+            <a *ngFor="let item of items" mat-list-item [routerLink]="item.link">
+                <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                {{item.title}}
+            </a>
+            <mat-divider></mat-divider>
+            <ng-template [ngIf]="header2">
+                <h2 matSubheader>{{header2}}</h2>
+                <a *ngFor="let item of itemsSecond" mat-list-item [routerLink]="item.link">
                     <mat-icon matListIcon> {{ item.icon }} </mat-icon>
                     {{item.title}}
                 </a>
-                <mat-divider></mat-divider>
-                <ng-template [ngIf]="header2">
-                    <h2 matSubheader>{{header2}}</h2>
-                    <a *ngFor="let item of itemsSecond" mat-list-item>
-                        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
-                        {{item.title}}
-                    </a>
-                </ng-template>
-            </mat-nav-list>
-        </mat-sidenav-container>
-    </mat-drawer>
-
-    <div class="example-sidenav-content">
-        <button type="button" mat-button (click)="drawer.toggle()">
-            <mat-icon>{{menu_icon}}</mat-icon>
-      </button>
-    </div>
-</mat-drawer-container>
+            </ng-template>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            Main content here!
+        </div>
+        <ion-router-outlet></ion-router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

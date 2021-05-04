@@ -10,12 +10,6 @@ import {MaterialModule} from '../material.module';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
 import { ChartsModule } from 'ng2-charts';
 
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { HomePageRoutingModule } from './home-routing.module';
@@ -48,14 +42,6 @@ import { StepperComponent } from '../stepper/stepper.component';
     IonContent,
     HomePageRoutingModule,
     MaterialModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatExpansionModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     ChartsModule,
     ReactiveFormsModule
   ],

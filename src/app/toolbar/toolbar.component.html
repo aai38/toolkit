@@ -1,42 +1,45 @@
-<p>
-    <mat-toolbar [color]="color">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+<mat-toolbar [color]="color">
+    <button mat-icon-button [disabled]="disabled" class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
     <mat-icon>{{menu_icon}}</mat-icon>
   </button>
-        <span>{{title}}</span>
-        <ng-template [ngIf]="icon1">
-            <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <span>{{title}}</span>
+    <ng-template [ngIf]="icon1">
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>{{icon1}}</mat-icon>
   </button>
-            <ng-template [ngIf]="icon1 && icon2">
-                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <ng-template [ngIf]="icon1 && icon2">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
    <mat-icon>{{icon2}}</mat-icon>
  </button>
-            </ng-template>
         </ng-template>
-    </mat-toolbar>
-</p>
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <mat-sidenav-container>
-            <mat-nav-list>
-                <h2 matSubheader>{{header1}}</h2>
-                <a *ngFor="let item of items" mat-list-item>
+    </ng-template>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #drawer>
+        <mat-nav-list>
+            <h2 matSubheader>{{header1}}</h2>
+            <a *ngFor="let item of items" mat-list-item [routerLink]="item.link">
+                <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+                {{item.title}}
+            </a>
+            <mat-divider></mat-divider>
+            <ng-template [ngIf]="header2">
+                <h2 matSubheader>{{header2}}</h2>
+                <a *ngFor="let item of itemsSecond" mat-list-item [routerLink]="item.link">
                     <mat-icon matListIcon> {{ item.icon }} </mat-icon>
                     {{item.title}}
                 </a>
-                <mat-divider></mat-divider>
-                <ng-template [ngIf]="header2">
-                    <h2 matSubheader>{{header2}}</h2>
-                    <a *ngFor="let item of itemsSecond" mat-list-item>
-                        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
-                        {{item.title}}
-                    </a>
-                </ng-template>
-            </mat-nav-list>
-        </mat-sidenav-container>
-    </mat-drawer>
+            </ng-template>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
 
-
-</mat-drawer-container>
+        <ng-template [ngIf]="showContent">
+            <app-card></app-card>
+        </ng-template>
+        <ng-template></ng-template>
+        <ion-router-outlet name="side"></ion-router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

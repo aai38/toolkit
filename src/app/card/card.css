@@ -1,6 +1,7 @@
 .card {
     margin: 10px;
     white-space: normal !important;
+    border-radius: 10px;
 }
 
 .content {
@@ -22,4 +23,8 @@
 .spinner {
     left: 50%;
     margin-left: -4em;
+}
+
+.row {
+    column-count: 2;
 }
