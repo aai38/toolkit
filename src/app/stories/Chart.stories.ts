@@ -48,7 +48,7 @@ const Template: Story<ChartComponent> = (args) => ({
 export const Line = Template.bind({});
 Line.args = {
     chartType :'line',
-    backgroundColor:"red",
+    backgroundColor:"slateblue",
     borderColor:"black",
     labels:['January', 'February', 'March', 'April', 'May', 'June'],
     data:[85, 72, 78, 75, 77, 75],
@@ -61,7 +61,7 @@ Line.args = {
 export const Bar = Template.bind({});
 Bar.args = {
     chartType: 'bar',
-    backgroundColor:"red",
+    backgroundColor:"forestgreen",
     borderColor:"black",
     labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     data:[2, 3, 1, 4, 2, 2, 2, 3],
@@ -97,7 +97,7 @@ Pie.args = {
 export const Bubble = Template.bind({});
 Bubble.args = {
     chartType: 'bubble',
-    backgroundColor:"red",
+    backgroundColor:"khaki",
     borderColor:"black",
     data:[
     {x: 15, y: 15, r: 15 },
@@ -122,7 +122,7 @@ PolarArea.args = {
 export const Scatter = Template.bind({});
 Scatter.args = {
     chartType: 'scatter',
-    backgroundColor:"red",
+    backgroundColor:"slateblue",
     borderColor:"black",
     data:[
     {x: 15, y: 15 },

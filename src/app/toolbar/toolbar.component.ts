@@ -33,14 +33,14 @@ export default class ToolbarComponent  {
   @Input() disabled: boolean = false;
 
   
-
-  constructor(private menu: MenuController) { }
- 
   @Input() color: string;
   @Input() menu_icon: string = 'menu';
   @Input() icon1: string = 'favorite';
   @Input() icon2: string = 'share';
   @Input() title: string = 'My App';
+
+  constructor() { }
+ 
   
 
 }

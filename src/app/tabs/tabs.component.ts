@@ -16,9 +16,9 @@ export class TabsComponent implements OnInit {
   constructor() { }
 
   @Input() tabs: Tabs[] = [
-    { icon: 'favorite', content: 'blabla', label: 'Tab 1'},
-    { icon: 'share', content: 'blabla', label: 'Tab 2'},
-    { icon: 'star', content: 'blabla,', label: 'Tab 3'}
+    { icon: 'favorite', content: 'Content 1', label: 'Tab 1'},
+    { icon: 'share', content: 'Content 2', label: 'Tab 2'},
+    { icon: 'star', content: 'Content 3,', label: 'Tab 3'}
   ];
   @Input() backgroundColor: string;
   @Input() color: string;

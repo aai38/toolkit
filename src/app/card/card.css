@@ -1,3 +1,7 @@
+ion-card {
+    border-radius: 30px !important;
+}
+
 .card {
     margin: 10px;
     white-space: normal !important;
@@ -6,6 +10,8 @@
 
 .content {
     position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .picture {
@@ -13,6 +19,7 @@
 }
 
 .label {
+    margin: 30px;
     white-space: normal !important;
 }
 
@@ -27,4 +34,8 @@
 
 .row {
     column-count: 2;
+}
+
+.icon {
+    margin: 10px;
 }

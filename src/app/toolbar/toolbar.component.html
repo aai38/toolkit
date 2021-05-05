@@ -20,7 +20,7 @@
     <mat-sidenav #drawer>
         <mat-nav-list>
             <h2 matSubheader>{{header1}}</h2>
-            <a *ngFor="let item of items" mat-list-item [routerLink]="item.link">
+            <a [routerLink]="item.link" *ngFor="let item of items" mat-list-item>
                 <mat-icon matListIcon> {{ item.icon }} </mat-icon>
                 {{item.title}}
             </a>
@@ -38,8 +38,11 @@
 
         <ng-template [ngIf]="showContent">
             <app-card></app-card>
+            <app-card></app-card>
+            <app-card image=""></app-card>
         </ng-template>
         <ng-template></ng-template>
-        <ion-router-outlet name="side"></ion-router-outlet>
+
     </mat-sidenav-content>
 </mat-sidenav-container>
+<ion-router-outlet></ion-router-outlet>

@@ -26,7 +26,7 @@ export class ChartComponent implements OnInit {
   @Input() minimalValue_x: number ;
   @Input() maximalValue_x: number ;
 
-  @Input() borderColor: string = "red";
+  @Input() borderColor: string = "sienna";
   @Input() backgroundColor: string = "black";
 
   @Input() labels: string[] = ['One', 'Two', 'Three', 'For', 'Five'];

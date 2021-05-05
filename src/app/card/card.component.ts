@@ -18,9 +18,9 @@ export default class CardComponent implements OnInit {
   public labelNew: string;
 
   @Input()
-  image?: string = '../assets/blabla.jpg';
+  image?: string = '../assets/example.jpg';
   @Input()
-  width?: number = 300;
+  width?: number = 600;
   @Input()
   height?: number = 200;
   @Input()
@@ -36,6 +36,9 @@ export default class CardComponent implements OnInit {
   label: string ='View';
   @Input()
   icon: string = 'star_border';
+
+  @Output()
+  onClick = new EventEmitter<Event>();
 
   ngOnInit() {
     this.labelNew = this.label;

@@ -12,7 +12,6 @@ import { ChartsModule } from 'ng2-charts';
 
 
 
-import { HomePageRoutingModule } from './home-routing.module';
 import ButtonComponent from '../button/button.component';
 import IonMenuComponent from '../ion-menu/ion-menu.component'
 import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
@@ -31,6 +30,7 @@ import { ChipsComponent } from '../chips/chips.component';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import { TabsComponent } from '../tabs/tabs.component';
 import { StepperComponent } from '../stepper/stepper.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -40,10 +40,10 @@ import { StepperComponent } from '../stepper/stepper.component';
     IonicModule,
     IonicModule.forRoot(),
     IonContent,
-    HomePageRoutingModule,
     MaterialModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [HomePage,ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, SnackBarComponent],
   exports: [

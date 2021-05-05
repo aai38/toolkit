@@ -15,7 +15,10 @@ import ToolbarComponent  from '../toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppModule } from '../app.module';
-import { NewsComponent } from '../news/news.component';
+import { Component } from '@angular/core';
+
+@Component({ templateUrl: '../news/news.component.html'})
+class NewsComponent {}
 
 
 export default {
@@ -26,17 +29,20 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
-      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, AppModule, RouterModule.forRoot([{
-        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) }, ],
+      imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule,  RouterModule.forRoot([{
+        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },
+      {path: 'news', component:NewsComponent}],
          {
         useHash: true,
-      }
+      },
     )],
     providers: [
       {provide: APP_BASE_HREF, useValue:'/' }
-    ]
+    ],
+    
     }),
   ],
+  
   
 } as Meta;
 

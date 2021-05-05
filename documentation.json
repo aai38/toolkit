@@ -69,10 +69,10 @@
         },
         {
             "name": "Items",
-            "id": "interface-Items-2a1965396d55a7f3f977c9c9ad31765c-1",
+            "id": "interface-Items-540752e2229863897ec1081f3c4eb647-1",
             "file": "src/app/toolbar/toolbar.component.ts",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n\n  constructor(private menu: MenuController) { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n  \n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n\n  constructor() { }\n \n  \n\n}\n",
             "properties": [
                 {
                     "name": "icon",
@@ -201,7 +201,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-8f102680f495071b15f5dc9c238a6233",
+            "id": "component-AppComponent-8c0c4d33edbd39606d7cd23ba5560911",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -227,7 +227,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21
+                    "line": 22
                 }
             ],
             "hostBindings": [],
@@ -235,7 +235,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\nimport { Platform } from '@ionic/angular';\nimport { SplashScreen } from '@ionic-native/splash-screen/ngx';\nimport { StatusBar } from '@ionic-native/status-bar/ngx';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: 'app.component.html',\n  styleUrls: ['app.component.scss']\n})\nexport class AppComponent {\n  constructor(\n    private platform: Platform,\n    private splashScreen: SplashScreen,\n    private statusBar: StatusBar\n  ) {\n    this.initializeApp();\n  }\n\n  initializeApp() {\n    this.platform.ready().then(() => {\n      this.statusBar.styleDefault();\n      this.splashScreen.hide();\n    });\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\nimport { Platform } from '@ionic/angular';\nimport { SplashScreen } from '@ionic-native/splash-screen/ngx';\nimport { StatusBar } from '@ionic-native/status-bar/ngx';\nimport HomePage from './home/home.page';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: 'app.component.html',\n  styleUrls: ['app.component.scss']\n})\nexport class AppComponent {\n  constructor(\n    private platform: Platform,\n    private splashScreen: SplashScreen,\n    private statusBar: StatusBar\n  ) {\n    this.initializeApp();\n  }\n\n  initializeApp() {\n    this.platform.ready().then(() => {\n      this.statusBar.styleDefault();\n      this.splashScreen.hide();\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -261,7 +261,7 @@
                         "type": "StatusBar"
                     }
                 ],
-                "line": 12,
+                "line": 13,
                 "jsdoctags": [
                     {
                         "name": "platform",
@@ -1061,7 +1061,7 @@
                 "args": [],
                 "line": 9
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n\n    <app-toolbar showContent=true></app-toolbar>\n    <ion-router-outlet></ion-router-outlet>\n\n\n</ion-header>\n\n\n\n\n<ion-footer></ion-footer>"
+            "templateData": "<ion-header [translucent]=\"true\">\n\n\n    <app-toolbar showContent=true></app-toolbar>\n\n</ion-header>\n\n\n\n<ion-footer></ion-footer>\n<ion-router-outlet></ion-router-outlet>"
         },
         {
             "name": "InputComponent",
@@ -1539,6 +1539,39 @@
             "implements": [
                 "OnInit"
             ],
+            "templateData": "<p>\n  news works!\n</p>\n"
+        },
+        {
+            "name": "NewsComponent",
+            "id": "component-NewsComponent-ea82b406b0406185dbd5c722fa20bba0-1",
+            "file": "src/app/stories/Homepage.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "../news/news.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport Input from '../input/input.component';\nimport CardComponent from '../card/card.component'\nimport Button from '../button/button.component'\nimport IonMenuComponent from '../ion-menu/ion-menu.component'\nimport { IonicModule } from '@ionic/angular';\nimport { moduleMetadata } from '@storybook/angular';\nimport {MaterialModule} from '../material.module';\nimport  HomePage  from '../home/home.page';\nimport { APP_BASE_HREF, CommonModule } from '@angular/common';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport IonDatetime from '../ion-datetime/ion-datetime.component'\nimport ToolbarComponent  from '../toolbar/toolbar.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { RouterModule } from '@angular/router';\nimport { AppModule } from '../app.module';\nimport { Component } from '@angular/core';\n\n@Component({ templateUrl: '../news/news.component.html'})\nclass NewsComponent {}\n\n\nexport default {\n  title: 'Pages/HomePage',\n  component: HomePage,\n  argTypes: {\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],\n      imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule,  RouterModule.forRoot([{\n        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },\n      {path: 'news', component:NewsComponent}],\n         {\n        useHash: true,\n      },\n    )],\n    providers: [\n      {provide: APP_BASE_HREF, useValue:'/' }\n    ],\n    \n    }),\n  ],\n  \n  \n} as Meta;\n\nconst Template: Story<HomePage> = (args) => ({\n  component: HomePage,\n  props: args,\n});\n\nexport const Standard = Template.bind({});\nStandard.args = {\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "NewsComponent-1",
             "templateData": "<p>\n  news works!\n</p>\n"
         },
         {
@@ -2273,7 +2306,7 @@
         },
         {
             "name": "ToolbarComponent",
-            "id": "component-ToolbarComponent-2a1965396d55a7f3f977c9c9ad31765c",
+            "id": "component-ToolbarComponent-540752e2229863897ec1081f3c4eb647",
             "file": "src/app/toolbar/toolbar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2292,7 +2325,7 @@
             "inputsClass": [
                 {
                     "name": "color",
-                    "line": 39,
+                    "line": 36,
                     "type": "string"
                 },
                 {
@@ -2315,13 +2348,13 @@
                 {
                     "name": "icon1",
                     "defaultValue": "'favorite'",
-                    "line": 41,
+                    "line": 38,
                     "type": "string"
                 },
                 {
                     "name": "icon2",
                     "defaultValue": "'share'",
-                    "line": 42,
+                    "line": 39,
                     "type": "string"
                 },
                 {
@@ -2339,7 +2372,7 @@
                 {
                     "name": "menu_icon",
                     "defaultValue": "'menu'",
-                    "line": 40,
+                    "line": 37,
                     "type": "string"
                 },
                 {
@@ -2351,7 +2384,7 @@
                 {
                     "name": "title",
                     "defaultValue": "'My App'",
-                    "line": 43,
+                    "line": 40,
                     "type": "string"
                 }
             ],
@@ -2372,7 +2405,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n\n  constructor(private menu: MenuController) { }\n \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n  \n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit, ViewChild } from '@angular/core';\nimport { MatDrawer } from '@angular/material/sidenav';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-toolbar',\n  templateUrl: './toolbar.component.html',\n  styleUrls: ['./toolbar.component.scss']\n})\nexport default class ToolbarComponent  {\n\n  showFiller = false;\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"/news\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n  @Input() showContent: boolean = false;\n  @Input() disabled: boolean = false;\n\n  \n  @Input() color: string;\n  @Input() menu_icon: string = 'menu';\n  @Input() icon1: string = 'favorite';\n  @Input() icon2: string = 'share';\n  @Input() title: string = 'My App';\n\n  constructor() { }\n \n  \n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2384,24 +2417,10 @@
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
-                "args": [
-                    {
-                        "name": "menu",
-                        "type": "MenuController"
-                    }
-                ],
-                "line": 33,
-                "jsdoctags": [
-                    {
-                        "name": "menu",
-                        "type": "MenuController",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
+                "args": [],
+                "line": 40
             },
-            "templateData": "<mat-toolbar [color]=\"color\">\n    <button mat-icon-button [disabled]=\"disabled\" class=\"example-icon\" aria-label=\"Example icon-button with menu icon\" (click)=\"drawer.toggle()\">\n    <mat-icon>{{menu_icon}}</mat-icon>\n  </button>\n    <span>{{title}}</span>\n    <ng-template [ngIf]=\"icon1\">\n        <span class=\"example-spacer\"></span>\n        <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>{{icon1}}</mat-icon>\n  </button>\n        <ng-template [ngIf]=\"icon1 && icon2\">\n            <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n   <mat-icon>{{icon2}}</mat-icon>\n </button>\n        </ng-template>\n    </ng-template>\n</mat-toolbar>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a *ngFor=\"let item of items\" mat-list-item [routerLink]=\"item.link\">\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n\n        <ng-template [ngIf]=\"showContent\">\n            <app-card></app-card>\n        </ng-template>\n        <ng-template></ng-template>\n        <ion-router-outlet name=\"side\"></ion-router-outlet>\n    </mat-sidenav-content>\n</mat-sidenav-container>"
+            "templateData": "<mat-toolbar [color]=\"color\">\n    <button mat-icon-button [disabled]=\"disabled\" class=\"example-icon\" aria-label=\"Example icon-button with menu icon\" (click)=\"drawer.toggle()\">\n    <mat-icon>{{menu_icon}}</mat-icon>\n  </button>\n    <span>{{title}}</span>\n    <ng-template [ngIf]=\"icon1\">\n        <span class=\"example-spacer\"></span>\n        <button mat-icon-button class=\"example-icon favorite-icon\" aria-label=\"Example icon-button with heart icon\">\n    <mat-icon>{{icon1}}</mat-icon>\n  </button>\n        <ng-template [ngIf]=\"icon1 && icon2\">\n            <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with share icon\">\n   <mat-icon>{{icon2}}</mat-icon>\n </button>\n        </ng-template>\n    </ng-template>\n</mat-toolbar>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a [routerLink]=\"item.link\" *ngFor=\"let item of items\" mat-list-item>\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n\n        <ng-template [ngIf]=\"showContent\">\n            <app-card></app-card>\n        </ng-template>\n        <ng-template></ng-template>\n\n    </mat-sidenav-content>\n</mat-sidenav-container>\n<ion-router-outlet></ion-router-outlet>"
         }
     ],
     "modules": [
@@ -2554,9 +2573,6 @@
                     "type": "imports",
                     "elements": [
                         {
-                            "name": "HomePageRoutingModule"
-                        },
-                        {
                             "name": "IonContent"
                         },
                         {
@@ -2613,6 +2629,79 @@
         },
         {
             "name": "MaterialModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "NewsPageModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "NewsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "IonContent"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "NewsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "NewsPageRoutingModule",
             "children": [
                 {
                     "type": "providers",
@@ -2942,7 +3031,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Input.stories.ts",
+                "file": "src/app/stories/Homepage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -2950,7 +3039,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
+                "file": "src/app/stories/Input.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3046,17 +3135,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Chart.stories.ts",
-                "type": "Story<ChartComponent>",
-                "defaultValue": "(args) => ({\n  component: ChartComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Card.stories.ts",
+                "type": "Story<CardComponent>",
+                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Card.stories.ts",
-                "type": "Story<CardComponent>",
-                "defaultValue": "(args) => ({\n  component: CardComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Chart.stories.ts",
+                "type": "Story<ChartComponent>",
+                "defaultValue": "(args) => ({\n  component: ChartComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3102,17 +3191,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Input.stories.ts",
-                "type": "Story<Input>",
-                "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
+                "file": "src/app/stories/Homepage.stories.ts",
+                "type": "Story<HomePage>",
+                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Homepage.stories.ts",
-                "type": "Story<HomePage>",
-                "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                "file": "src/app/stories/Input.stories.ts",
+                "type": "Story<Input>",
+                "defaultValue": "(args) => ({\n  component: Input,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3796,6 +3885,24 @@
                     "defaultValue": "(args) => ({\n  component: EmptyStatesComponent,\n  props: args,\n})"
                 }
             ],
+            "src/app/stories/Homepage.stories.ts": [
+                {
+                    "name": "Standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/stories/Homepage.stories.ts",
+                    "type": "Story<HomePage>",
+                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
+                }
+            ],
             "src/app/stories/Input.stories.ts": [
                 {
                     "name": "Standard",
@@ -3820,24 +3927,6 @@
                     "file": "src/app/stories/Input.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
-                }
-            ],
-            "src/app/stories/Homepage.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/Homepage.stories.ts",
-                    "type": "Story<HomePage>",
-                    "defaultValue": "(args) => ({\n  component: HomePage,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/NewsPage.stories.ts": [
@@ -3960,17 +4049,37 @@
                 "module": "AppRoutingModule",
                 "children": [
                     {
-                        "path": "home",
-                        "component": "HomePage"
+                        "path": "",
+                        "loadChildren": "./home/home.module#HomePageModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [],
+                                "module": "HomePageModule"
+                            }
+                        ]
                     },
                     {
-                        "path": "",
-                        "redirectTo": "home",
-                        "pathMatch": "full"
+                        "path": "home",
+                        "loadChildren": "./home/home.module#HomePageModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [],
+                                "module": "HomePageModule"
+                            }
+                        ]
                     },
                     {
                         "path": "news",
-                        "component": "NewsComponent"
+                        "loadChildren": "./news/news.module#NewsPageModule",
+                        "children": [
+                            {
+                                "kind": "module",
+                                "children": [],
+                                "module": "NewsPageModule"
+                            }
+                        ]
                     }
                 ],
                 "kind": "module"
@@ -4542,6 +4651,15 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/stories/Homepage.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NewsComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

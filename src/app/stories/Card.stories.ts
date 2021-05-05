@@ -25,6 +25,7 @@ export default {
     width: {control: 'number'},
     height: {control: 'number'}
   },
+  onClick: { action: 'clicked' },
 } as Meta;
 
 const Template: Story<CardComponent> = (args) => ({
@@ -35,8 +36,8 @@ const Template: Story<CardComponent> = (args) => ({
 export const Standard = Template.bind({});
 Standard.args = {
   label: 'View',
-  image: "assets/blabla.jpg",
-  width: 300,
+  image: "assets/example.jpg",
+  width: 900,
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",
@@ -48,7 +49,7 @@ Standard.args = {
 export const withoutPicture = Template.bind({});
 withoutPicture.args = {
   image: "",
-  width: 300,
+  width: 600,
   height: 300,
   headline: "Headline of study",
   description: "Description of the study",

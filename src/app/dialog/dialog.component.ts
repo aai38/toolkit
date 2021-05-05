@@ -24,4 +24,11 @@ export class DialogElementsExample {
   selector: 'dialog-component',
   templateUrl: './dialog.component.html',
 })
-export class DialogElementsExampleDialog {}
+export class DialogElementsExampleDialog {
+
+  
+
+  @Input() title: string ='Test Dialog';
+  @Input() dialogButtonLabel: string = "Close";
+  @Input() content: string = "Some Information";
+}

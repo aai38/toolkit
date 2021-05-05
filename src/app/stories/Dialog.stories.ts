@@ -19,8 +19,10 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [DialogElementsExample, DialogElementsExampleDialog],
+      entryComponents: [DialogElementsExampleDialog],
       imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule, BrowserAnimationsModule],
     }),
+    
   ],
   
 } as Meta;
@@ -32,6 +34,6 @@ const Template: Story<DialogElementsExample> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
-  label: 'Launch Dialog'
+  label: 'Launch Dialog',
 };
 

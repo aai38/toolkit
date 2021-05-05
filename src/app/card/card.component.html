@@ -1,7 +1,7 @@
 <ion-card>
     <ion-item>
         <button mat-icon-button slot="end" aria-label="Example icon button with a heart icon">
-            <mat-icon>{{icon}}</mat-icon>
+            <mat-icon class="icon">{{icon}}</mat-icon>
             </button>
 
         <mat-label class="label" slot="start">{{ headline }}</mat-label>
@@ -26,7 +26,7 @@
         <div class="row">
             <br> {{description}}
 
-            <storybook-button class="button" type="stroke" color="basic" label="View"> </storybook-button>
+            <storybook-button class="button" type="stroke" color="basic" label="View" (click)="onClick.emit($event)"> </storybook-button>
         </div>
     </ion-card-content>
 </ion-card>
