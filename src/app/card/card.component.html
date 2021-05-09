@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card class='no-padding'>
     <ion-item>
         <button mat-icon-button slot="end" aria-label="Example icon button with a heart icon">
             <mat-icon class="icon">{{icon}}</mat-icon>
@@ -10,7 +10,7 @@
     <ion-card-content class="content">
         <ng-template [ngIf]="image">
             <div style="text-align:center;">
-                <img class="picture" [src]="image" [alt]="alternative" [width]="width" [height]="height">
+                <img class="picture" [src]="image" [alt]="alternative">
 
             </div>
         </ng-template>
@@ -24,7 +24,7 @@
 
         </ng-template>
         <div class="row">
-            <br> {{description}}
+            <br class="description"> {{description}}
 
             <storybook-button class="button" type="stroke" color="basic" label="View" (click)="onClick.emit($event)"> </storybook-button>
         </div>

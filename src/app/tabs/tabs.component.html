@@ -1,7 +1,7 @@
 <mat-tab-group [color]="color" [backgroundColor]="backgroundColor">
     <mat-tab *ngFor="let tab of tabs">
         <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">{{tab.icon}}</mat-icon>
+            <mat-icon class="tab-icon">{{tab.icon}}</mat-icon>
             {{tab.label}}
         </ng-template>
         <ng-template matTabContent>

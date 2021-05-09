@@ -8,7 +8,7 @@ import { SlideToggleComponent } from '../slide-toggle/slide-toggle.component';
 
 
 export default {
-  title: 'Standard-Components/Slide Toggle',
+  title: 'Basic Components/Slide Toggle',
   component: SlideToggleComponent,
   argTypes: {
     color: {

@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export default {
-  title: 'Standard-Components/SnackBar',
+  title: 'High-Order Components/SnackBar',
   component: SnackBarComponent,
   argTypes: {
   },
@@ -30,13 +30,10 @@ export const Standard = Template.bind({});
 Standard.args = {
   actionValue : "Action",
   messageValue: "Message",
-  withDuration: false
 };
 
 export const TimeLimitedSnackbar = Template.bind({});
 TimeLimitedSnackbar.args = {
   actionValue : "",
   messageValue: "Snackbar is shown for 3 seconds",
-  withDuration: true,
-  durationValue: 3000
 };

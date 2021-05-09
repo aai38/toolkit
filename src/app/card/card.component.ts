@@ -20,10 +20,6 @@ export default class CardComponent implements OnInit {
   @Input()
   image?: string = '../assets/example.jpg';
   @Input()
-  width?: number = 600;
-  @Input()
-  height?: number = 200;
-  @Input()
   headline?: string = 'Example headline';
   @Input()
   description?: string = 'Example description';

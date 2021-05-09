@@ -8,7 +8,7 @@ import { RadioButtonComponent } from '../radio-button/radio-button.component';
 
 
 export default {
-  title: 'Standard-Components/Radio-Button',
+  title: 'Basic Components/Radio-Button',
   component: RadioButtonComponent,
   argTypes: {
       color: {

@@ -11,7 +11,7 @@ import { SelectComponent } from '../select/select.component';
 
 
 export default {
-  title: 'Standard-Components/Select',
+  title: 'Basic Components/Select',
   component: SelectComponent,
   argTypes: {
       requiredSelection: {control: 'boolean'},

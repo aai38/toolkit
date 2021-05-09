@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 export default {
-  title: 'Standard-Components/Button',
+  title: 'Basic Components/Button',
   component: Button,
   decorators: [
     moduleMetadata({

@@ -7,7 +7,7 @@ import { SliderComponent } from '../slider/slider.component';
 
 
 export default {
-  title: 'Standard-Components/Slider',
+  title: 'Basic Components/Slider',
   component: SliderComponent,
   argTypes: {
     tickInterval: {control: 'number'},

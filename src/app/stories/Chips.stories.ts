@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export default {
-  title: 'Standard-Components/Chips',
+  title: 'Basic Components/Chips',
   component: ChipsComponent,
   argTypes: {
     color: {

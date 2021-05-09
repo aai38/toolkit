@@ -10,11 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 export default {
-  title: 'Standard-Components/Stepper',
+  title: 'High-Order Components/Stepper',
   component: StepperComponent,
   argTypes: {
   },

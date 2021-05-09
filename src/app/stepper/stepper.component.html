@@ -1,77 +1,39 @@
 <ng-template [ngIf]="horizontal">
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>{{firstStepLabel}}</ng-template>
+    <button mat-raised-button (click)="addItem()">
+        add item
+      </button>
+    <form [formGroup]="firstFormGroup">
+        <mat-horizontal-stepper formArrayName="form">
+            <mat-step [formGroupName]="i" *ngFor="let customerGroup of steps; let i = index">
+                <ng-template matStepLabel>Step {{i + 1}}</ng-template>
                 <mat-form-field>
-                    <mat-label>{{firstStepInputLabel}}</mat-label>
-                    <input matInput [placeholder]="firstStepInputPlaceholder" formControlName="firstCtrl" required>
+                    <input matInput placeholder="Address" formControlName="cont" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
                 </div>
-            </form>
-        </mat-step>
-        <ng-template [ngIf]="secondStepLabel || secondStepInputLabel || secondStepInputPlaceholder">
-            <mat-step [stepControl]="secondFormGroup" [label]="secondStepLabel">
-                <form [formGroup]="secondFormGroup">
-                    <mat-form-field>
-                        <mat-label>{{secondStepInputLabel}}</mat-label>
-                        <input matInput formControlName="secondCtrl" [placeholder]="secondStepInputPlaceholder" required>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
-                        <button mat-button matStepperNext>{{nextButtonLabel}}</button>
-                    </div>
-                </form>
             </mat-step>
-        </ng-template>
-        <mat-step>
-            <ng-template matStepLabel>{{doneStepLabel}}</ng-template>
-            <p>{{doneText}}</p>
-            <div>
-                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
-                <button mat-button (click)="stepper.reset()">{{resetButtonLabel}}</button>
-            </div>
-        </mat-step>
-    </mat-horizontal-stepper>
+        </mat-horizontal-stepper>
+    </form>
 </ng-template>
 
 <ng-template [ngIf]="horizontal==false">
-    <mat-vertical-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>{{firstStepLabel}}</ng-template>
+    <button mat-raised-button (click)="addItem()">
+        add item
+      </button>
+    <form [formGroup]="firstFormGroup">
+        <mat-vertical-stepper formArrayName="form">
+            <mat-step [formGroupName]="i" *ngFor="let customerGroup of steps; let i = index">
+                <ng-template matStepLabel>Step {{i + 1}}</ng-template>
                 <mat-form-field>
-                    <mat-label>{{firstStepInputLabel}}</mat-label>
-                    <input matInput [placeholder]="firstStepInputPlaceholder" formControlName="firstCtrl" required>
+                    <input matInput placeholder="Address" formControlName="cont" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
                 </div>
-            </form>
-        </mat-step>
-        <ng-template [ngIf]="secondStepLabel || secondStepInputLabel || secondStepInputPlaceholder">
-            <mat-step [stepControl]="secondFormGroup" [label]="secondStepLabel">
-                <form [formGroup]="secondFormGroup">
-                    <mat-form-field>
-                        <mat-label>{{secondStepInputLabel}}</mat-label>
-                        <input matInput formControlName="secondCtrl" [placeholder]="secondStepInputPlaceholder" required>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
-                        <button mat-button matStepperNext>{{nextButtonLabel}}</button>
-                    </div>
-                </form>
             </mat-step>
-        </ng-template>
-        <mat-step>
-            <ng-template matStepLabel>{{doneStepLabel}}</ng-template>
-            <p>{{doneText}}</p>
-            <div>
-                <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
-                <button mat-button (click)="stepper.reset()">{{resetButtonLabel}}</button>
-            </div>
-        </mat-step>
-    </mat-vertical-stepper>
+        </mat-vertical-stepper>
+    </form>
 </ng-template>

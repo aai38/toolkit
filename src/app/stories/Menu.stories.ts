@@ -11,7 +11,7 @@ import { APP_BASE_HREF } from '@angular/common';
 
 
 export default {
-  title: 'Standard-Components/Menu',
+  title: 'High-Order Components/Menu',
   component: IonMenuComponent,
   argTypes: {
   },

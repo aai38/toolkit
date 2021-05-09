@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 export default {
-  title: 'Standard-Components/Tabs',
+  title: 'High-Order Components/Tabs',
   component: TabsComponent,
   argTypes: {
     color: {

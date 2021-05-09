@@ -8,7 +8,7 @@ import { LoadingComponent } from '../loading/loading.component';
 
 
 export default {
-  title: 'Standard-Components/Loading',
+  title: 'High-Order Components/Loading',
   component: LoadingComponent,
   argTypes: {
     color: {

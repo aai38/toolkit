@@ -7,7 +7,7 @@ import {MaterialModule} from '../material.module';
 
 
 export default {
-  title: 'Standard-Components/Input',
+  title: 'Basic Components/Input',
   component: Input,
   argTypes: {
   },

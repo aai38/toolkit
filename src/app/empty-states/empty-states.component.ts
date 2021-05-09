@@ -20,5 +20,6 @@ export class EmptyStatesComponent  {
   @Input()
   icon: string = 'broken_image';
   @Input()
-  buttonLabel: string = 'go to main page'
+  buttonLabel: string = 'go to main page';
+
 }

@@ -17,7 +17,7 @@ export default {
   range:  new FormGroup({
     start: new FormControl(),
     end: new FormControl()}),
-  title: 'Standard-Components/DatePicker',
+  title: 'High-Order Components/DatePicker',
   component: IonDate,
   argTypes: {
     color_datepicker: {

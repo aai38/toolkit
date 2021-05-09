@@ -12,7 +12,7 @@ import { ChartsModule } from 'ng2-charts';
 
 
 export default {
-  title: 'Standard-Components/Chart',
+  title: 'High-Order Components/Chart',
   component: ChartComponent,
   argTypes: {
     backgroundColor: { control: 'color' },

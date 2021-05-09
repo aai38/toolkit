@@ -9,7 +9,7 @@ import {MaterialModule} from '../material.module';
 
 
 export default {
-  title: 'Standard-Components/Checkbox',
+  title: 'Basic Components/Checkbox',
   component: IonCheckboxComponent,
   decorators: [
     moduleMetadata({

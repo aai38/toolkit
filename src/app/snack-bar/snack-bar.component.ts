@@ -22,8 +22,7 @@ export class SnackBarComponent implements OnInit {
 
   @Input() actionValue: string = "Action";
   @Input() messageValue: string = "Message";
-  @Input() withDuration: boolean = false;
-  @Input() durationValue: number = 3000;
+  @Input() durationValue: number;
   ngOnInit() {}
 
 }

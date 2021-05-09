@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 export default {
-  title: 'Standard-Components/Card',
+  title: 'High-Order Components/Card',
   component: CardComponent,
   decorators: [
     moduleMetadata({
@@ -21,10 +21,6 @@ export default {
       imports: [IonicModule.forRoot(), CommonModule, MaterialModule, MatButtonModule, MatIconModule],
     }),
   ],
-  argTypes: {
-    width: {control: 'number'},
-    height: {control: 'number'}
-  },
   onClick: { action: 'clicked' },
 } as Meta;
 
@@ -37,8 +33,6 @@ export const Standard = Template.bind({});
 Standard.args = {
   label: 'View',
   image: "assets/example.jpg",
-  width: 900,
-  height: 300,
   headline: "Headline of study",
   description: "Description of the study",
   alternative: 'some Picture',
@@ -49,8 +43,6 @@ Standard.args = {
 export const withoutPicture = Template.bind({});
 withoutPicture.args = {
   image: "",
-  width: 600,
-  height: 300,
   headline: "Headline of study",
   description: "Description of the study",
   icon: 'star_border',
@@ -60,8 +52,6 @@ withoutPicture.args = {
 export const loadPicture = Template.bind({});
 loadPicture.args = {
   image: "",
-  width: 300,
-  height: 300,
   headline: "Headline of study",
   description: "Description of the study",
   icon: 'star_border',

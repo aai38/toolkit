@@ -8,8 +8,9 @@ import {MaterialModule} from '../material.module';
 import { EmptyStatesComponent } from '../empty-states/empty-states.component';
 
 
+
 export default {
-  title: 'Standard-Components/Empty States',
+  title: 'High-Order Components/Empty States',
   component: EmptyStatesComponent,
   decorators: [
     moduleMetadata({
@@ -33,7 +34,8 @@ export const Standard = Template.bind({});
 Standard.args = {
   emptyLabel: 'no studies available',
   icon: 'broken_image',
-  buttonLabel: 'go to main page'
+  buttonLabel: 'go to main page',
+  routerLink: ''
   
 };
 

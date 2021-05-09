@@ -1,4 +1,4 @@
-<mat-form-field [color]="color" class="example-chip-list">
+<mat-form-field [color]="color" class="chip-list">
     <mat-label>{{label}}</mat-label>
     <mat-chip-list #chipList aria-label="Chip selection">
         <mat-chip *ngFor="let chip of chips" [selectable]="selectable" [removable]="removable" (removed)="remove(chip)" [color]="chip.colorChip" [selected]="chip.selected">

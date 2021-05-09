@@ -15,7 +15,7 @@ import { APP_BASE_HREF } from '@angular/common';
 
 
 export default {
-  title: 'Standard-Components/Toolbar',
+  title: 'High-Order Components/Toolbar',
   component: ToolbarComponent,
   argTypes: {
     color: {

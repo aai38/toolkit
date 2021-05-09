@@ -17,7 +17,7 @@ import IonMenuComponent from '../ion-menu/ion-menu.component'
 import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
 import { ChartComponent } from '../chart/chart.component';
 import { MatMenu } from '@angular/material/menu';
-import { DialogElementsExample } from '../dialog/dialog.component';
+import { DialogElement } from '../dialog/dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptyStatesComponent } from '../empty-states/empty-states.component';
 import { RadioButtonComponent } from '../radio-button/radio-button.component';
@@ -32,6 +32,8 @@ import { TabsComponent } from '../tabs/tabs.component';
 import { StepperComponent } from '../stepper/stepper.component';
 import { RouterModule } from '@angular/router';
 
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -43,9 +45,12 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     ChartsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    FormArray,
+    FormGroup,
+    FormBuilder
   ],
-  declarations: [HomePage,ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElementsExample, SnackBarComponent],
+  declarations: [HomePage,ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
   exports: [
     HomePage,
   ],
