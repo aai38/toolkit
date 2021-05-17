@@ -53,4 +53,7 @@ const Template: Story<HomePage> = (args) => ({
 
 export const Standard = Template.bind({});
 Standard.args = {
+  
+    angularRouter: {active: '/news'}
+
 };

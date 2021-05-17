@@ -33,6 +33,11 @@ import { StepperComponent } from '../stepper/stepper.component';
 import { RouterModule } from '@angular/router';
 
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { ExpansionPanelComponent } from '../expansion-panel/expansion-panel.component';
+import { AccordionComponent } from '../accordion/accordion.component';
+import { TableComponent } from '../table/table.component';
+import { ButtonToggleComponent } from '../button-toggle/button-toggle.component';
+import { NewsComponent } from '../news/news.component';
 
 
 @NgModule({
@@ -50,7 +55,7 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
     FormGroup,
     FormBuilder
   ],
-  declarations: [HomePage,ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
+  declarations: [HomePage, ButtonToggleComponent, TableComponent, AccordionComponent, ExpansionPanelComponent, ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
   exports: [
     HomePage,
   ],

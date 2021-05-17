@@ -1,40 +1,39 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
+import Input from '../input/input.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
-import { SnackBarComponent } from '../snack-bar/snack-bar.component';
+import { AccordionComponent } from '../accordion/accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ExpansionPanelComponent } from '../expansion-panel/expansion-panel.component';
 
 
 export default {
-  title: 'High-Order Components/SnackBar',
-  component: SnackBarComponent,
+  title: 'High-Order Components/Accordion',
+  component: AccordionComponent,
   argTypes: {
   },
   decorators: [
     moduleMetadata({
-      declarations: [SnackBarComponent],
+      declarations: [AccordionComponent, ExpansionPanelComponent],
       imports: [IonicModule, MaterialModule, BrowserAnimationsModule],
     }),
   ],
   
 } as Meta;
 
-const Template: Story<SnackBarComponent> = (args) => ({
-  component: SnackBarComponent,
+const Template: Story<AccordionComponent> = (args) => ({
+  component: AccordionComponent,
   props: args,
 });
 
 export const Standard = Template.bind({});
 Standard.args = {
-  actionValue : "Action",
-  messageValue: "Message",
+  multi: false,
 };
 
-export const TimeLimitedSnackbar = Template.bind({});
-TimeLimitedSnackbar.args = {
-  actionValue : "",
-  messageValue: "Snackbar is shown for 3 seconds",
-  durationValue: 3000,
+export const Multi = Template.bind({});
+Multi.args = {
+  multi: true
 };

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export default class HomePage {
-public panelOpenState = true;
   constructor() {}
 
 }

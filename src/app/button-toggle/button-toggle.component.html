@@ -1,0 +1,25 @@
+<ng-template [ngIf]="selectMultiple">
+    <ng-template [ngIf]="appearance">
+        <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" multiple>
+            <mat-button-toggle *ngFor="let value of values" [value]="value">{{value}}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </ng-template>
+    <ng-template [ngIf]="!appearance">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple>
+            <mat-button-toggle *ngFor="let value of values" [value]="value">{{value}}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </ng-template>
+</ng-template>
+
+<ng-template [ngIf]="!selectMultiple">
+    <ng-template [ngIf]="appearance">
+        <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle *ngFor="let value of values" [value]="value">{{value}}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </ng-template>
+    <ng-template [ngIf]="!appearance">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle *ngFor="let value of values" [value]="value">{{value}}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </ng-template>
+</ng-template>

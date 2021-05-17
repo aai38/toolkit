@@ -32,44 +32,22 @@ const Template: Story<StepperComponent> = (args) => ({
   props: args,
 });
 
-export const ThreeStepVertical = Template.bind({});
-ThreeStepVertical.args = {
-    
-  firstStepLabel:  "Fill out your name",
-  firstStepInputLabel: "Name",
-  firstStepInputPlaceholder: "Prename Lastname",
+export const Vertical = Template.bind({});
+Vertical.args = {
+  isLinear : false,
 
-  secondStepLabel: "Fill out your Adress",
-  secondStepInputLabel:  "Adress",
-  secondStepInputPlaceholder: "Adress",
-
-  doneStepLabel: "Done",
-  doneText: "You are done now",
-
-  backButtonLabel: "Back",
+  backButtonLabel:  "Back",
   nextButtonLabel: "Next",
-  resetButtonLabel: "Reset",
-
-  horizontal: false
+  placeholder: "Adress",
+  horizontal: false,
 };
 
-export const TwoStepHorizontal = Template.bind({});
-TwoStepHorizontal.args = {
-    
-  firstStepLabel:  "Fill out your name",
-  firstStepInputLabel: "Name",
-  firstStepInputPlaceholder: "Prename Lastname",
+export const Horizontal = Template.bind({});
+Horizontal.args = {
+  isLinear : false,
 
-  secondStepLabel: "",
-  secondStepInputLabel:  "",
-  secondStepInputPlaceholder: "",
-
-  doneStepLabel: "Done",
-  doneText: "You are done now",
-
-  backButtonLabel: "Back",
+  backButtonLabel:  "Back",
   nextButtonLabel: "Next",
-  resetButtonLabel: "Reset",
-
-  horizontal: true
+  placeholder: "Adress",
+  horizontal: true,
 };

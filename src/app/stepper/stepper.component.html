@@ -2,16 +2,16 @@
     <button mat-raised-button (click)="addItem()">
         add item
       </button>
-    <form [formGroup]="firstFormGroup">
+    <form [formGroup]="formGroup">
         <mat-horizontal-stepper formArrayName="form">
-            <mat-step [formGroupName]="i" *ngFor="let customerGroup of steps; let i = index">
+            <mat-step [formGroupName]="i" *ngFor="let customerGroup of formGroup.controls.form['controls']; let i = index">
                 <ng-template matStepLabel>Step {{i + 1}}</ng-template>
                 <mat-form-field>
-                    <input matInput placeholder="Address" formControlName="cont" required>
+                    <input matInput [(ngModel)]="value" [placeholder]="placeholder" formControlName="cont" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
+                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>
@@ -22,16 +22,16 @@
     <button mat-raised-button (click)="addItem()">
         add item
       </button>
-    <form [formGroup]="firstFormGroup">
+    <form [formGroup]="formGroup">
         <mat-vertical-stepper formArrayName="form">
-            <mat-step [formGroupName]="i" *ngFor="let customerGroup of steps; let i = index">
+            <mat-step [formGroupName]="i" *ngFor="let customerGroup of formGroup.controls.form['controls'] of form; let i = index">
                 <ng-template matStepLabel>Step {{i + 1}}</ng-template>
                 <mat-form-field>
-                    <input matInput placeholder="Address" formControlName="cont" required>
+                    <input matInput [(ngModel)]="value" [placeholder]="placeholder" formControlName="cont" required>
                 </mat-form-field>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperPrevious>{{backButtonLabel}}</button>
+                    <button mat-button matStepperNext>{{nextButtonLabel}}</button>
                 </div>
             </mat-step>
         </mat-vertical-stepper>

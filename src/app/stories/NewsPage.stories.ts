@@ -26,15 +26,17 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
-      imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, AppModule, RouterModule.forRoot([{
-        path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
+      imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, RouterModule.forRoot([{
+        path: '', loadChildren: () => import('../news/news.module').then(m => m.NewsPageModule) },
+      {path: 'news', component:NewsComponent}],
          {
         useHash: true,
-      }
+      },
     )],
     providers: [
       {provide: APP_BASE_HREF, useValue:'/' }
-    ]
+    ],
+    
     }),
   ],
   

@@ -8,24 +8,14 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 })
 export class StepperComponent implements OnInit {
 
-  test = new FormControl('');
-  steps: FormArray;
+  @Input() form: FormArray;
   @Input() isLinear = false;
-  firstFormGroup: FormGroup;
-  @Input() firstStepLabel: string = "Fill out your name";
-  @Input() firstStepInputLabel: string = "Name";
-  @Input () firstStepInputPlaceholder: string = "Prename Lastname";
-
-  @Input() secondStepLabel: string = "Fill out your Adress";
-  @Input() secondStepInputLabel: string = "Adress";
-  @Input () secondStepInputPlaceholder: string = "Adress";
-
-  @Input() doneStepLabel: string = "Done";
-  @Input() doneText: string = "You are done now";
+  @Input() formGroup: FormGroup;
 
   @Input() backButtonLabel: string = "Back";
   @Input() nextButtonLabel: string = "Next";
-  @Input() resetButtonLabel: string = "Reset";
+  @Input() placeholder: string = "Adress";
+  @Input() value: string;
 
   @Input() horizontal: boolean = false;
 
@@ -33,7 +23,7 @@ export class StepperComponent implements OnInit {
 
   
     ngOnInit() {
-      this.firstFormGroup = this._formBuilder.group({
+      this.formGroup = this._formBuilder.group({
         form : this._formBuilder.array([this.init()])
       }) 
       this.addItem();
@@ -46,8 +36,8 @@ export class StepperComponent implements OnInit {
     }
   
     addItem(){
-      this.steps = this.firstFormGroup.get('steps') as FormArray;
-      this.steps.push(this.init());
+      this.form = this.formGroup.get('form') as FormArray;
+      this.form.push(this.init());
     
   }
 }

@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppModule } from '../app.module';
 import { AppComponent } from '../app.component';
+import { NewsComponent } from '../news/news.component';
 
 
 export default {
@@ -25,7 +26,7 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      declarations: [AppComponent, HomePage, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
+      declarations: [AppComponent, HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
       imports: [IonicModule, MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, RouterModule.forRoot([
         {path: '', loadChildren: () => import('../app.module').then(m=>m.AppModule) }, ],
          {

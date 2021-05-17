@@ -1,5 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
+import { MaterialModule } from '../material.module';
 
 import { NewsComponent } from './news.component';
 
@@ -10,7 +14,7 @@ describe('NewsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NewsComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule, BrowserAnimationsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(NewsComponent);
