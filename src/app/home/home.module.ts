@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule,LOCALE_ID , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonDatetime, IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,24 +38,39 @@ import { AccordionComponent } from '../accordion/accordion.component';
 import { TableComponent } from '../table/table.component';
 import { ButtonToggleComponent } from '../button-toggle/button-toggle.component';
 import { NewsComponent } from '../news/news.component';
+import { HomePageRoutingModule } from './home-routing.module';
+import {  CalendarModule } from 'ion2-calendar';
+import { CalendarComponent } from '../calendar/calendar.component';
+import { NgCalendarModule  } from 'ionic2-calendar';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+registerLocaleData(localeDe);
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    NgCalendarModule,
+    HomePageRoutingModule,
     IonicModule,
     IonicModule.forRoot(),
-    IonContent,
     MaterialModule,
+    CalendarModule,
     ChartsModule,
     ReactiveFormsModule,
-    RouterModule,
-    FormArray,
-    FormGroup,
-    FormBuilder
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomePage
+      }
+    ]),
   ],
-  declarations: [HomePage, ButtonToggleComponent, TableComponent, AccordionComponent, ExpansionPanelComponent, ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
+  declarations: [ HomePage, CalendarComponent, ButtonToggleComponent, TableComponent, AccordionComponent, ExpansionPanelComponent, ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'de-DE' }
+  ],
   exports: [
     HomePage,
   ],

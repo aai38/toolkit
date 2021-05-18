@@ -38,7 +38,23 @@ Standard.args = {
   label: 'Launch Dialog',
   title: 'Dialog title',
   dialogButtonLabel: 'Close',
-  content: 'content'
+  content: 'content',
+  simple: true
+
+  
+
+};
+
+export const TwoButtons = Template.bind({});
+TwoButtons.args = {
+  label: 'Launch Dialog',
+  title: 'Dialog title',
+  dialogButtonLabel: 'Close',
+  dialogAcceptButtonLabel: 'Accept',
+  content: 'content',
+  simple: false
+
+  
 
 };
 

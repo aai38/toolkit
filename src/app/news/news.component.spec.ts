@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
+import ToolbarComponent from '../toolbar/toolbar.component';
 
 import { NewsComponent } from './news.component';
 
@@ -13,7 +14,7 @@ describe('NewsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsComponent ],
+      declarations: [ NewsComponent],
       imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule, BrowserAnimationsModule]
     }).compileComponents();
 

@@ -11,6 +11,14 @@ import HomePage from './home/home.page';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  public appPages = [
+    {
+    title: 'Home',
+    url: '/home'
+    }
+  ]
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

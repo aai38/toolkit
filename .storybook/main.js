@@ -8,7 +8,5 @@ module.exports = {
         "@storybook/addon-essentials",
         // .storybook/main.js
 
-        "storybook-addon-angular-router",
-
     ]
 }

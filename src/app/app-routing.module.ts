@@ -6,7 +6,8 @@ import { NewsComponent } from './news/news.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    redirectTo: 'home',
+    pathMatch: 'full'
     
   },
 
@@ -14,12 +15,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  
-  
+
   {
     path: 'news',
-    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
+    component: NewsComponent
   },
+  
+  
+  
 ];
 
 @NgModule({

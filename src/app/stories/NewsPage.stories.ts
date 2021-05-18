@@ -27,7 +27,7 @@ export default {
     moduleMetadata({
       declarations: [NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
       imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule, RouterModule.forRoot([{
-        path: '', loadChildren: () => import('../news/news.module').then(m => m.NewsPageModule) },
+        path: '', component: NewsComponent },
       {path: 'news', component:NewsComponent}],
          {
         useHash: true,

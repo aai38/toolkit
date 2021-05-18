@@ -20,13 +20,13 @@ ion-card {
 }
 
 .label {
-    margin: 30px;
+    margin: 20px;
     white-space: normal !important;
 }
 
 .button {
     float: right;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .spinner {
@@ -36,9 +36,9 @@ ion-card {
 
 .row {
     column-count: 2;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .icon {
-    margin-right: 30px;
+    margin-right: 20px;
 }

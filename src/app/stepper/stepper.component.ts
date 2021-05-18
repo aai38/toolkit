@@ -26,6 +26,8 @@ export class StepperComponent implements OnInit {
       this.formGroup = this._formBuilder.group({
         form : this._formBuilder.array([this.init()])
       }) 
+      console.log(this.form);
+      console.log(this.formGroup);
       this.addItem();
     }
   
@@ -38,6 +40,7 @@ export class StepperComponent implements OnInit {
     addItem(){
       this.form = this.formGroup.get('form') as FormArray;
       this.form.push(this.init());
+      console.log(this.form);
     
   }
 }

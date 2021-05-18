@@ -1,7 +1,20 @@
-<h1 mat-dialog-title>{{data.modalTitle}}</h1>
-<div mat-dialog-content>
-    {{data.content}}
-</div>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>{{data.modalButtonLabel}}</button>
-</div>
+<ng-template [ngIf]="data.simple">
+    <h1 mat-dialog-title>{{data.modalTitle}}</h1>
+    <div mat-dialog-content>
+        {{data.content}}
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>{{data.modalButtonLabel}}</button>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="!data.simple">
+    <h1 mat-dialog-title>{{data.modalTitle}}</h1>
+    <div mat-dialog-content>
+        {{data.content}}
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">{{data.modalButtonLabel}}</button>
+        <button mat-button mat-dialog-close="accept" cdkFocusInitial>{{data.acceptButtonLabel}}</button>
+    </div>
+</ng-template>

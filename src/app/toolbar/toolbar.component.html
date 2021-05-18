@@ -20,7 +20,7 @@
     <mat-sidenav #drawer>
         <mat-nav-list>
             <h2 matSubheader>{{header1}}</h2>
-            <a [routerLink]="item.link" *ngFor="let item of items" mat-list-item>
+            <a (click)="drawer.toggle()" [routerLink]="item.link" *ngFor="let item of items" mat-list-item>
                 <mat-icon matListIcon> {{ item.icon }} </mat-icon>
                 {{item.title}}
             </a>
@@ -45,4 +45,3 @@
 
     </mat-sidenav-content>
 </mat-sidenav-container>
-<ion-router-outlet></ion-router-outlet>

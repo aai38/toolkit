@@ -13,23 +13,33 @@ import { ChartsModule } from 'ng2-charts';
 
 import { NewsComponent } from './news.component';
 import { RouterModule } from '@angular/router';
+import { NewsPageRoutingModule } from './news-routing.module';
+import ToolbarComponent from '../toolbar/toolbar.component';
+import ButtonComponent from '../button/button.component';
+import IonMenuComponent from '../ion-menu/ion-menu.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    NewsPageRoutingModule,
     FormsModule,
     IonicModule,
     IonicModule.forRoot(),
-    IonContent,
     MaterialModule,
     ChartsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule.forChild([
+      {
+        path: '',
+        component: NewsComponent
+      }
+    ]),
   ],
-  declarations: [NewsComponent],
+  declarations: [NewsComponent, ToolbarComponent, ButtonComponent, IonMenuComponent, CardComponent],
   exports: [
     NewsComponent,
+    ToolbarComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
