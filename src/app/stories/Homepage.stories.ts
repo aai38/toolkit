@@ -3,14 +3,14 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import Input from '../input/input.component';
 import CardComponent from '../card/card.component'
 import Button from '../button/button.component'
-import IonMenuComponent from '../ion-menu/ion-menu.component'
+import {MenuComponent} from '../menu/menu.component'
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
 import  HomePage  from '../home/home.page';
 import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import IonDatetime from '../ion-datetime/ion-datetime.component'
+import IonDatetime from '../datepicker/datepicker.component'
 import ToolbarComponent  from '../toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -28,7 +28,7 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],
+      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, MenuComponent, IonDatetime, ToolbarComponent],
       imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule,  RouterModule.forRoot([{
         path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },
       {path: 'news', component:NewsComponent}],

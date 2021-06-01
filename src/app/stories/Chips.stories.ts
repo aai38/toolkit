@@ -47,8 +47,8 @@ Standard.args = {
     ]
 };
 
-export const ColoredRemovableChips = Template.bind({});
-ColoredRemovableChips.args = {
+export const ColoredRemovable = Template.bind({});
+ColoredRemovable.args = {
     visible: true,
     selectable:  true,
     removable: true,

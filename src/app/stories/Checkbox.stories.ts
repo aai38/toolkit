@@ -2,7 +2,7 @@
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { CommonModule } from '@angular/common';
 
-import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component';
+import CheckboxComponent from '../checkbox/checkbox.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
@@ -10,10 +10,10 @@ import {MaterialModule} from '../material.module';
 
 export default {
   title: 'Basic Components/Checkbox',
-  component: IonCheckboxComponent,
+  component: CheckboxComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ IonCheckboxComponent],
+      declarations: [ CheckboxComponent],
       imports: [IonicModule.forRoot(), CommonModule, MaterialModule],
     }),
   ],
@@ -29,8 +29,8 @@ export default {
   
 } as Meta;
 
-const Template: Story<IonCheckboxComponent> = (args) => ({
-  component: IonCheckboxComponent,
+const Template: Story<CheckboxComponent> = (args) => ({
+  component: CheckboxComponent,
   props: args,
 });
 

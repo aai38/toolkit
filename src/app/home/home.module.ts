@@ -5,16 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import HomePage  from './home.page';
 import CardComponent from '../card/card.component';
 import Input from '../input/input.component';
-import IonDate from '../ion-datetime/ion-datetime.component'
+import Datepicker from '../datepicker/datepicker.component'
 import {MaterialModule} from '../material.module';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material/expansion';
 import { ChartsModule } from 'ng2-charts';
 
 
-
-import ButtonComponent from '../button/button.component';
-import IonMenuComponent from '../ion-menu/ion-menu.component'
-import IonCheckboxComponent from '../ion-checkbox/ion-checkbox.component'
+import {MenuComponent} from '../menu/menu.component'
+import CheckboxComponent from '../checkbox/checkbox.component'
 import { ChartComponent } from '../chart/chart.component';
 import { MatMenu } from '@angular/material/menu';
 import { DialogElement } from '../dialog/dialog.component';
@@ -44,6 +42,17 @@ import { CalendarComponent } from '../calendar/calendar.component';
 import { NgCalendarModule  } from 'ionic2-calendar';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { ButtonModule } from '../button/button.module';
+import { MenuModule } from '../menu/menu.module';
+import { CardModule } from '../card/card.module';
+import { ToolbarModule } from '../toolbar/toolbar.module';
+import { AccordionModule } from '../accordion/accordion.module';
+import { ExpansionPanelModule } from '../expansion-panel/expansion-panel.module';
+import { ButtonToggleModule } from '../button-toggle/button-toogle.module';
+import { InputModule } from '../input/input.module';
+import { ChartModule } from '../chart/chart.module';
+import { CheckboxModule } from '../checkbox/checkbox.module';
+import { ChipsModule } from '../chips/chips.module';
 registerLocaleData(localeDe);
 
 
@@ -52,13 +61,17 @@ registerLocaleData(localeDe);
   imports: [
     CommonModule,
     FormsModule,
+    ButtonModule,
+    MenuModule,
+    CardModule,
     NgCalendarModule,
+    InputModule,
+    ExpansionPanelModule,
+    ToolbarModule,
     HomePageRoutingModule,
     IonicModule,
     IonicModule.forRoot(),
     MaterialModule,
-    CalendarModule,
-    ChartsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {
@@ -67,7 +80,7 @@ registerLocaleData(localeDe);
       }
     ]),
   ],
-  declarations: [ HomePage, CalendarComponent, ButtonToggleComponent, TableComponent, AccordionComponent, ExpansionPanelComponent, ToolbarComponent, IonMenuComponent, TabsComponent, StepperComponent, ChipsComponent, SliderComponent, SlideToggleComponent, LoadingComponent, SelectComponent, EmptyStatesComponent, RadioButtonComponent, CardComponent, Input, ButtonComponent, IonCheckboxComponent, IonDate, ChartComponent, DialogElement, SnackBarComponent],
+  declarations: [ HomePage],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' }
   ],

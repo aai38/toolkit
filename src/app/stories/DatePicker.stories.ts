@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import IonDate from '../ion-datetime/ion-datetime.component';
+import Datepicker from '../datepicker/datepicker.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
@@ -17,8 +17,8 @@ export default {
   range:  new FormGroup({
     start: new FormControl(),
     end: new FormControl()}),
-  title: 'High-Order Components/DatePicker',
-  component: IonDate,
+  title: 'High-Order Components/Datepicker',
+  component: Datepicker,
   argTypes: {
     color_datepicker: {
       control: {
@@ -36,15 +36,15 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      declarations: [IonDate],
+      declarations: [Datepicker],
       imports: [IonicModule.forRoot(), MaterialModule, ReactiveFormsModule, CommonModule, BrowserAnimationsModule],
     }),
   ],
   
 } as Meta;
 
-const Template: Story<IonDate> = (args) => ({
-  component: IonDate,
+const Template: Story<Datepicker> = (args) => ({
+  component: Datepicker,
   props: args,
 });
 

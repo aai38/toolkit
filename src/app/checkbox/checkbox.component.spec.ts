@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { MaterialModule } from '../material.module';
 
-import  IonCheckboxComponent  from './ion-checkbox.component';
+import  CheckboxComponent  from './checkbox.component';
 import {NgModule} from '@angular/core';
 
-describe('IonCheckboxComponent', () => {
-  let component: IonCheckboxComponent;
-  let fixture: ComponentFixture<IonCheckboxComponent>;
+describe('CheckboxComponent', () => {
+  let component: CheckboxComponent;
+  let fixture: ComponentFixture<CheckboxComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ IonCheckboxComponent ],
+      declarations: [ CheckboxComponent ],
       imports: [IonicModule.forRoot(), MaterialModule.forRoot(), NgModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IonCheckboxComponent);
+    fixture = TestBed.createComponent(CheckboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

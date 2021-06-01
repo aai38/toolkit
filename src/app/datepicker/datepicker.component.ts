@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-ion-datetime',
-  templateUrl: './ion-datetime.component.html',
-  styleUrls: ['./ion-datetime.component.scss'],
+  selector: 'app-datepicker',
+  templateUrl: './datepicker.component.html',
+  styleUrls: ['./datepicker.component.scss'],
 })
-export default class IonDate  {
+export default class Datepicker  {
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()});

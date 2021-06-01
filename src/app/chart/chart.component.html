@@ -1,55 +1,55 @@
 <ng-template [ngIf]="chartType == 'line'">
     <div class="chart-wrapper-line">
-        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" [chartType]="chartType" [plugins]="chartPlugins">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" [chartType]="chartType" [plugins]="chartPlugins" data-cy="chart--line">
   </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'doughnut'">
     <div class="chart-wrapper-doughnut">
-        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="doughnut">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="doughnut" data-cy="chart--doughnut">
 </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'bar'">
     <div class="chart-wrapper-bar">
-        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" chartType="bar" [plugins]="chartPlugins">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" chartType="bar" [plugins]="chartPlugins" data-cy="chart--bar">
 </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'radar'">
     <div class="chart-wrapper">
-        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [labels]="chartLabels" chartType="radar">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [labels]="chartLabels" chartType="radar" data-cy="chart--radar">
   </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'pie'">
     <div class="chart-wrapper">
-        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="pie" [options]="chartOptions" [plugins]="chartPlugins" [legend]="chartLegend">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" chartType="pie" [options]="chartOptions" [plugins]="chartPlugins" [legend]="chartLegend" data-cy="chart--pie">
       </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'bubble'">
     <div class="chart-wrapper">
-        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" chartType="bubble">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" [colors]="chartColors" [legend]="chartLegend" chartType="bubble" data-cy="chart--bubble">
       </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'polarArea'">
     <div style="display: block;">
-        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [legend]="chartLegend" chartType="polarArea">
+        <canvas baseChart [datasets]="chartDatasets" [labels]="chartLabels" [legend]="chartLegend" chartType="polarArea" data-cy="chart--polar-area">
         </canvas>
     </div>
 </ng-template>
 
 <ng-template [ngIf]="chartType == 'scatter'">
     <div style="display: block;">
-        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" chartType="scatter">
+        <canvas baseChart [datasets]="chartDatasets" [options]="chartOptions" chartType="scatter" data-cy="chart--scatter">
         </canvas>
     </div>
 </ng-template>

@@ -8,11 +8,11 @@ interface Items {
 }
 
 @Component({
-  selector: 'app-ion-menu',
-  templateUrl: './ion-menu.component.html',
-  styleUrls: ['./ion-menu.component.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss'],
 })
-export default class IonMenuComponent  {
+export class MenuComponent  {
 
   constructor(private menu: MenuController) { }
   showFiller = false;

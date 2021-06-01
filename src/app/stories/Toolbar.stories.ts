@@ -5,7 +5,7 @@ import { moduleMetadata } from '@storybook/angular';
 import {MaterialModule} from '../material.module';
 import  ToolbarComponent  from '../toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import IonMenuComponent from '../ion-menu/ion-menu.component';
+import {MenuComponent} from '../menu/menu.component';
 import CardComponent from '../card/card.component';
 import ButtonComponent from '../button/button.component';
 import { RouterModule } from '@angular/router';
@@ -27,7 +27,7 @@ export default {
   },
   decorators: [
     moduleMetadata({
-      declarations: [ToolbarComponent, IonMenuComponent, CardComponent, ButtonComponent],
+      declarations: [ToolbarComponent, MenuComponent, CardComponent, ButtonComponent],
       imports: [IonicModule, MaterialModule, BrowserAnimationsModule, RouterModule.forRoot([{
         path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
          {
@@ -73,8 +73,8 @@ TwoIcons.args = {
 
 };
 
-export const ToolbarWithMenuAndContent = Template.bind({});
-ToolbarWithMenuAndContent.args = {
+export const WithMenuAndContent = Template.bind({});
+WithMenuAndContent.args = {
   title : 'My App',
   icon1: 'favorite',
   icon2: 'share',

@@ -123,10 +123,10 @@
         },
         {
             "name": "Items",
-            "id": "interface-Items-54b6be0f977e2158944f74cddd1716e0",
-            "file": "src/app/ion-menu/ion-menu.component.ts",
+            "id": "interface-Items-6b7e6bd65a70515f61b45a765fdf9296",
+            "file": "src/app/menu/menu.component.ts",
             "type": "interface",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-menu',\n  templateUrl: './menu.component.html',\n  styleUrls: ['./menu.component.scss'],\n})\nexport class MenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
             "properties": [
                 {
                     "name": "icon",
@@ -347,7 +347,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<mat-accordion class=\"example-headers-align\" [multi]=\"multi\">\n    <app-expansion-panel></app-expansion-panel>\n    <app-expansion-panel icon=\"\" selfaware=true></app-expansion-panel>\n    <app-expansion-panel disabled=true></app-expansion-panel>\n</mat-accordion>"
+            "templateData": "<mat-accordion class=\"example-headers-align\" [multi]=\"multi\" data-cy=\"accordion\">\n    <app-expansion-panel></app-expansion-panel>\n    <app-expansion-panel icon=\"\" selfaware=true></app-expansion-panel>\n    <app-expansion-panel disabled=true></app-expansion-panel>\n</mat-accordion>"
         },
         {
             "name": "AppComponent",
@@ -524,7 +524,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<ng-template [ngIf]=\"type == 'basic'\">\n    <div>\n        <button class=\"button_class\" mat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'raised'\">\n    <div>\n        <button class=\"button_class\" mat-raised-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'flat'\">\n    <div>\n        <button class=\"button_class\" mat-flat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'stroke'\">\n    <div>\n        <button class=\"button_class\" mat-stroked-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template #elseBlock>\n    <div>\n        <button class=\"button_class\" mat-button>  View \n            </button>\n    </div>\n</ng-template>"
+            "templateData": "<ng-template [ngIf]=\"type == 'basic'\">\n    <div>\n        <button class=\"button_class\" mat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\" data-cy=\"button-standard\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'raised'\">\n    <div>\n        <button class=\"button_class\" mat-raised-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\" data-cy=\"button-raised\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'flat'\">\n    <div>\n        <button class=\"button_class\" mat-flat-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\" data-cy=\"button-flat\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template [ngIf]=\"type == 'stroke'\">\n    <div>\n        <button class=\"button_class\" mat-stroked-button [disabled]=disabled [color]=color (click)=\"onClick.emit($event)\" [ngStyle]=\"{ 'background-color': backgroundColor }\" data-cy=\"button-stroke\"> {{ label }}\n            </button>\n    </div>\n</ng-template>\n<ng-template #elseBlock>\n    <div>\n        <button class=\"button_class\" mat-button>  View \n            </button>\n    </div>\n</ng-template>"
         },
         {
             "name": "ButtonToggleComponent",
@@ -1063,6 +1063,73 @@
             "templateData": "<ng-template [ngIf]=\"chartType == 'line'\">\n    <div class=\"chart-wrapper-line\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" [chartType]=\"chartType\" [plugins]=\"chartPlugins\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'doughnut'\">\n    <div class=\"chart-wrapper-doughnut\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"doughnut\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bar'\">\n    <div class=\"chart-wrapper-bar\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bar\" [plugins]=\"chartPlugins\">\n</canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'radar'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" [labels]=\"chartLabels\" chartType=\"radar\">\n  </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'pie'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" chartType=\"pie\" [options]=\"chartOptions\" [plugins]=\"chartPlugins\" [legend]=\"chartLegend\">\n      </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'bubble'\">\n    <div class=\"chart-wrapper\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" [colors]=\"chartColors\" [legend]=\"chartLegend\" chartType=\"bubble\">\n      </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'polarArea'\">\n    <div style=\"display: block;\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [labels]=\"chartLabels\" [legend]=\"chartLegend\" chartType=\"polarArea\">\n        </canvas>\n    </div>\n</ng-template>\n\n<ng-template [ngIf]=\"chartType == 'scatter'\">\n    <div style=\"display: block;\">\n        <canvas baseChart [datasets]=\"chartDatasets\" [options]=\"chartOptions\" chartType=\"scatter\">\n        </canvas>\n    </div>\n</ng-template>"
         },
         {
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-c017ba644846399bdbf5c6f039bab3da",
+            "file": "src/app/checkbox/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-checkbox",
+            "styleUrls": [
+                "./checkbox.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "checked",
+                    "defaultValue": "false",
+                    "line": 15,
+                    "type": "boolean"
+                },
+                {
+                    "name": "color",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "line": 18,
+                    "type": "boolean"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'string'",
+                    "line": 12
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-checkbox',\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss'],\n})\nexport default class CheckboxComponent {\n\n  constructor() { }\n  @Input()\n  label? = 'string';\n  \n  @Input()\n  checked: boolean = false;\n\n  @Input()\n  disabled: boolean = false;\n\n\n  @Input()\n  color?: string;\n\n\n  \n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host::ng-deep.mat-checkbox-layout {\n    white-space: normal !important;\n}\n\n :host::ng-deep.mat-checkbox-inner-container {\n    margin-top: 4px;\n}",
+                    "styleUrl": "./checkbox.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<div id='check'>\n    <mat-checkbox class=\"example-margin\" [color]=color [checked]=checked [disabled]=disabled> {{ label }} </mat-checkbox>\n</div>"
+        },
+        {
             "name": "ChipsComponent",
             "id": "component-ChipsComponent-0cfbebe48b8ddf20aa38885feb80b08b",
             "file": "src/app/chips/chips.component.ts",
@@ -1227,6 +1294,128 @@
                 "OnInit"
             ],
             "templateData": "<mat-form-field [color]=\"color\" class=\"chip-list\">\n    <mat-label>{{label}}</mat-label>\n    <mat-chip-list #chipList aria-label=\"Chip selection\">\n        <mat-chip *ngFor=\"let chip of chips\" [selectable]=\"selectable\" [removable]=\"removable\" (removed)=\"remove(chip)\" [color]=\"chip.colorChip\" [selected]=\"chip.selected\">\n            {{chip.name}}\n            <mat-icon matChipRemove *ngIf=\"removable\">{{icon}}</mat-icon>\n        </mat-chip>\n        <input [placeholder]=\"placeholder\" [matChipInputFor]=\"chipList\" [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"add($event)\">\n    </mat-chip-list>\n</mat-form-field>"
+        },
+        {
+            "name": "Datepicker",
+            "id": "component-Datepicker-9f7c462c96ac6839c9f65e7a44d95ddf",
+            "file": "src/app/datepicker/datepicker.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-datepicker",
+            "styleUrls": [
+                "./datepicker.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./datepicker.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color_datepicker",
+                    "defaultValue": "'primary'",
+                    "line": 31,
+                    "type": "string"
+                },
+                {
+                    "name": "color_input",
+                    "defaultValue": "'primary'",
+                    "line": 29,
+                    "type": "string"
+                },
+                {
+                    "name": "completelyDisabled",
+                    "defaultValue": "false",
+                    "line": 33,
+                    "type": "boolean"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Choose date'",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "label_applyButton",
+                    "defaultValue": "'Apply'",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "label_cancelButton",
+                    "defaultValue": "'Cancel'",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder_endDate",
+                    "defaultValue": "'End Date'",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder_startDate",
+                    "defaultValue": "'Start Date'",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "popupDisabled",
+                    "defaultValue": "false",
+                    "line": 35,
+                    "type": "boolean"
+                },
+                {
+                    "name": "showRange",
+                    "defaultValue": "true",
+                    "line": 37,
+                    "type": "boolean"
+                },
+                {
+                    "name": "toggleIcon",
+                    "defaultValue": "'keyboard_arrow_down'",
+                    "line": 39,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "date",
+                    "defaultValue": "new FormControl(new Date())",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "range",
+                    "defaultValue": "new FormGroup({\n    start: new FormControl(),\n    end: new FormControl()})",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {FormControl, FormGroup} from '@angular/forms';\n\n@Component({\n  selector: 'app-datepicker',\n  templateUrl: './datepicker.component.html',\n  styleUrls: ['./datepicker.component.scss'],\n})\nexport default class Datepicker  {\n  range = new FormGroup({\n    start: new FormControl(),\n    end: new FormControl()});\n\n  date = new FormControl(new Date());\n\n  @Input()\n  label: string = 'Choose date';\n  @Input()\n  placeholder_startDate : string = 'Start Date';\n\n  @Input()\n  placeholder_endDate : string = 'End Date';\n  @Input()\n  label_cancelButton: string = 'Cancel';\n  @Input()\n  label_applyButton: string = 'Apply';\n\n  @Input()\n  color_input: string ='primary';\n  @Input()\n  color_datepicker: string = 'primary';\n  @Input()\n  completelyDisabled: boolean = false;\n  @Input()\n  popupDisabled: boolean = false;\n  @Input()\n  showRange: boolean= true;\n  @Input()\n  toggleIcon: string= 'keyboard_arrow_down';\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./datepicker.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<ng-template [ngIf]=\"showRange\">\n    <mat-form-field [color]=\"color_input\" appearance=\"fill\" class=\"example-form-field\">\n        <mat-label>{{label}}</mat-label>\n        <mat-date-range-input [formGroup]=\"range\" [rangePicker]=\"rangePicker\" [disabled]=\"completelyDisabled\">\n            <input matStartDate [placeholder]=\"placeholder_startDate\">\n            <input matEndDate [placeholder]=\"placeholder_endDate\">\n        </mat-date-range-input>\n        <mat-datepicker-toggle matSuffix [for]=\"rangePicker\" [disabled]=\"popupDisabled\">\n            <mat-icon matDatepickerToggleIcon>{{toggleIcon}}</mat-icon>\n        </mat-datepicker-toggle>\n        <mat-date-range-picker #rangePicker [color]=\"color_datepicker\">\n            <mat-date-range-picker-actions>\n                <button mat-button matDateRangePickerCancel>{{label_cancelButton}}</button>\n                <button mat-raised-button color=\"primary\" matDateRangePickerApply>{{label_applyButton}}</button>\n            </mat-date-range-picker-actions>\n        </mat-date-range-picker>\n        <mat-error *ngIf=\"range.controls.start.hasError('matStartDateInvalid')\">Invalid start date</mat-error>\n        <mat-error *ngIf=\"range.controls.end.hasError('matEndDateInvalid')\">Invalid end date</mat-error>\n    </mat-form-field>\n</ng-template>\n\n<ng-template [ngIf]=\"showRange == false\">\n    <mat-form-field class=\"example-full-width\" appearance=\"fill\">\n        <mat-label>{{label}}</mat-label>\n        <input matInput [matDatepicker]=\"picker\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker\">\n            <mat-icon matDatepickerToggleIcon>{{toggleIcon}}</mat-icon>\n        </mat-datepicker-toggle>\n        <mat-datepicker #picker></mat-datepicker>\n    </mat-form-field>\n</ng-template>"
         },
         {
             "name": "DialogElement",
@@ -1764,292 +1953,6 @@
             "templateData": "<form class=\"example-form\">\n    <mat-form-field class=\"input-container\">\n        <mat-label>{{ label }}</mat-label>\n        <input matInput [placeholder]=placeholder [value]=value>\n    </mat-form-field>\n</form>"
         },
         {
-            "name": "IonCheckboxComponent",
-            "id": "component-IonCheckboxComponent-d679cefe4687b9106e66ee9629db0646",
-            "file": "src/app/ion-checkbox/ion-checkbox.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-ion-checkbox",
-            "styleUrls": [
-                "./ion-checkbox.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./ion-checkbox.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "checked",
-                    "defaultValue": "false",
-                    "line": 15,
-                    "type": "boolean"
-                },
-                {
-                    "name": "color",
-                    "line": 22,
-                    "type": "string"
-                },
-                {
-                    "name": "disabled",
-                    "defaultValue": "false",
-                    "line": 18,
-                    "type": "boolean"
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'string'",
-                    "line": 12
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-ion-checkbox',\n  templateUrl: './ion-checkbox.component.html',\n  styleUrls: ['./ion-checkbox.component.scss'],\n})\nexport default class IonCheckboxComponent {\n\n  constructor() { }\n  @Input()\n  label? = 'string';\n  \n  @Input()\n  checked: boolean = false;\n\n  @Input()\n  disabled: boolean = false;\n\n\n  @Input()\n  color?: string;\n\n\n  \n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ":host::ng-deep.mat-checkbox-layout {\n    white-space: normal !important;\n}\n\n :host::ng-deep.mat-checkbox-inner-container {\n    margin-top: 4px;\n}",
-                    "styleUrl": "./ion-checkbox.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 8
-            },
-            "templateData": "<div id='check'>\n    <mat-checkbox class=\"example-margin\" [color]=color [checked]=checked [disabled]=disabled> {{ label }} </mat-checkbox>\n</div>"
-        },
-        {
-            "name": "IonDate",
-            "id": "component-IonDate-1d96280700e0ac5f39001358aa9b3b1f",
-            "file": "src/app/ion-datetime/ion-datetime.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-ion-datetime",
-            "styleUrls": [
-                "./ion-datetime.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./ion-datetime.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "color_datepicker",
-                    "defaultValue": "'primary'",
-                    "line": 31,
-                    "type": "string"
-                },
-                {
-                    "name": "color_input",
-                    "defaultValue": "'primary'",
-                    "line": 29,
-                    "type": "string"
-                },
-                {
-                    "name": "completelyDisabled",
-                    "defaultValue": "false",
-                    "line": 33,
-                    "type": "boolean"
-                },
-                {
-                    "name": "label",
-                    "defaultValue": "'Choose date'",
-                    "line": 17,
-                    "type": "string"
-                },
-                {
-                    "name": "label_applyButton",
-                    "defaultValue": "'Apply'",
-                    "line": 26,
-                    "type": "string"
-                },
-                {
-                    "name": "label_cancelButton",
-                    "defaultValue": "'Cancel'",
-                    "line": 24,
-                    "type": "string"
-                },
-                {
-                    "name": "placeholder_endDate",
-                    "defaultValue": "'End Date'",
-                    "line": 22,
-                    "type": "string"
-                },
-                {
-                    "name": "placeholder_startDate",
-                    "defaultValue": "'Start Date'",
-                    "line": 19,
-                    "type": "string"
-                },
-                {
-                    "name": "popupDisabled",
-                    "defaultValue": "false",
-                    "line": 35,
-                    "type": "boolean"
-                },
-                {
-                    "name": "showRange",
-                    "defaultValue": "true",
-                    "line": 37,
-                    "type": "boolean"
-                },
-                {
-                    "name": "toggleIcon",
-                    "defaultValue": "'keyboard_arrow_down'",
-                    "line": 39,
-                    "type": "string"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "date",
-                    "defaultValue": "new FormControl(new Date())",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 14
-                },
-                {
-                    "name": "range",
-                    "defaultValue": "new FormGroup({\n    start: new FormControl(),\n    end: new FormControl()})",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                }
-            ],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {FormControl, FormGroup} from '@angular/forms';\n\n@Component({\n  selector: 'app-ion-datetime',\n  templateUrl: './ion-datetime.component.html',\n  styleUrls: ['./ion-datetime.component.scss'],\n})\nexport default class IonDate  {\n  range = new FormGroup({\n    start: new FormControl(),\n    end: new FormControl()});\n\n  date = new FormControl(new Date());\n\n  @Input()\n  label: string = 'Choose date';\n  @Input()\n  placeholder_startDate : string = 'Start Date';\n\n  @Input()\n  placeholder_endDate : string = 'End Date';\n  @Input()\n  label_cancelButton: string = 'Cancel';\n  @Input()\n  label_applyButton: string = 'Apply';\n\n  @Input()\n  color_input: string ='primary';\n  @Input()\n  color_datepicker: string = 'primary';\n  @Input()\n  completelyDisabled: boolean = false;\n  @Input()\n  popupDisabled: boolean = false;\n  @Input()\n  showRange: boolean= true;\n  @Input()\n  toggleIcon: string= 'keyboard_arrow_down';\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./ion-datetime.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<ng-template [ngIf]=\"showRange\">\n    <mat-form-field [color]=\"color_input\" appearance=\"fill\" class=\"example-form-field\">\n        <mat-label>{{label}}</mat-label>\n        <mat-date-range-input [formGroup]=\"range\" [rangePicker]=\"rangePicker\" [disabled]=\"completelyDisabled\">\n            <input matStartDate [placeholder]=\"placeholder_startDate\">\n            <input matEndDate [placeholder]=\"placeholder_endDate\">\n        </mat-date-range-input>\n        <mat-datepicker-toggle matSuffix [for]=\"rangePicker\" [disabled]=\"popupDisabled\">\n            <mat-icon matDatepickerToggleIcon>{{toggleIcon}}</mat-icon>\n        </mat-datepicker-toggle>\n        <mat-date-range-picker #rangePicker [color]=\"color_datepicker\">\n            <mat-date-range-picker-actions>\n                <button mat-button matDateRangePickerCancel>{{label_cancelButton}}</button>\n                <button mat-raised-button color=\"primary\" matDateRangePickerApply>{{label_applyButton}}</button>\n            </mat-date-range-picker-actions>\n        </mat-date-range-picker>\n        <mat-error *ngIf=\"range.controls.start.hasError('matStartDateInvalid')\">Invalid start date</mat-error>\n        <mat-error *ngIf=\"range.controls.end.hasError('matEndDateInvalid')\">Invalid end date</mat-error>\n    </mat-form-field>\n</ng-template>\n\n<ng-template [ngIf]=\"showRange == false\">\n    <mat-form-field class=\"example-full-width\" appearance=\"fill\">\n        <mat-label>{{label}}</mat-label>\n        <input matInput [matDatepicker]=\"picker\">\n        <mat-datepicker-toggle matSuffix [for]=\"picker\">\n            <mat-icon matDatepickerToggleIcon>{{toggleIcon}}</mat-icon>\n        </mat-datepicker-toggle>\n        <mat-datepicker #picker></mat-datepicker>\n    </mat-form-field>\n</ng-template>"
-        },
-        {
-            "name": "IonMenuComponent",
-            "id": "component-IonMenuComponent-54b6be0f977e2158944f74cddd1716e0",
-            "file": "src/app/ion-menu/ion-menu.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-ion-menu",
-            "styleUrls": [
-                "./ion-menu.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./ion-menu.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "header1",
-                    "defaultValue": "'Items'",
-                    "line": 31,
-                    "type": "string"
-                },
-                {
-                    "name": "header2",
-                    "line": 32,
-                    "type": "string"
-                },
-                {
-                    "name": "items",
-                    "defaultValue": "[\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ]",
-                    "line": 20,
-                    "type": "Items[]"
-                },
-                {
-                    "name": "itemsSecond",
-                    "defaultValue": "[\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ]",
-                    "line": 25,
-                    "type": "Items[]"
-                },
-                {
-                    "name": "menu_icon",
-                    "defaultValue": "'menu'",
-                    "line": 19,
-                    "type": "string"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "showFiller",
-                    "defaultValue": "false",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 18
-                }
-            ],
-            "methodsClass": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-ion-menu',\n  templateUrl: './ion-menu.component.html',\n  styleUrls: ['./ion-menu.component.scss'],\n})\nexport default class IonMenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".sidenav-content {\n    display: flex;\n    margin-left: 5px;\n}\n\nmat-sidenav {\n    margin: 16px;\n    width: 200px;\n    border-right: none;\n    border-radius: 10px;\n    padding: 16px;\n    text-align: center;\n}\n\n.example-spacer {\n    flex: 1 1 auto;\n}\n\n.content {\n    height: calc(100vh - 98px);\n    border-radius: 10px;\n    margin: 16px;\n    margin-left: 32px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: lightgray;\n}\n\nmat-sidenav-container {\n    height: calc(100vh - 65px);\n}\n\n.menu-button {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    font-size: 1rem;\n    mat-icon {\n        margin-right: 8px;\n    }\n}\n\nmat-divider {\n    margin-top: 16px;\n    margin-bottom: 16px;\n    background-color: rgba(255, 255, 255, 0.5);\n}",
-                    "styleUrl": "./ion-menu.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [
-                    {
-                        "name": "menu",
-                        "type": "MenuController"
-                    }
-                ],
-                "line": 15,
-                "jsdoctags": [
-                    {
-                        "name": "menu",
-                        "type": "MenuController",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "templateData": "<div class=\"sidenav-content\">\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n            <mat-icon>{{menu_icon}}</mat-icon>\n      </button>\n</div>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a *ngFor=\"let item of items\" mat-list-item [routerLink]=\"item.link\">\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n        <div class=\"content mat-elevation-z8\">\n            Main content here!\n        </div>\n        <ion-router-outlet></ion-router-outlet>\n    </mat-sidenav-content>\n</mat-sidenav-container>"
-        },
-        {
             "name": "LoadingComponent",
             "id": "component-LoadingComponent-86677293012339a83752f26b838cb006",
             "file": "src/app/loading/loading.component.ts",
@@ -2131,6 +2034,103 @@
             "templateData": "<ng-template [ngIf]=\"spinner==false\">\n    <mat-progress-bar class=\"progress\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-progress-bar>\n</ng-template>\n<ng-template [ngIf]=\"spinner\">\n    <mat-spinner class=\"spinner\" [color]=\"color\" [mode]=\"mode\" [value]=\"value\"></mat-spinner>\n</ng-template>"
         },
         {
+            "name": "MenuComponent",
+            "id": "component-MenuComponent-6b7e6bd65a70515f61b45a765fdf9296",
+            "file": "src/app/menu/menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-menu",
+            "styleUrls": [
+                "./menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./menu.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "header1",
+                    "defaultValue": "'Items'",
+                    "line": 31,
+                    "type": "string"
+                },
+                {
+                    "name": "header2",
+                    "line": 32,
+                    "type": "string"
+                },
+                {
+                    "name": "items",
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ]",
+                    "line": 20,
+                    "type": "Items[]"
+                },
+                {
+                    "name": "itemsSecond",
+                    "defaultValue": "[\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ]",
+                    "line": 25,
+                    "type": "Items[]"
+                },
+                {
+                    "name": "menu_icon",
+                    "defaultValue": "'menu'",
+                    "line": 19,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showFiller",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MenuController } from '@ionic/angular';\n\ninterface Items {\n  title: string;\n  icon: string;\n  link: string;\n}\n\n@Component({\n  selector: 'app-menu',\n  templateUrl: './menu.component.html',\n  styleUrls: ['./menu.component.scss'],\n})\nexport class MenuComponent  {\n\n  constructor(private menu: MenuController) { }\n  showFiller = false;\n  @Input() menu_icon: string = 'menu';\n  @Input() items: Items[] = [\n    {title: 'First', icon: 'favorite',  link:\"/news\"},\n    {title: 'Second', icon: 'share' ,link:\"\"},\n    {title: 'Third', icon: 'star',  link:\"\"}\n  ];\n  @Input() itemsSecond: Items[] = [\n    {title: 'First', icon: 'favorite', link:\"\"},\n    {title: 'Second', icon: 'share', link:\"\"},\n    {title: 'Third', icon: 'star', link:\"\"}\n  ];\n\n  @Input() header1: string ='Items';\n  @Input() header2: string;\n}\n\n\n\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".sidenav-content {\n    display: flex;\n    margin-left: 5px;\n}\n\nmat-sidenav {\n    margin: 16px;\n    width: 200px;\n    border-right: none;\n    border-radius: 10px;\n    padding: 16px;\n    text-align: center;\n}\n\n.example-spacer {\n    flex: 1 1 auto;\n}\n\n.content {\n    height: calc(100vh - 98px);\n    border-radius: 10px;\n    margin: 16px;\n    margin-left: 32px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: lightgray;\n}\n\nmat-sidenav-container {\n    height: calc(100vh - 65px);\n}\n\n.menu-button {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    font-size: 1rem;\n    mat-icon {\n        margin-right: 8px;\n    }\n}\n\nmat-divider {\n    margin-top: 16px;\n    margin-bottom: 16px;\n    background-color: rgba(255, 255, 255, 0.5);\n}",
+                    "styleUrl": "./menu.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "menu",
+                        "type": "MenuController"
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "menu",
+                        "type": "MenuController",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"sidenav-content\">\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n            <mat-icon>{{menu_icon}}</mat-icon>\n      </button>\n</div>\n\n<mat-sidenav-container>\n    <mat-sidenav #drawer>\n        <mat-nav-list>\n            <h2 matSubheader>{{header1}}</h2>\n            <a *ngFor=\"let item of items\" mat-list-item [routerLink]=\"item.link\">\n                <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                {{item.title}}\n            </a>\n            <mat-divider></mat-divider>\n            <ng-template [ngIf]=\"header2\">\n                <h2 matSubheader>{{header2}}</h2>\n                <a *ngFor=\"let item of itemsSecond\" mat-list-item [routerLink]=\"item.link\">\n                    <mat-icon matListIcon> {{ item.icon }} </mat-icon>\n                    {{item.title}}\n                </a>\n            </ng-template>\n        </mat-nav-list>\n    </mat-sidenav>\n    <mat-sidenav-content>\n        <div class=\"content mat-elevation-z8\">\n            Main content here!\n        </div>\n        <ion-router-outlet></ion-router-outlet>\n    </mat-sidenav-content>\n</mat-sidenav-container>"
+        },
+        {
             "name": "NewsComponent",
             "id": "component-NewsComponent-ec01af6b7b85da59487e41555860b8db",
             "file": "src/app/news/news.component.ts",
@@ -2172,11 +2172,11 @@
                 "args": [],
                 "line": 8
             },
-            "templateData": "<ion-header [translucent]=\"true\">\n    <app-toolbar show-content=false></app-toolbar>\n\n</ion-header>\n<ion-content>\n    <a routingLink=\"/home\" routerLinkActive=\"active\">home</a>\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n    <app-toolbar></app-toolbar>\n\n</ion-header>\n<ion-content>\n    <a routingLink=\"/home\" routerLinkActive=\"active\">home</a>\n</ion-content>"
         },
         {
             "name": "NewsComponent",
-            "id": "component-NewsComponent-646a061decba6d3a2c76ed16c2dc5b3a-1",
+            "id": "component-NewsComponent-83c88ab76ae1a96eddb34ccc8106684a-1",
             "file": "src/app/stories/Homepage.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2198,14 +2198,14 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport Input from '../input/input.component';\nimport CardComponent from '../card/card.component'\nimport Button from '../button/button.component'\nimport IonMenuComponent from '../ion-menu/ion-menu.component'\nimport { IonicModule } from '@ionic/angular';\nimport { moduleMetadata } from '@storybook/angular';\nimport {MaterialModule} from '../material.module';\nimport  HomePage  from '../home/home.page';\nimport { APP_BASE_HREF, CommonModule } from '@angular/common';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport IonDatetime from '../ion-datetime/ion-datetime.component'\nimport ToolbarComponent  from '../toolbar/toolbar.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { RouterModule } from '@angular/router';\nimport { AppModule } from '../app.module';\nimport { Component } from '@angular/core';\n\n@Component({ templateUrl: '../news/news.component.html'})\nclass NewsComponent {}\n\n\nexport default {\n  title: 'Pages/HomePage',\n  component: HomePage,\n  argTypes: {\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, IonMenuComponent, IonDatetime, ToolbarComponent],\n      imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule,  RouterModule.forRoot([{\n        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },\n      {path: 'news', component:NewsComponent}],\n         {\n        useHash: true,\n      },\n    )],\n    providers: [\n      {provide: APP_BASE_HREF, useValue:'/' }\n    ],\n    \n    }),\n  ],\n  \n  \n} as Meta;\n\nconst Template: Story<HomePage> = (args) => ({\n  component: HomePage,\n  props: args,\n});\n\nexport const Standard = Template.bind({});\nStandard.args = {\n  \n    angularRouter: {active: '/news'}\n\n};\n",
+            "sourceCode": "import { Story, Meta } from '@storybook/angular/types-6-0';\nimport Input from '../input/input.component';\nimport CardComponent from '../card/card.component'\nimport Button from '../button/button.component'\nimport {MenuComponent} from '../menu/menu.component'\nimport { IonicModule } from '@ionic/angular';\nimport { moduleMetadata } from '@storybook/angular';\nimport {MaterialModule} from '../material.module';\nimport  HomePage  from '../home/home.page';\nimport { APP_BASE_HREF, CommonModule } from '@angular/common';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport IonDatetime from '../datepicker/datepicker.component'\nimport ToolbarComponent  from '../toolbar/toolbar.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { RouterModule } from '@angular/router';\nimport { AppModule } from '../app.module';\nimport { Component } from '@angular/core';\n\n@Component({ templateUrl: '../news/news.component.html'})\nclass NewsComponent {}\n\n\nexport default {\n  title: 'Pages/HomePage',\n  component: HomePage,\n  argTypes: {\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [HomePage, NewsComponent, Input, CardComponent, Button, MenuComponent, IonDatetime, ToolbarComponent],\n      imports: [IonicModule,  MaterialModule, CommonModule, ReactiveFormsModule, BrowserAnimationsModule,  RouterModule.forRoot([{\n        path: '', loadChildren: () => import('../home/home.module').then(m => m.HomePageModule) },\n      {path: 'news', component:NewsComponent}],\n         {\n        useHash: true,\n      },\n    )],\n    providers: [\n      {provide: APP_BASE_HREF, useValue:'/' }\n    ],\n    \n    }),\n  ],\n  \n  \n} as Meta;\n\nconst Template: Story<HomePage> = (args) => ({\n  component: HomePage,\n  props: args,\n});\n\nexport const Standard = Template.bind({});\nStandard.args = {\n  \n    angularRouter: {active: '/news'}\n\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "NewsComponent-1",
-            "templateData": "<ion-header [translucent]=\"true\">\n    <app-toolbar show-content=false></app-toolbar>\n\n</ion-header>\n<ion-content>\n    <a routingLink=\"/home\" routerLinkActive=\"active\">home</a>\n</ion-content>"
+            "templateData": "<ion-header [translucent]=\"true\">\n    <app-toolbar></app-toolbar>\n\n</ion-header>\n<ion-content>\n    <a routingLink=\"/home\" routerLinkActive=\"active\">home</a>\n</ion-content>"
         },
         {
             "name": "RadioButtonComponent",
@@ -3126,6 +3126,50 @@
     ],
     "modules": [
         {
+            "name": "AccordionModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ExpansionPanelModule"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AccordionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "AppModule",
             "children": [
                 {
@@ -3199,6 +3243,431 @@
             ]
         },
         {
+            "name": "ButtonModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ButtonToggleModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CardModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "CardComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "InputModule"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "CardComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ChartModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ChartComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ChartComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CheckboxModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "CheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "CheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ChipsModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ChipsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ChipsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DatepickerModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "Datepicker"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "InputModule"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "Datepicker"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DialogModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DialogElement"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DialogElement"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "EmptyStatesModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "EmptyStatesComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "EmptyStatesComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ExpansionPanelModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ExpansionPanelComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ExpansionPanelComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "HomePageModule",
             "children": [
                 {
@@ -3209,79 +3678,7 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "AccordionComponent"
-                        },
-                        {
-                            "name": "ButtonComponent"
-                        },
-                        {
-                            "name": "ButtonToggleComponent"
-                        },
-                        {
-                            "name": "CalendarComponent"
-                        },
-                        {
-                            "name": "CardComponent"
-                        },
-                        {
-                            "name": "ChartComponent"
-                        },
-                        {
-                            "name": "ChipsComponent"
-                        },
-                        {
-                            "name": "DialogElement"
-                        },
-                        {
-                            "name": "EmptyStatesComponent"
-                        },
-                        {
-                            "name": "ExpansionPanelComponent"
-                        },
-                        {
                             "name": "HomePage"
-                        },
-                        {
-                            "name": "Input"
-                        },
-                        {
-                            "name": "IonCheckboxComponent"
-                        },
-                        {
-                            "name": "IonDate"
-                        },
-                        {
-                            "name": "IonMenuComponent"
-                        },
-                        {
-                            "name": "LoadingComponent"
-                        },
-                        {
-                            "name": "RadioButtonComponent"
-                        },
-                        {
-                            "name": "SelectComponent"
-                        },
-                        {
-                            "name": "SlideToggleComponent"
-                        },
-                        {
-                            "name": "SliderComponent"
-                        },
-                        {
-                            "name": "SnackBarComponent"
-                        },
-                        {
-                            "name": "StepperComponent"
-                        },
-                        {
-                            "name": "TableComponent"
-                        },
-                        {
-                            "name": "TabsComponent"
-                        },
-                        {
-                            "name": "ToolbarComponent"
                         }
                     ]
                 },
@@ -3289,10 +3686,28 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "CardModule"
+                        },
+                        {
+                            "name": "ExpansionPanelModule"
+                        },
+                        {
                             "name": "HomePageRoutingModule"
                         },
                         {
+                            "name": "InputModule"
+                        },
+                        {
                             "name": "MaterialModule"
+                        },
+                        {
+                            "name": "MenuModule"
+                        },
+                        {
+                            "name": "ToolbarModule"
                         }
                     ]
                 },
@@ -3344,6 +3759,88 @@
             ]
         },
         {
+            "name": "InputModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "LoadingModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "LoadingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "LoadingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "MaterialModule",
             "children": [
                 {
@@ -3373,6 +3870,47 @@
             ]
         },
         {
+            "name": "MenuModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MenuComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "NewsPageModule",
             "children": [
                 {
@@ -3384,9 +3922,6 @@
                     "elements": [
                         {
                             "name": "NewsComponent"
-                        },
-                        {
-                            "name": "ToolbarComponent"
                         }
                     ]
                 },
@@ -3394,10 +3929,22 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "CardModule"
+                        },
+                        {
                             "name": "MaterialModule"
                         },
                         {
+                            "name": "MenuModule"
+                        },
+                        {
                             "name": "NewsPageRoutingModule"
+                        },
+                        {
+                            "name": "ToolbarComponent"
                         }
                     ]
                 },
@@ -3437,6 +3984,375 @@
                 {
                     "type": "exports",
                     "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "RadioButtonModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "RadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "RadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SelectModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SelectComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SelectComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SliderModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SliderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SliderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SlideToggleModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SlideToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SlideToggleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SnackBarModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SnackBarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SnackBarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "StepperModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "StepperComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "StepperComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TableModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TabsModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TabsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TabsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ToolbarModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ToolbarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "MaterialModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ToolbarComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -3652,7 +4568,7 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "PrimaryFlat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Button.stories.ts",
@@ -3734,14 +4650,6 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/App.stories.ts",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
@@ -3846,7 +4754,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/NewsPage.stories.ts",
+                "file": "src/app/stories/RadioButton.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3854,7 +4762,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/RadioButton.stories.ts",
+                "file": "src/app/stories/NewsPage.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3894,7 +4802,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Table.stories.ts",
+                "file": "src/app/stories/Tabs.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3902,7 +4810,7 @@
                 "name": "Standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Tabs.stories.ts",
+                "file": "src/app/stories/Table.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -3937,14 +4845,6 @@
                 "file": "src/app/stories/Accordion.stories.ts",
                 "type": "Story<AccordionComponent>",
                 "defaultValue": "(args) => ({\n  component: AccordionComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/App.stories.ts",
-                "type": "Story<AppComponent>",
-                "defaultValue": "(args) => ({\n  component: AppComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3991,8 +4891,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Checkbox.stories.ts",
-                "type": "Story<IonCheckboxComponent>",
-                "defaultValue": "(args) => ({\n  component: IonCheckboxComponent,\n  props: args,\n})"
+                "type": "Story<CheckboxComponent>",
+                "defaultValue": "(args) => ({\n  component: CheckboxComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4007,8 +4907,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/DatePicker.stories.ts",
-                "type": "Story<IonDate>",
-                "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                "type": "Story<Datepicker>",
+                "defaultValue": "(args) => ({\n  component: Datepicker,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4063,16 +4963,8 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/stories/Menu.stories.ts",
-                "type": "Story<IonMenuComponent>",
-                "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/stories/NewsPage.stories.ts",
-                "type": "Story<NewsComponent>",
-                "defaultValue": "(args) => ({\n  component: NewsComponent,\n  props: args,\n})"
+                "type": "Story<MenuComponent>",
+                "defaultValue": "(args) => ({\n  component: MenuComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4081,6 +4973,14 @@
                 "file": "src/app/stories/RadioButton.stories.ts",
                 "type": "Story<RadioButtonComponent>",
                 "defaultValue": "(args) => ({\n  component: RadioButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/stories/NewsPage.stories.ts",
+                "type": "Story<NewsComponent>",
+                "defaultValue": "(args) => ({\n  component: NewsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4126,17 +5026,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Table.stories.ts",
-                "type": "Story<TableComponent>",
-                "defaultValue": "(args) => ({\n  component: TableComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Tabs.stories.ts",
+                "type": "Story<TabsComponent>",
+                "defaultValue": "(args) => ({\n  component: TabsComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/stories/Tabs.stories.ts",
-                "type": "Story<TabsComponent>",
-                "defaultValue": "(args) => ({\n  component: TabsComponent,\n  props: args,\n})"
+                "file": "src/app/stories/Table.stories.ts",
+                "type": "Story<TableComponent>",
+                "defaultValue": "(args) => ({\n  component: TableComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -4233,7 +5133,7 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Primary",
+                    "name": "PrimaryFlat",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Button.stories.ts",
@@ -4387,8 +5287,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Checkbox.stories.ts",
-                    "type": "Story<IonCheckboxComponent>",
-                    "defaultValue": "(args) => ({\n  component: IonCheckboxComponent,\n  props: args,\n})"
+                    "type": "Story<CheckboxComponent>",
+                    "defaultValue": "(args) => ({\n  component: CheckboxComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/SlideToggle.stories.ts": [
@@ -4656,8 +5556,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/Menu.stories.ts",
-                    "type": "Story<IonMenuComponent>",
-                    "defaultValue": "(args) => ({\n  component: IonMenuComponent,\n  props: args,\n})"
+                    "type": "Story<MenuComponent>",
+                    "defaultValue": "(args) => ({\n  component: MenuComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Tabs.stories.ts": [
@@ -4734,8 +5634,8 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/stories/DatePicker.stories.ts",
-                    "type": "Story<IonDate>",
-                    "defaultValue": "(args) => ({\n  component: IonDate,\n  props: args,\n})"
+                    "type": "Story<Datepicker>",
+                    "defaultValue": "(args) => ({\n  component: Datepicker,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Select.stories.ts": [
@@ -4796,24 +5696,6 @@
                     "file": "src/app/stories/Slider.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
-                }
-            ],
-            "src/app/stories/App.stories.ts": [
-                {
-                    "name": "Standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/App.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/stories/App.stories.ts",
-                    "type": "Story<AppComponent>",
-                    "defaultValue": "(args) => ({\n  component: AppComponent,\n  props: args,\n})"
                 }
             ],
             "src/app/stories/Calendar.stories.ts": [
@@ -5170,6 +6052,15 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/checkbox/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/chips/chips.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -5185,6 +6076,15 @@
                 "name": "Chips",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/datepicker/datepicker.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "Datepicker",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -5242,48 +6142,30 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/ion-checkbox/ion-checkbox.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "IonCheckboxComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/6",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/ion-datetime/ion-datetime.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "IonDate",
-                "coveragePercent": 0,
-                "coverageCount": "0/14",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/ion-menu/ion-menu.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "IonMenuComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/ion-menu/ion-menu.component.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "Items",
-                "coveragePercent": 0,
-                "coverageCount": "0/4",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/loading/loading.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "LoadingComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/menu/menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/menu/menu.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Items",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -5389,26 +6271,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/stories/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Standard",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/stories/App.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/app/stories/Button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -5433,7 +6295,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "PrimaryFlat",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

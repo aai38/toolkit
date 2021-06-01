@@ -1,6 +1,6 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import IonMenuComponent from '../ion-menu/ion-menu.component';
+import {MenuComponent} from '../menu/menu.component';
 import { IonicModule } from '@ionic/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { MaterialModule } from '../material.module';
@@ -12,12 +12,12 @@ import { APP_BASE_HREF } from '@angular/common';
 
 export default {
   title: 'High-Order Components/Menu',
-  component: IonMenuComponent,
+  component: MenuComponent,
   argTypes: {
   },
   decorators: [
     moduleMetadata({
-      declarations: [IonMenuComponent],
+      declarations: [MenuComponent],
       imports: [IonicModule, MaterialModule, BrowserAnimationsModule, RouterModule.forRoot([{
         path: '', loadChildren: () => import('../app.module').then(m => m.AppModule) }, ],
          {
@@ -31,8 +31,8 @@ export default {
   
 } as Meta;
 
-const Template: Story<IonMenuComponent> = (args) => ({
-  component: IonMenuComponent,
+const Template: Story<MenuComponent> = (args) => ({
+  component: MenuComponent,
   props: args,
 });
 

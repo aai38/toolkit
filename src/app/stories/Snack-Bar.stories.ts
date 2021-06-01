@@ -32,8 +32,8 @@ Standard.args = {
   messageValue: "Message",
 };
 
-export const TimeLimitedSnackbar = Template.bind({});
-TimeLimitedSnackbar.args = {
+export const TimeLimited = Template.bind({});
+TimeLimited.args = {
   actionValue : "",
   messageValue: "Snackbar is shown for 3 seconds",
   durationValue: 3000,

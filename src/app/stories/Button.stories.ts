@@ -47,8 +47,8 @@ Standard.args = {
   disabled: false
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const PrimaryFlat = Template.bind({});
+PrimaryFlat.args = {
   label: 'Primary',
   type: 'flat',
   color: 'primary',

@@ -5,19 +5,19 @@ import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import IonDate  from './ion-datetime.component';
+import Datepicker  from './datepicker.component';
 
-describe('IonDate', () => {
-  let component: IonDate;
-  let fixture: ComponentFixture<IonDate>;
+describe('Datepicker', () => {
+  let component: Datepicker;
+  let fixture: ComponentFixture<Datepicker>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ IonDate ],
+      declarations: [ Datepicker ],
       imports: [IonicModule.forRoot(), MaterialModule.forRoot(), CommonModule, NgModule, ReactiveFormsModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(IonDate);
+    fixture = TestBed.createComponent(Datepicker);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
