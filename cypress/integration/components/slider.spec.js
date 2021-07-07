@@ -1,38 +1,37 @@
 context('Slider Standard', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=basic-components-slider--standard');
+        cy.loadStory('Basic Components/Slider', 'Standard');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Slider', () => {
-        cy.get('[data-cy=slider--standard]')
-            .should('have.value', 'Test')
+    it('Find and Test Slider', () => {
+        cy.get('[data-cy=slider]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
     })
 })
 
-context('Slider Vertical Inverted Slider', () => {
+context('Slider Vertical Inverted', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=basic-components-slider--vertical-inverted-slider');
+        cy.loadStory('Basic Components/Slider', 'Vertical Inverted');
+        cy.visit('iframe.html?id=basic-components-slider--vertical-inverted');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Slider', () => {
-        cy.get('[data-cy=slider--standard]')
-            .should('have.value', 'Test')
+    it('Find and Test Slider', () => {
+        cy.get('[data-cy=slider]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
     })
 })
 
 context('Slider with Thumblabel', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=basic-components-slider--slider-with-thumblabel');
+        cy.loadStory('Basic Components/Slider', 'With Thumblabel');
+        cy.visit('iframe.html?id=basic-components-slider--with-thumblabel');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Slider', () => {
-        cy.get('[data-cy=slider--slider-with-thumblabel]')
-            .should('have.value', 'Test')
+    it('Find and Test Slider', () => {
+        cy.get('[data-cy=slider]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
     })
 })

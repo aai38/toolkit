@@ -1,95 +1,91 @@
 context('Linechart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--line');
+        cy.loadStory('High Order Components/Chart', 'Line');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--line]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Barchart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--bar');
+        cy.loadStory('High Order Components/Chart', 'Bar');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--bar]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Doughnutchart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--doughnut');
+        cy.loadStory('High Order Components/Chart', 'Doughnut');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--doughnut]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
+
 })
 
 context('Radarchart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--radar');
+        cy.loadStory('High Order Components/Chart', 'Radar');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--radar]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Piechart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--pie');
+        cy.loadStory('High Order Components/Chart', 'Pie');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--pie]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Bubblechart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--bubble');
+        cy.loadStory('High Order Components/Chart', 'Bubble');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--bubble]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Polarareachart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--polar-area');
+        cy.loadStory('High Order Components/Chart', 'Polar Area');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--polar-area]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })
 
 context('Scatterchart', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-chart--scatter');
+        cy.loadStory('High Order Components/Chart', 'Scatter');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Chart', () => {
+    it('Find and Test Chart', () => {
         cy.get('[data-cy=chart--scatter]')
+            .should('not.be.disabled')
+            .and('be.visible')
     })
 })

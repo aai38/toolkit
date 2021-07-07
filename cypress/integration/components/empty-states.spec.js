@@ -1,12 +1,32 @@
 context('Empty States', () => {
     beforeEach(() => {
-        cy.visit('iframe.html?id=high-order-components-empty-states--standard');
+        cy.loadStory('High Order Components/Empty States', 'Standard');
     })
-    it('Test true!', () => {
-        expect(true).to.equal(true)
-    })
-    it('Find Empy State', () => {
+    it('Find and Test Empty State', () => {
         cy.get('[data-cy=empty-states]')
-            .should('have.value', 'Test')
+            .should('not.be.disabled')
+            .and('be.visible')
+
+    })
+
+    it('Find and Test Empty State Button', () => {
+        cy.get('[data-cy=empty-states-button]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
+    })
+
+    it('Find and Test Empty State Label', () => {
+        cy.get('[data-cy=empty-states-label]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
+    })
+
+    it('Find and Test Empty State Icon', () => {
+        cy.get('[data-cy=empty-states-icon]')
+            .should('not.be.disabled')
+            .and('be.visible')
+
     })
 })
